@@ -142,7 +142,7 @@ const Home = () => {
                 </div>
 
                 <div className="flex gap-3 pt-2">
-                  <a href="https://berasku-zhkp.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-sm link-hover flex items-center gap-1">
+                  <a href="https://berasku.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-sm link-hover flex items-center gap-1">
                     <ExternalLink className="w-4 h-4" /> Demo
                   </a>
                   <a href="https://github.com/otaruram/Berasku" target="_blank" rel="noopener noreferrer" className="text-sm link-hover flex items-center gap-1">
