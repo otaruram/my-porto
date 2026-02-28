@@ -6,36 +6,38 @@
 
 @layer base {
   :root {
-    /* Pure Black & White */
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
+    /* Modern Dark Mode */
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
 
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 100%;
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
 
-    --popover: 0 0% 0%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 224 71% 4%;
+    --popover-foreground: 213 31% 91%;
 
-    /* White Accent */
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
+    /* Electric Blue Accent */
+    --primary: 199 89% 48%;
+    /* sky-500 */
+    --primary-foreground: 0 0% 100%;
 
-    /* Gray Sections */
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 95%;
+    /* Emerald Green Secondary/Accent */
+    --secondary: 160 84% 39%;
+    /* emerald-500 */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
 
-    --accent: 0 0% 100%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 213 31% 91%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 0 0% 100%;
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+    --ring: 199 89% 48%;
 
     --radius: 0.5rem;
   }
@@ -48,7 +50,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
   html {
@@ -154,7 +156,26 @@
   }
 
   .image-glow {
-    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 60px rgba(14, 165, 233, 0.15);
+    /* Electric Blue glow */
+  }
+
+  /* Bento Grid Primitives */
+  .bento-grid {
+    @apply grid gap-4 grid-cols-1 md:grid-cols-3;
+  }
+
+  .bento-card {
+    @apply bg-card border border-border rounded-xl p-6 transition-all duration-300 hover:border-primary/50 relative overflow-hidden;
+  }
+
+  .bento-card::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 pointer-events-none;
+  }
+
+  .bento-card:hover::before {
+    @apply opacity-100;
   }
 
   /* Typing Animation */
