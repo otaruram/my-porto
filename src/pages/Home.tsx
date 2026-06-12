@@ -1,147 +1,99 @@
-import { ExternalLink, Github, Code2, Sparkles, Rocket, Mail, Linkedin, ChevronDown } from "lucide-react";
-import heroImage from "@/assets/c.jpg";
-import { useEffect, useState } from "react";
+import { ExternalLink, Github, Code2, Shield, Rocket, Mail, Linkedin, ChevronDown, Server, Lock } from "lucide-react";
+import logoImage from "@/assets/logo.png";
 
 const Home = () => {
-  const [typedText, setTypedText] = useState("");
-  const [showImageModal, setShowImageModal] = useState(false);
-  const fullText = "Menjembatani model Machine Learning dengan solusi operasional yang scalable.";
-
-  useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index <= fullText.length) {
-        setTypedText(fullText.slice(0, index));
-        index++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 80);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <div className="min-h-screen">
-      {/* Image Modal */}
-      {showImageModal && (
-        <div
-          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-          onClick={() => setShowImageModal(false)}
-        >
-          <div className="relative max-w-2xl w-full">
-            <img
-              src={heroImage}
-              alt="Oki Taruna Ramadhan"
-              className="w-full h-auto rounded-lg"
-            />
-            <button
-              onClick={() => setShowImageModal(false)}
-              className="absolute top-4 right-4 w-10 h-10 bg-white text-black rounded-full flex items-center justify-center font-bold hover:bg-gray-200 transition-colors"
-            >
-              ×
-            </button>
-          </div>
-        </div>
-      )}
+      {/* Hero Section */}
+      <section className="min-h-screen flex items-center justify-center section-dark section-padding relative overflow-hidden">
+        {/* Subtle background decoration */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/20 rounded-full blur-[120px] pointer-events-none opacity-50"></div>
 
-      {/* Hero Section - Full Height */}
-      <section className="min-h-screen flex items-center justify-center section-dark section-padding">
-        <div className="container-custom text-center space-y-8 animate-fade-up">
-          <div
-            className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden image-glow cursor-pointer hover:scale-105 transition-transform"
-            onClick={() => setShowImageModal(true)}
-          >
-            <img src={heroImage} alt="Oki" className="w-full h-full object-cover" />
+        <div className="container-custom text-center space-y-8 animate-fade-up relative z-10">
+          <div className="w-24 h-24 mx-auto mb-8 rounded-2xl overflow-hidden border border-border/50 bg-card p-1 shadow-sm">
+            <img src={logoImage} alt="Oki Taruna Ramadhan Logo" className="w-full h-full object-cover rounded-xl" />
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-foreground">
-            Building End-to-End AI Systems <br className="hidden lg:block" />
-            for Complex Logistics & Vision Problems.
-          </h1>
+          <div className="space-y-4">
+            <h2 className="text-sm md:text-base font-semibold tracking-widest text-muted-foreground uppercase">Oki Taruna Ramadhan</h2>
+            <h1 className="hero-title text-foreground">
+              AI Product Engineer <br className="hidden md:block" />
+              <span className="text-muted-foreground">& Security Specialist</span>
+            </h1>
+          </div>
 
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto min-h-[3em] md:min-h-[2em] font-medium">
-            {typedText}
-            <span className="animate-pulse text-primary">|</span>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-medium">
+            Detail-oriented AI Product Engineer & Security Specialist combining 7+ years of operational, risk audit, and asset management experience at PT Dirgantara Indonesia with strong technical expertise in systems analysis and agile software engineering. Highly proficient in maximizing AI-assisted development (vibe coding workflow) to rapidly build scalable, full-stack applications with elegant, minimalist frontends and robust, secure backend architectures. Specializes in designing data-integrity systems, threat mitigation, and user-centric AI workflows that bridge the gap between complex business requirements and highly secure digital products.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-            <a href="#projects" className="px-8 py-4 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 hover:scale-105 transition-all shadow-[0_0_20px_rgba(14,165,233,0.3)]">
+            <a href="#projects" className="px-8 py-4 bg-foreground text-background rounded-lg font-semibold hover:bg-foreground/90 transition-all text-sm tracking-wide">
               View Case Studies
             </a>
-            <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-secondary text-secondary-foreground rounded-lg font-semibold hover:bg-secondary/90 hover:scale-105 transition-all">
-              Download CV
+            <a href="mailto:okitarunaramadhan@gmail.com" className="px-8 py-4 bg-transparent border border-border text-foreground rounded-lg font-semibold hover:bg-secondary/50 transition-all text-sm tracking-wide">
+              Contact Me
             </a>
           </div>
 
-          <div className="pt-12 animate-float">
-            <ChevronDown className="w-8 h-8 mx-auto text-muted-foreground" />
+          <div className="pt-16 animate-pulse">
+            <ChevronDown className="w-6 h-6 mx-auto text-muted-foreground" />
           </div>
         </div>
       </section>
 
-      {/* Tech Stack Vault Section */}
-      <section className="section-light section-padding border-y border-border">
+      {/* Core Skills Section */}
+      <section className="section-light section-padding">
         <div className="container-custom">
           <div className="text-center space-y-4 mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 text-foreground rounded-full text-sm font-medium">
-              <Code2 className="w-4 h-4" />
-              Tech Stack & Cloud Vault
-            </div>
-            <h2 className="section-title">The Engineering Arsenal</h2>
+            <h2 className="section-title">Core Competencies</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Bridging the gap between intelligent systems and robust, secure infrastructure.</p>
           </div>
 
           <div className="bento-grid">
-            {/* AI/ML Frameworks */}
-            <div className="bento-card md:col-span-2 flex flex-col justify-between group">
-              <div>
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
-                  <Sparkles className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold mb-2">AI & Machine Learning</h3>
-                <p className="text-muted-foreground mb-6">Orkestrasi model AI, LLM, dan Computer Vision untuk sistem on-edge dan cloud.</p>
+            {/* Product Engineering & AI */}
+            <div className="bento-card group">
+              <div className="w-10 h-10 bg-secondary/50 rounded-lg flex items-center justify-center mb-6 border border-border/50">
+                <Code2 className="w-5 h-5 text-foreground" />
               </div>
+              <h3 className="text-xl font-bold mb-3">Product Engineering & AI</h3>
+              <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                AI-Assisted Architecture (Vibe Coding), LLMs Integration (Gemini Flash, Claude), Rapid Prototyping, UI/UX Minimalism, Conversational AI, TensorFlow.js (Client-Side Processing).
+              </p>
               <div className="flex flex-wrap gap-2">
-                {["TensorFlow.js", "PyTorch", "OpenAI (GPT-4o)", "Groq (Llama 3)", "HuggingFace", "Prophet ML", "LangChain", "RAG"].map(tech => (
-                  <span key={tech} className="px-3 py-1.5 bg-background border border-border rounded-md text-sm font-medium group-hover:border-primary/50 transition-colors">{tech}</span>
+                {["TensorFlow.js", "Gemini", "Claude", "UI/UX"].map(tech => (
+                  <span key={tech} className="tag">{tech}</span>
                 ))}
               </div>
             </div>
 
-            {/* Cloud & DevOps */}
-            <div className="bento-card flex flex-col justify-between group bg-primary/5 border-primary/20">
-              <div>
-                <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-6">
-                  <Rocket className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-2xl font-bold mb-2">Cloud & DevOps</h3>
-                <p className="text-muted-foreground mb-6">Membangun infrastruktur yang scalable dan reliable.</p>
+            {/* Backend & Core Tech */}
+            <div className="bento-card group">
+              <div className="w-10 h-10 bg-secondary/50 rounded-lg flex items-center justify-center mb-6 border border-border/50">
+                <Server className="w-5 h-5 text-foreground" />
               </div>
+              <h3 className="text-xl font-bold mb-3">Backend & Core Tech</h3>
+              <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                Python, FastAPI, TypeScript, Node.js, JavaScript, PostgreSQL (Supabase), SQL, REST APIs. Building scalable and performant microservices.
+              </p>
               <div className="flex flex-wrap gap-2">
-                {["Azure", "Docker", "GitHub Actions", "Vercel", "Supabase", "Linux"].map(tech => (
-                  <span key={tech} className="px-3 py-1.5 bg-background border border-primary/20 rounded-md text-sm font-medium text-primary shadow-[0_0_10px_rgba(14,165,233,0.1)]">{tech}</span>
+                {["Python", "FastAPI", "TypeScript", "PostgreSQL"].map(tech => (
+                  <span key={tech} className="tag">{tech}</span>
                 ))}
               </div>
             </div>
 
-            {/* Core Languages & Backend */}
-            <div className="bento-card md:col-span-3 flex flex-col sm:flex-row gap-8 items-center group">
-              <div className="sm:w-1/3 text-center sm:text-left">
-                <h3 className="text-2xl font-bold mb-2">Core Stack</h3>
-                <p className="text-muted-foreground">Bahasa pemrograman dan framweork utama untuk membangun sistem end-to-end.</p>
+            {/* Security & Infrastructure */}
+            <div className="bento-card group">
+              <div className="w-10 h-10 bg-secondary/50 rounded-lg flex items-center justify-center mb-6 border border-border/50">
+                <Lock className="w-5 h-5 text-foreground" />
               </div>
-              <div className="sm:w-2/3 flex flex-wrap justify-center sm:justify-start gap-4">
-                {[
-                  { name: "TypeScript", desc: "Typesafe Web" },
-                  { name: "Python", desc: "AI / Backend" },
-                  { name: "Node.js", desc: "Runtime" },
-                  { name: "React / Next.js", desc: "Frontend" },
-                  { name: "PostgreSQL", desc: "Database" },
-                ].map(tech => (
-                  <div key={tech.name} className="flex flex-col items-center sm:items-start p-4 bg-background border border-border rounded-lg min-w-[140px] group-hover:border-foreground/30 transition-colors">
-                    <span className="font-bold text-foreground">{tech.name}</span>
-                    <span className="text-xs text-muted-foreground">{tech.desc}</span>
-                  </div>
+              <h3 className="text-xl font-bold mb-3">Security & Infrastructure</h3>
+              <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
+                Secure Audit Logging, Threat & Incident Analysis, RBAC, Cryptography (SHA-256, AES-256), TLS 1.3, Data Privacy (UU PDP), Docker, Server Administration.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["Cryptography", "RBAC", "Docker", "Linux"].map(tech => (
+                  <span key={tech} className="tag">{tech}</span>
                 ))}
               </div>
             </div>
@@ -150,219 +102,161 @@ const Home = () => {
       </section>
 
       {/* Projects Section */}
-      <section className="section-dark section-padding">
+      <section className="section-dark section-padding" id="projects">
         <div className="container-custom space-y-16">
-          <div className="text-center space-y-4" id="projects">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 text-foreground rounded-full text-sm font-medium">
-              <Rocket className="w-4 h-4" />
-              Featured Case Studies
-            </div>
-            <h2 className="section-title">The "System Architect" Portfolio</h2>
+          <div className="text-center space-y-4">
+            <h2 className="section-title">Featured Work</h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">Recent systems focusing on secure data integrity and AI workflows.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-1 gap-12">
             {[
               {
-                title: "BERASKU",
-                subtitle: "Hybrid AI Computer Vision",
-                image: "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=2000&auto=format&fit=crop",
-                url: "https://berasku-zhkp.vercel.app/",
-                github: "https://github.com/otaruram/Berasku",
-                tags: ["TensorFlow.js", "Computer Vision", "React"],
-                problem: "Validasi kualitas beras manual memakan waktu dan rawan error subjektif.",
-                solution: "Sistem vision AI edge-based untuk mendeteksi anomali pada beras secara realtime.",
-                impact: "Akurasi di atas 90% dengan validasi dalam hitungan detik (Risk & Fraud Detection).",
+                title: "Oziktag",
+                subtitle: "AI-Powered Digital Trust Seal & Anti-Dispute Shield",
+                role: "Lead Product Engineer & Founder",
+                link: "https://www.oziktag.my.id",
+                description: "Designed and launched a live MVP tailored for MSMEs to mitigate logistics disputes within a friction-free, under-30-second operational workflow. Integrated Gemini Flash to automatically synthesize raw seller inspection notes into interactive AI summaries for consumer verification. Implemented a secure, time-stamped audit log that locks pre-shipping visual proofs, preventing post-print QR code manipulation and establishing clear liability handover checkpoints. Successfully achieved early-stage user adoption with active field testing.",
+                stack: ["FastAPI", "Node.js", "Supabase", "Gemini Flash", "Secure Audit Log"]
               },
               {
-                title: "OCR.WTF",
-                subtitle: "Omni Scan Suite",
-                image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=2000&auto=format&fit=crop",
-                url: "https://ocr.wtf",
-                github: "https://github.com/otaruram/Logistic-Dokumen",
-                tags: ["AI OCR", "GPT-4o", "Groq"],
-                problem: "Ekstraksi data dari bermacam format dokumen tidak terstruktur memakan waktu lama.",
-                solution: "Pipeline OCR multi-model (Tesseract, GPT-4o-mini, Llama 3) dengan auto-correction.",
-                impact: "Ekstraksi data terstruktur langsung ke Google Drive secara otomatis tanpa manual entry.",
+                title: "OtaruChain",
+                subtitle: "Ecosystem Enabler Platform",
+                role: "Product Engineer & Security Lead",
+                link: "#",
+                description: "Designed an API-First backend using FastAPI alongside the TypeScript/JavaScript ecosystem, integrating centralized database management (Supabase) to ensure seamless cross-platform data flow. Built automated validation systems using SHA-256 cryptographic hashing dynamically integrated with ImageKit CDN URLs to ensure document authenticity, prevent fraud, and create an immutable audit trail without compromising processing speed. Implemented robust Role-Based Access Control (RBAC) on the React.js Partner Portal and secured data-at-rest via AES-256 and data-in-transit via TLS 1.3.",
+                stack: ["FastAPI", "TypeScript", "React.js", "Supabase", "SHA-256", "ImageKit CDN"]
               },
               {
-                title: "OCLite",
-                subtitle: "AI Agents Platform",
-                image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop",
-                url: "https://oclite.site",
-                github: "https://github.com/otaruram/AIAAS-oclite-",
-                tags: ["Next.js", "AI Agents", "Azure"],
-                problem: "Kurangnya platform orkestrasi agen AI lokal yang terintegrasi dengan workflow enterprise.",
-                solution: "Sistem AI as a Service (AIaaS) end-to-end sebagai 'brain' untuk pipeline multi-agent.",
-                impact: "Mampu melayani eksekusi agen AI terpusat yang bisa dikonsumsi dari berbagai client.",
-              },
-              {
-                title: "OCLite Extension",
-                subtitle: "VS Code Tooling",
-                image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=2000&auto=format&fit=crop",
-                url: "https://marketplace.visualstudio.com/items?itemName=oclitesite.oclite-vscode",
-                github: "https://github.com/otaruram/oclite-vscode",
-                tags: ["TypeScript", "VS Code API", "AI Agent"],
-                problem: "Developer kehilangan konteks saat berpindah antara IDE dan platform AI eksternal.",
-                solution: "Ekstensi VS Code yang terintegrasi langsung dengan OCLite API untuk asisten pintar.",
-                impact: "Meningkatkan produktivitas developer dengan asisten AI yang on-the-fly di dalam editor.",
+                title: "Berasku",
+                subtitle: "AI-Based Rice Variety Identification",
+                role: "AI & Security Implementation Engineer",
+                link: "#",
+                description: "Designed inference workflows utilizing TensorFlow.js (TFJS) for full client-side processing, strictly adhering to Data Minimization principles. Mitigated server-side exposure and safeguarded user data privacy by processing all visual inputs locally within the user's browser. Leveraged Transfer Learning via MobileNetV2 to train an efficient predictive model using a balanced dataset of 75,000 images, exporting the architecture into Saved Model, TFLite, and TFJS formats for versatile, cross-platform deployment.",
+                stack: ["TensorFlow.js", "MobileNetV2", "Python", "Client-Side Architecture"]
               }
             ].map((project, idx) => (
-              <div key={idx} className="bento-card group flex flex-col p-0 overflow-hidden">
-                <a href={project.url} target="_blank" rel="noopener noreferrer" className="relative h-64 overflow-hidden block">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter grayscale group-hover:grayscale-0" />
-                  <div className="absolute inset-0 bg-background/50 group-hover:bg-transparent transition-colors duration-500"></div>
-                  <div className="absolute bottom-4 left-4 flex gap-2">
-                    <span className="px-3 py-1 bg-black/80 backdrop-blur-md rounded-full text-xs font-semibold text-white flex items-center gap-1 border border-white/20">
-                      <ExternalLink className="w-3 h-3" /> Visit UI
-                    </span>
-                  </div>
-                </a>
-
-                <div className="p-6 flex-1 flex flex-col bg-card">
-                  <div className="flex justify-between items-start mb-6">
+              <div key={idx} className="bg-card border border-border/60 rounded-xl p-8 hover:border-border transition-colors">
+                <div className="flex flex-col md:flex-row gap-8">
+                  <div className="md:w-1/3 space-y-4">
                     <div>
-                      <h3 className="text-2xl font-bold tracking-tight">{project.title}</h3>
-                      <p className="text-primary text-sm font-semibold">{project.subtitle}</p>
+                      <h3 className="text-2xl font-bold tracking-tight mb-1">{project.title}</h3>
+                      <p className="text-sm font-medium text-muted-foreground">{project.subtitle}</p>
                     </div>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2 bg-secondary/50 rounded-full hover:bg-primary hover:text-white transition-colors" title="View Source Code">
-                      <Github className="w-5 h-5" />
-                    </a>
+                    <div className="text-sm font-semibold text-foreground/80 py-1 px-3 bg-secondary/50 rounded-md inline-block">
+                      {project.role}
+                    </div>
+                    {project.link !== "#" && (
+                      <a href={project.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                        <ExternalLink className="w-4 h-4" /> {project.link.replace('https://', '')}
+                      </a>
+                    )}
                   </div>
-
-                  <div className="space-y-4 mb-6 flex-1">
-                    <div>
-                      <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider block mb-1">Problem</span>
-                      <p className="text-sm text-foreground/80">{project.problem}</p>
+                  
+                  <div className="md:w-2/3 space-y-6">
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 pt-4 border-t border-border/30">
+                      {project.stack.map(tag => (
+                        <span key={tag} className="tag">{tag}</span>
+                      ))}
                     </div>
-                    <div>
-                      <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider block mb-1">Solution</span>
-                      <p className="text-sm text-foreground/90 font-medium">{project.solution}</p>
-                    </div>
-                    <div className="pl-4 border-l-2 border-primary bg-primary/5 p-3 rounded-r-lg">
-                      <span className="text-xs font-bold text-primary uppercase tracking-wider block mb-1">Impact</span>
-                      <p className="text-sm text-foreground font-semibold">{project.impact}</p>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-border">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="tag bg-secondary text-secondary-foreground text-xs hover:bg-primary/20 hover:text-primary transition-colors cursor-default">{tag}</span>
-                    ))}
                   </div>
                 </div>
               </div>
             ))}
-
-
           </div>
         </div>
       </section>
 
-      {/* Articles Section */}
-      <section className="section-accent section-padding">
+      {/* Experience & Leadership Section */}
+      <section className="section-light section-padding">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="section-title">Writing</h2>
-              <p className="text-lg text-muted-foreground">Artikel di Medium tentang bisnis dan teknologi</p>
-            </div>
+          <div className="grid md:grid-cols-2 gap-16">
+            
+            {/* Professional Experience */}
+            <div className="space-y-8">
+              <div className="flex items-center gap-3 border-b border-border/50 pb-4">
+                <Rocket className="w-5 h-5 text-muted-foreground" />
+                <h2 className="text-2xl font-bold">Professional Experience</h2>
+              </div>
+              
+              <div className="space-y-8 relative before:absolute before:inset-0 before:ml-2 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-border before:via-border/50 before:to-transparent">
+                {/* Dicoding */}
+                <div className="relative pl-8">
+                  <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-card border-2 border-border z-10 shadow-sm"></div>
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider block mb-1">05/2026 - Present</span>
+                  <h3 className="text-lg font-bold">AI Capstone Advisor / Mentor</h3>
+                  <p className="text-sm text-foreground/80 font-medium mb-3">Dicoding Indonesia</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Mentored participants in designing and developing AI-based projects, focusing on model integration, backend logic, and architectural efficiency. Diagnosed and resolved technical constraints including code debugging, API optimization, and system integration, achieving a perfect 5/5 satisfaction score.
+                  </p>
+                </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                { title: "Strategi Bisnis & Perubahan Trend", url: "https://medium.com/@imardzuki61/bagaimana-cara-memastikan-strategi-bisnis-berjalan-dengan-perubahan-trend-di-masa-depan-fc0a11847a65" },
-                { title: "Analisis Model Porter", url: "https://medium.com/@imardzuki61/analisis-model-porter-memahami-faktor-faktor-yang-mempengaruhi-kompetitif-bisnis-28ec7d1bcae5" },
-                { title: "Menulis Ringkasan Eksekutif", url: "https://medium.com/@imardzuki61/menulis-ringkasan-eksekutif-yang-efektif-tips-untuk-membangun-kredibilitas-bisnis-4751c8fcbe51" },
-                { title: "Digitalisasi Merusak Generasi?", url: "https://medium.com/@imardzuki61/digitalisasi-merusak-generasi-a78b4f7114b2" }
-              ].map((article, i) => (
-                <a
-                  key={i}
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-6 bg-card rounded-lg border border-border hover:border-foreground transition-all group"
-                >
-                  <h3 className="text-lg font-semibold mb-2 group-hover:text-foreground transition-colors">{article.title}</h3>
-                  <span className="text-sm text-muted-foreground flex items-center gap-2">
-                    Baca di Medium <ExternalLink className="w-4 h-4" />
-                  </span>
-                </a>
-              ))}
-            </div>
-
-            <div className="text-center">
-              <a href="https://medium.com/@imardzuki61" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg link-hover font-medium">
-                Lihat Semua Artikel <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Experience Section */}
-      <section className="section-dark section-padding">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto space-y-12">
-            <h2 className="section-title text-center mb-12">Experience & Impact</h2>
-
-            <div className="relative border-l-2 border-border ml-3 md:ml-6 space-y-12">
-              {/* Timeline Item 1 */}
-              <div className="relative pl-8 md:pl-0 group">
-                <div className="md:hidden absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-1 ring-4 ring-background group-hover:scale-125 transition-transform"></div>
-
-                <div className="md:grid md:grid-cols-5 gap-8 items-start">
-                  <div className="hidden md:block col-span-1 text-right pt-1 relative">
-                    <div className="absolute w-4 h-4 bg-primary rounded-full -right-[25px] top-2 ring-4 ring-background group-hover:scale-125 transition-transform shadow-[0_0_10px_rgba(14,165,233,0.5)]"></div>
-                    <span className="text-sm font-bold text-primary tracking-wider">2019 - Present</span>
-                  </div>
-
-                  <div className="md:col-span-4 bg-card border border-border rounded-xl p-6 group-hover:border-primary/50 transition-colors relative">
-                    <span className="md:hidden text-xs font-bold text-primary tracking-wider block mb-2">2019 - Present</span>
-                    <h3 className="text-xl font-bold mb-1">Profesional Operasional</h3>
-                    <p className="text-muted-foreground font-medium text-sm mb-4">PT Dirgantara Indonesia (Indonesian Aerospace)</p>
-
-                    <ul className="space-y-3">
-                      <li className="flex gap-3 text-foreground/90 text-sm">
-                        <span className="text-primary font-bold mt-0.5">›</span>
-                        <span>Meningkatkan efisiensi alur kerja operasional sebesar <strong className="text-white">30%</strong> melalui digitalisasi dan optimasi proses sistematis.</span>
-                      </li>
-                      <li className="flex gap-3 text-foreground/90 text-sm">
-                        <span className="text-primary font-bold mt-0.5">›</span>
-                        <span>Mengelola dan mengawasi operasional harian untuk lebih dari <strong className="text-white">500+</strong> karyawan, memastikan kepatuhan standar industri penerbangan.</span>
-                      </li>
-                      <li className="flex gap-3 text-foreground/90 text-sm">
-                        <span className="text-primary font-bold mt-0.5">›</span>
-                        <span>Terlibat dalam inisiatif reduksi bottleneck yang mempercepat delivery timeline proyek antar-departemen hingga <strong className="text-white">15%</strong>.</span>
-                      </li>
-                    </ul>
-                  </div>
+                {/* PT Dirgantara */}
+                <div className="relative pl-8">
+                  <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-card border-2 border-border z-10 shadow-sm"></div>
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider block mb-1">02/2019 - Present</span>
+                  <h3 className="text-lg font-bold">Operations & General Affair Specialist</h3>
+                  <p className="text-sm text-foreground/80 font-medium mb-3">PT Dirgantara Indonesia</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Conducting systematic risk audits and analyzing inefficiencies in operational workflows and inventory reconciliation. Designed secure digital transformation strategies and proposed software implementations to protect data integrity and automate manual processes, successfully reducing physical recording errors by ~20%. Acted as a central liaison translating complex business constraints into targeted technical solutions.
+                  </p>
                 </div>
               </div>
             </div>
+
+            {/* Organizations & Leadership */}
+            <div className="space-y-8">
+              <div className="flex items-center gap-3 border-b border-border/50 pb-4">
+                <Shield className="w-5 h-5 text-muted-foreground" />
+                <h2 className="text-2xl font-bold">Organizations & Leadership</h2>
+              </div>
+
+              <div className="space-y-8 relative before:absolute before:inset-0 before:ml-2 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-border before:via-border/50 before:to-transparent">
+                {/* Fydemy */}
+                <div className="relative pl-8">
+                  <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-card border-2 border-border z-10 shadow-sm"></div>
+                  <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider block mb-1">01/2026 - Present</span>
+                  <h3 className="text-lg font-bold">Community Manager</h3>
+                  <p className="text-sm text-foreground/80 font-medium mb-3">Fydemy</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Managed B2B partnerships, facilitated community member career/project structuring, and provided strategic guidance and technical support to members participating in competitive hackathons.
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="section-dark section-padding border-t border-border">
+      <footer className="section-dark py-12 border-t border-border/50">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h3 className="text-2xl font-bold">Let's Connect</h3>
-
-            <div className="flex gap-4 justify-center">
-              <a href="mailto:okitarunaramadhan@gmail.com" className="p-3 bg-card rounded-lg border border-border hover:border-foreground hover:scale-110 transition-all">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg overflow-hidden border border-border/50 bg-card p-0.5">
+                <img src={logoImage} alt="Logo" className="w-full h-full object-cover rounded-md opacity-80" />
+              </div>
+              <span className="font-semibold text-sm">Oki Taruna Ramadhan</span>
+            </div>
+            
+            <div className="flex gap-4">
+              <a href="mailto:okitarunaramadhan@gmail.com" className="p-2 text-muted-foreground hover:text-foreground transition-colors">
                 <Mail className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="p-3 bg-card rounded-lg border border-border hover:border-foreground hover:scale-110 transition-all">
+              <a href="https://linkedin.com/in/otaruram" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-foreground transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://github.com/otaruram" target="_blank" rel="noopener noreferrer" className="p-3 bg-card rounded-lg border border-border hover:border-foreground hover:scale-110 transition-all">
+              <a href="https://github.com/otaruram" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-foreground transition-colors">
                 <Github className="w-5 h-5" />
               </a>
             </div>
-
-            <p className="text-sm text-muted-foreground pt-8">
-              © 2025 Oki Taruna Ramadhan
-            </p>
+          </div>
+          <div className="mt-8 text-center md:text-left text-xs text-muted-foreground">
+            © {new Date().getFullYear()} Oki Taruna Ramadhan. All rights reserved.
           </div>
         </div>
       </footer>

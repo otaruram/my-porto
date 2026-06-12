@@ -2,42 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Pure Black & White Portfolio */
+/* Minimalist Vercel-esque Slate Theme */
 
 @layer base {
   :root {
-    /* Modern Dark Mode */
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
+    /* Slate 950 Background: hsl(222, 47%, 11%) - wait, slate 950 in Tailwind is 222.2 84% 4.9% */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
 
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 224 71% 4%;
-    --popover-foreground: 213 31% 91%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
 
-    /* Electric Blue Accent */
-    --primary: 199 89% 48%;
-    /* sky-500 */
-    --primary-foreground: 0 0% 100%;
+    /* Minimalist Primary (White/Gray instead of bright electric blue) */
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
 
-    /* Emerald Green Secondary/Accent */
-    --secondary: 160 84% 39%;
-    /* emerald-500 */
-    --secondary-foreground: 0 0% 100%;
+    /* Secondary (Subtle Gray) */
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 56.9%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 199 89% 48%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 213 31% 91%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 216 34% 17%;
-    --input: 216 34% 17%;
-    --ring: 199 89% 48%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
 
     --radius: 0.5rem;
   }
@@ -63,8 +61,7 @@
   h4,
   h5,
   h6 {
-    @apply font-bold;
-    letter-spacing: -0.02em;
+    @apply font-bold tracking-tight;
   }
 }
 
@@ -72,7 +69,7 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
 
   to {
@@ -81,38 +78,24 @@
   }
 }
 
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 /* Utility Classes */
 @layer utilities {
   .hero-title {
-    font-size: clamp(3rem, 10vw, 7rem);
+    font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
   }
 
   .section-title {
-    font-size: clamp(2rem, 6vw, 4rem);
+    font-size: clamp(1.75rem, 5vw, 3rem);
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
 
   .animate-fade-up {
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   .section-dark {
@@ -120,27 +103,11 @@
   }
 
   .section-light {
-    @apply bg-card;
+    @apply bg-card border-y border-border;
   }
 
   .section-accent {
-    @apply bg-primary/10;
-  }
-
-  .project-card {
-    @apply bg-card border border-border rounded-lg p-8 transition-all duration-300;
-  }
-
-  .project-card:hover {
-    @apply border-primary shadow-lg shadow-primary/10 transform -translate-y-1;
-  }
-
-  .tag {
-    @apply inline-block px-4 py-2 bg-primary/20 text-primary rounded-full text-sm font-medium;
-  }
-
-  .link-hover {
-    @apply transition-colors duration-200 hover:text-primary;
+    @apply bg-secondary/30;
   }
 
   .section-padding {
@@ -151,54 +118,16 @@
     @apply max-w-6xl mx-auto;
   }
 
-  .gradient-text {
-    @apply text-foreground;
-  }
-
-  .image-glow {
-    box-shadow: 0 20px 60px rgba(14, 165, 233, 0.15);
-    /* Electric Blue glow */
-  }
-
-  /* Bento Grid Primitives */
+  /* Clean Bento Grid Primitives */
   .bento-grid {
     @apply grid gap-4 grid-cols-1 md:grid-cols-3;
   }
 
   .bento-card {
-    @apply bg-card border border-border rounded-xl p-6 transition-all duration-300 hover:border-primary/50 relative overflow-hidden;
+    @apply bg-card border border-border/60 rounded-xl p-6 transition-all duration-300 hover:border-border hover:bg-secondary/20 relative overflow-hidden;
   }
 
-  .bento-card::before {
-    content: "";
-    @apply absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 pointer-events-none;
+  .tag {
+    @apply inline-block px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs font-medium border border-border/50;
   }
-
-  .bento-card:hover::before {
-    @apply opacity-100;
-  }
-
-  /* Typing Animation */
-  .typing-text {
-    overflow: hidden;
-    border-right: 2px solid;
-    white-space: nowrap;
-    animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
-  }
-
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-
-    to {
-      width: 100%;
-    }
-  }
-
-  @keyframes blink {
-    50% {
-      border-color: transparent;
-    }
-  }
-}
+}
