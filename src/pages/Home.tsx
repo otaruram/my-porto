@@ -10,10 +10,6 @@ const Home = () => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-secondary/20 rounded-full blur-[120px] pointer-events-none opacity-50"></div>
 
         <div className="container-custom text-center space-y-8 animate-fade-up relative z-10">
-          <div className="w-24 h-24 mx-auto mb-8 rounded-2xl overflow-hidden border border-border/50 bg-card p-1 shadow-sm">
-            <img src={logoImage} alt="Oki Taruna Ramadhan Logo" className="w-full h-full object-cover rounded-xl" />
-          </div>
-
           <div className="space-y-4">
             <h2 className="text-sm md:text-base font-semibold tracking-widest text-muted-foreground uppercase">Oki Taruna Ramadhan</h2>
             <h1 className="hero-title text-foreground">
