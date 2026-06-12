@@ -123,7 +123,7 @@ const Home = () => {
                 title: "OtaruChain",
                 subtitle: "Ecosystem Enabler Platform",
                 role: "Product Engineer & Security Lead",
-                link: "#",
+                link: "https://otaruchain.id",
                 description: "Designed an API-First backend using FastAPI alongside the TypeScript/JavaScript ecosystem, integrating centralized database management (Supabase) to ensure seamless cross-platform data flow. Built automated validation systems using SHA-256 cryptographic hashing dynamically integrated with ImageKit CDN URLs to ensure document authenticity, prevent fraud, and create an immutable audit trail without compromising processing speed. Implemented robust Role-Based Access Control (RBAC) on the React.js Partner Portal and secured data-at-rest via AES-256 and data-in-transit via TLS 1.3.",
                 stack: ["FastAPI", "TypeScript", "React.js", "Supabase", "SHA-256", "ImageKit CDN"]
               },

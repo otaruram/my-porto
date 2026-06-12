@@ -20,7 +20,7 @@ const Projects = () => {
         {
             title: "OtaruChain",
             subtitle: "Ecosystem Enabler Platform",
-            url: "#",
+            url: "https://otaruchain.id",
             github: "#",
             tags: ["Security", "Backend"],
             stack: ["FastAPI", "TypeScript", "React", "Supabase", "SHA-256", "AES-256"],
