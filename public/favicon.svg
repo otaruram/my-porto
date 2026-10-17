@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Clean dark circular background -->
+  <circle cx="50" cy="50" r="48" fill="#09090b" />
+  
+  <!-- Sleek minimalist O and T monogram -->
+  <!-- Outer O arc -->
+  <path 
+    d="M 50 16 C 31.2 16 16 31.2 16 50 C 16 68.8 31.2 84 50 84 C 68.8 84 84 68.8 84 50" 
+    stroke="#ffffff" 
+    stroke-width="8.5" 
+    stroke-linecap="round"
+  />
+  
+  <!-- Central T lettermark -->
+  <!-- T Crossbar -->
+  <path 
+    d="M 33 42 L 80 42" 
+    stroke="#ffffff" 
+    stroke-width="8.5" 
+    stroke-linecap="round"
+  />
+  <!-- T Stem -->
+  <path 
+    d="M 50 42 L 50 76" 
+    stroke="#ffffff" 
+    stroke-width="8.5" 
+    stroke-linecap="round"
+  />
+</svg>

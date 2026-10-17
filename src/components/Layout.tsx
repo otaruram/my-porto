@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Download, FileText } from "lucide-react";
+import { Logo } from "@/components/Logo";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -39,8 +40,8 @@ export function Layout({ children }: LayoutProps) {
 
       {/* Navigation */}
       <header className="fixed top-4 z-40 w-[95%] md:w-[90%] max-w-4xl bg-white/85 backdrop-blur-md border border-zinc-200/90 rounded-full px-4 md:px-6 py-2.5 flex justify-between items-center shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
-        <Link to="/" className="flex items-center gap-2 font-bold text-sm md:text-base tracking-tight text-zinc-950 hover:opacity-80 transition-opacity">
-          <span className="w-2 h-2 rounded-full bg-zinc-950 inline-block animate-pulse"></span>
+        <Link to="/" className="flex items-center gap-2.5 font-bold text-sm md:text-base tracking-tight text-zinc-950 hover:opacity-85 transition-opacity">
+          <Logo size={24} variant="dark" />
           <span>OKI TARUNA</span>
         </Link>
 

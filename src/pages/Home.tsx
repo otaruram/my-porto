@@ -1,6 +1,6 @@
 import { ExternalLink, Github, Code2, Shield, Rocket, Mail, Linkedin, FileText, Download, CheckCircle2, Award, Database, Cpu, Sparkles, Terminal, Phone, MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import logoImage from "@/assets/logo.png";
+import { Logo } from "@/components/Logo";
 
 const Home = () => {
   const pdfUrl = "/cv/OKI_TARUNA_RAMADHAN_FlowCV_Resume_2026-10-17-1.pdf";
@@ -453,9 +453,7 @@ const Home = () => {
         <div className="container-custom">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg overflow-hidden border border-zinc-300 bg-zinc-50 p-0.5">
-                <img src={logoImage} alt="Logo" className="w-full h-full object-cover rounded-md" />
-              </div>
+              <Logo size={34} variant="dark" />
               <div className="text-left">
                 <span className="font-bold text-sm text-zinc-950 block">Oki Taruna Ramadhan</span>
                 <span className="text-xs text-zinc-500">Supply Chain Operation & IT Specialist</span>
