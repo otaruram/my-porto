@@ -26,13 +26,13 @@ export default function CV() {
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 text-white text-xs font-semibold tracking-wide">
                 <FileText className="w-3.5 h-3.5" />
-                <span>Dokumen Resmi & Terverifikasi</span>
+                <span>Official & Verified Document</span>
               </div>
               <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-950 tracking-tight">
                 Curriculum Vitae (CV)
               </h1>
               <p className="text-sm md:text-base text-zinc-600 font-medium">
-                CV & Resume resmi Oki Taruna Ramadhan — Supply Chain Operation & IT Specialist / Generative AI & Agentic Systems Developer.
+                Official CV & Resume of Oki Taruna Ramadhan — Supply Chain Operation & IT Specialist / Generative AI & Agentic Systems Developer.
               </p>
             </div>
 
@@ -44,7 +44,7 @@ export default function CV() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-950 text-white text-sm font-semibold rounded-lg hover:bg-zinc-800 transition-all shadow-sm"
               >
                 <Download className="w-4 h-4" />
-                <span>Unduh PDF Resmi</span>
+                <span>Download Official PDF</span>
               </a>
 
               <a
@@ -54,7 +54,7 @@ export default function CV() {
                 className="inline-flex items-center gap-2 px-4 py-2.5 bg-white text-zinc-900 text-sm font-semibold rounded-lg border border-zinc-300 hover:bg-zinc-100 transition-all shadow-xs"
               >
                 <ExternalLink className="w-4 h-4" />
-                <span>Buka Tab Baru</span>
+                <span>Open in New Tab</span>
               </a>
 
               <button
@@ -63,7 +63,7 @@ export default function CV() {
                 title="Print CV"
               >
                 <Printer className="w-4 h-4" />
-                <span className="hidden sm:inline">Cetak</span>
+                <span className="hidden sm:inline">Print</span>
               </button>
             </div>
           </div>
@@ -79,7 +79,7 @@ export default function CV() {
               }`}
             >
               <FileText className="w-4 h-4" />
-              <span>Tampilan Digital Interaktif</span>
+              <span>Interactive Digital View</span>
             </button>
             <button
               onClick={() => setActiveTab("pdf")}
@@ -90,7 +90,7 @@ export default function CV() {
               }`}
             >
               <ExternalLink className="w-4 h-4" />
-              <span>Pratinjau Dokumen PDF Asli</span>
+              <span>Original PDF Document Preview</span>
             </button>
           </div>
         </div>
@@ -103,14 +103,14 @@ export default function CV() {
           <div className="space-y-4">
             <div className="bg-zinc-50 p-4 rounded-xl border border-zinc-200 flex flex-col sm:flex-row justify-between items-center gap-3">
               <span className="text-xs text-zinc-600 font-medium">
-                Menampilkan file: <code className="text-zinc-900 font-bold">OKI_TARUNA_RAMADHAN_FlowCV_Resume_2026-10-17-1.pdf</code>
+                Displaying file: <code className="text-zinc-900 font-bold">OKI_TARUNA_RAMADHAN_FlowCV_Resume_2026-10-17-1.pdf</code>
               </span>
               <a
                 href={pdfUrl}
                 download
                 className="text-xs font-semibold text-zinc-900 hover:underline flex items-center gap-1"
               >
-                <Download className="w-3.5 h-3.5" /> Download file asli jika pratinjau browser tidak muncul
+                <Download className="w-3.5 h-3.5" /> Download original file if preview is unavailable
               </a>
             </div>
 
@@ -122,13 +122,13 @@ export default function CV() {
               >
                 <div className="p-12 text-center space-y-4 flex flex-col items-center justify-center h-[500px]">
                   <FileText className="w-12 h-12 text-zinc-400" />
-                  <p className="text-zinc-700 font-semibold">Pratinjau PDF tidak didukung di peramban ini.</p>
+                  <p className="text-zinc-700 font-semibold">PDF preview is not supported in this browser.</p>
                   <a
                     href={pdfUrl}
                     download
                     className="px-6 py-2.5 bg-zinc-950 text-white rounded-lg font-semibold text-sm hover:bg-zinc-800 transition-colors"
                   >
-                    Unduh CV PDF (94.5 KB)
+                    Download CV PDF (94.5 KB)
                   </a>
                 </div>
               </object>
@@ -482,9 +482,9 @@ export default function CV() {
             {/* Bottom Contact / Direct Download Callout */}
             <div className="bg-zinc-50 border border-zinc-200 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="space-y-1 text-center md:text-left">
-                <h3 className="text-lg font-bold text-zinc-950">Tertarik berkolaborasi atau mendiskusikan peluang?</h3>
+                <h3 className="text-lg font-bold text-zinc-950">Interested in collaboration or career opportunities?</h3>
                 <p className="text-sm text-zinc-600">
-                  Hubungi langsung via email atau download salinan PDF CV untuk proses rekrutmen.
+                  Reach out directly via email or download a PDF copy of the CV for recruitment processes.
                 </p>
               </div>
 
@@ -494,7 +494,7 @@ export default function CV() {
                   className="px-4 py-2.5 bg-white border border-zinc-300 rounded-lg text-sm font-semibold text-zinc-800 hover:bg-zinc-100 transition-colors flex items-center gap-2"
                 >
                   {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
-                  <span>{copied ? "Email Tersalin!" : "Salin Email"}</span>
+                  <span>{copied ? "Email Copied!" : "Copy Email"}</span>
                 </button>
                 <a
                   href={pdfUrl}

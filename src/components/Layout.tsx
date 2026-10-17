@@ -24,10 +24,10 @@ export function Layout({ children }: LayoutProps) {
   }, []);
 
   const navLinks = [
-    { name: "Beranda", path: "/" },
-    { name: "Proyek", path: "/projects" },
+    { name: "Home", path: "/" },
+    { name: "Projects", path: "/projects" },
     { name: "CV / Resume", path: "/cv", highlight: true },
-    { name: "Tentang", path: "/about" },
+    { name: "About", path: "/about" },
   ];
 
   return (

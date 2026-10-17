@@ -15,9 +15,9 @@ const Projects = () => {
       award: "Top 15 Finalist at BNI Spark Hackathon 2026",
       tags: ["AI", "Supply Chain", "Agentic AI"],
       stack: ["Multimodal RAG", "Computer Vision", "Agentic Loop", "Escrow APIs", "FastAPI"],
-      problem: "Pelaku rantai pasok dan UMKM kerap menghadapi tingginya sengketa kerusakan barang selama proses transit akibat minimnya bukti visual terverifikasi secara real-time.",
-      solution: "Merancang sistem verifikasi visual AI mengintegrasikan Multimodal RAG dan Computer Vision untuk mengotomatisasi inspeksi kerusakan paket. Dilengkapi automated Agentic decision loop yang menganalisis snapshot kondisi secara real-time dan memicu dynamic escrow release.",
-      impact: "Mengeliminasi sengketa klaim transit hingga 95% dan meraih penghargaan Top 15 Finalist di BNI Spark Hackathon 2026.",
+      problem: "Supply chain operators and MSMEs frequently suffer from package damage transit disputes due to the lack of real-time verified visual inspection proof.",
+      solution: "Architected an AI visual inspection system integrating Multimodal RAG and Computer Vision to automate package damage verification. Built an automated Agentic decision loop analyzing real-time condition snapshots and triggering dynamic escrow releases via API integrations.",
+      impact: "Eliminated transit dispute claims by up to 95% and recognized as Top 15 Finalist at BNI Spark Hackathon 2026.",
       icon: Shield
     },
     {
@@ -28,9 +28,9 @@ const Projects = () => {
       award: "Finalist BRIN Aidenation 2026 & Semifinalist Bank Indonesia Innovation",
       tags: ["AI", "Security", "Fintech"],
       stack: ["Gemini 2.5 Flash", "Logistic Regression", "HITL", "PostgreSQL", "SHA-256", "UU PDP"],
-      problem: "Proses validasi dokumen nota dan penentuan skor kredit rentan manipulasi data visual, pemalsuan klaim, dan ketiadaan jejak audit yang terdesentralisasi.",
-      solution: "Pipeline ekstraksi dokumen finansial otomatis berbasis Gemini 2.5 Flash untuk ekstraksi teks struk dan deteksi anomali fraud secara real-time. Didukung Adaptive Credit Scoring Engine berbasis Logistic Regression & Human-in-the-Loop (HITL), serta pencatatan anti-tamper via Supa Ledger (PostgreSQL & SHA-256).",
-      impact: "Menghasilkan Trust Grades yang transparan dan dapat diaudit untuk mitigasi risiko likuiditas, diakui sebagai Finalist BRIN dan Semifinalist Bank Indonesia.",
+      problem: "Financial invoice validation and credit scoring processes are susceptible to visual fraud anomalies, counterfeit claims, and lack an immutable audit trail.",
+      solution: "Engineered an automated financial document extraction pipeline using Gemini 2.5 Flash to extract receipt text and detect visual fraud anomalies with real-time screening. Implemented an interpretable Adaptive Credit Scoring Engine powered by Logistic Regression and Human-in-the-Loop (HITL) validation, backed by Supa Ledger (PostgreSQL & SHA-256).",
+      impact: "Delivers transparent, auditable Trust Grades for liquidity risk mitigation. Recognized as Finalist at BRIN Aidenation 2026 and Semifinalist at Bank Indonesia Innovation Competition.",
       icon: Code2
     },
     {
@@ -41,9 +41,9 @@ const Projects = () => {
       award: "Semifinalist PLN SustainAction 2026",
       tags: ["AI", "ESG", "NLP"],
       stack: ["IndoBERT", "Claude 3.5 Sonnet", "Supabase pgvector", "Pasal.id API", "HMAC-SHA256"],
-      problem: "Audit kepatuhan regulasi lingkungan, sosial, dan tata kelola (ESG) konvensional memakan waktu berminggu-minggu, biaya tinggi, serta rentan praktik greenwashing.",
-      solution: "Mengarsiteki pipeline asesmen Generative AI hibrida menggabungkan fine-tuned IndoBERT embeddings dan Claude 3.5 Sonnet untuk pemetaan kepatuhan otomatis. Menggunakan Agentic retrieval berbasis Supabase pgvector dan integrasi API hukum semantik (Pasal.id), dilengkapi cryptographic HMAC-SHA256 audit logging.",
-      impact: "Mencapai turnaround asesmen <24 jam, memotong biaya audit lama sebesar 85%, dan memastikan zero data leakage.",
+      problem: "Conventional ESG regulatory compliance auditing is time-consuming, expensive, and prone to greenwashing practices across enterprise supply chains.",
+      solution: "Architected a hybrid Generative AI assessment pipeline combining fine-tuned IndoBERT embeddings and Claude 3.5 Sonnet for automated regulatory document mapping and multi-pillar ESG compliance scoring. Engineered an Agentic retrieval pipeline utilizing Supabase pgvector and semantic legal APIs (Pasal.id), coupled with cryptographic HMAC-SHA256 audit logging.",
+      impact: "Achieved <24-hour turnaround, reduced legacy audit costs by 85%, and guaranteed zero data leakage.",
       icon: Rocket
     },
     {
@@ -53,10 +53,10 @@ const Projects = () => {
       github: "#",
       award: "Top 11 Finalist ZTE X ITB Competition",
       tags: ["Supply Chain", "IoT"],
-      stack: ["Cold-Chain IoT", "Telemetri", "Non-Terrestrial Network", "Data Integrity"],
-      problem: "Distribusi logistik rantai dingin (cold chain) di daerah 3T (Terdepan, Terluar, Tertinggal) rawan rusak akibat kehilangan sinyal dan pemantauan suhu yang terputus.",
-      solution: "Arsitektur pemantauan telemetri rantai dingin terintegrasi dengan kapabilitas satelit dan non-terrestrial network (NTN) untuk audit jejak suhu kargo berkelanjutan.",
-      impact: "Terpilih sebagai Top 11 Finalist pada ajang bergengsi nasional ZTE X ITB Hackathon.",
+      stack: ["Cold-Chain IoT", "Telemetry", "Non-Terrestrial Network", "Data Integrity"],
+      problem: "Cold-chain logistics distribution across 3T (Frontier, Outermost, Underdeveloped) regions suffers from temperature excursions due to frequent network deadzones.",
+      solution: "Designed cold-chain telemetry monitoring architecture integrated with non-terrestrial network (NTN) satellite communications for uninterrupted cargo tracking.",
+      impact: "Awarded Top 11 Finalist in the national ZTE X ITB Competition.",
       icon: Shield
     }
   ];
@@ -73,13 +73,13 @@ const Projects = () => {
             <div className="space-y-3">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-900 text-white rounded-full text-xs font-semibold">
                 <FileText className="w-3.5 h-3.5" />
-                <span>Portofolio Resmi Sesuai CV</span>
+                <span>Official Portfolio from CV</span>
               </div>
               <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-zinc-950">
-                Proyek & Rekayasa Sistem
+                Projects & Systems Engineering
               </h1>
               <p className="text-sm md:text-base text-zinc-600 max-w-2xl font-medium">
-                Koleksi sistem kecerdasan buatan (AI), pipeline kepatuhan regulasi, dan optimasi operasional rantai pasok yang tercantum pada dokumen CV.
+                A curated collection of artificial intelligence (AI) systems, regulatory compliance engines, and supply chain operations directly featured on the official CV.
               </p>
             </div>
 
@@ -89,7 +89,7 @@ const Projects = () => {
                 className="px-4 py-2.5 bg-zinc-950 text-white rounded-lg text-sm font-semibold hover:bg-zinc-800 transition-colors flex items-center gap-2 shadow-sm"
               >
                 <FileText className="w-4 h-4" />
-                <span>Lihat Dokumen CV</span>
+                <span>Review CV Document</span>
               </Link>
               <a
                 href={pdfUrl}
@@ -105,7 +105,7 @@ const Projects = () => {
           {/* Filters */}
           <div className="flex flex-wrap items-center gap-2 pt-8">
             <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider mr-2 flex items-center gap-1.5">
-              <Filter className="w-3.5 h-3.5" /> Kategori:
+              <Filter className="w-3.5 h-3.5" /> Category:
             </span>
             {categories.map(f => (
               <button
@@ -163,7 +163,7 @@ const Projects = () => {
                           className="px-3 py-1.5 bg-zinc-900 text-white rounded-lg text-xs font-semibold hover:bg-zinc-800 transition-colors flex items-center gap-1.5 shadow-2xs"
                         >
                           <ExternalLink className="w-3.5 h-3.5" />
-                          <span>Kunjungi Live</span>
+                          <span>Visit Live</span>
                         </a>
                       )}
                     </div>
@@ -171,17 +171,17 @@ const Projects = () => {
 
                   <div className="grid md:grid-cols-3 gap-6 pt-4 border-t border-zinc-100">
                     <div className="space-y-1.5">
-                      <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block">Tantangan / Problem</span>
+                      <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block">Problem / Challenge</span>
                       <p className="text-sm text-zinc-700 leading-relaxed font-normal">{project.problem}</p>
                     </div>
 
                     <div className="space-y-1.5">
-                      <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block">Solusi Arsitektur</span>
+                      <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block">Architecture & Solution</span>
                       <p className="text-sm text-zinc-800 leading-relaxed font-normal">{project.solution}</p>
                     </div>
 
                     <div className="space-y-1.5">
-                      <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block">Dampak & Pencapaian</span>
+                      <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block">Impact & Key Metrics</span>
                       <p className="text-sm text-zinc-900 leading-relaxed font-medium bg-zinc-50 p-3 rounded-lg border border-zinc-200/70">
                         {project.impact}
                       </p>

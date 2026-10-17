@@ -8,35 +8,35 @@ const Writing = () => {
         <div className="space-y-3 border-b border-zinc-200 pb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-100 rounded-full text-zinc-900 text-xs font-semibold">
             <BookOpen className="w-3.5 h-3.5" />
-            <span>Publikasi & Tulisan Teknis</span>
+            <span>Publications & Technical Writing</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-zinc-950">Writing</h1>
           <p className="text-sm md:text-base text-zinc-600 max-w-2xl font-medium">
-            Kumpulan pemikiran, analisis teknis, dan strategi implementasi sistem yang dipublikasikan di Medium.
+            A collection of thoughts, technical analyses, and business strategies published on Medium.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
           {[
             {
-              title: "Strategi Bisnis & Perubahan Trend",
+              title: "Business Strategy & Future Trends",
               url: "https://medium.com/@imardzuki61/bagaimana-cara-memastikan-strategi-bisnis-berjalan-dengan-perubahan-trend-di-masa-depan-fc0a11847a65",
-              desc: "Analisis adaptasi bisnis terhadap transformasi teknologi dan akselerasi model masa depan."
+              desc: "Analysis on business adaptation toward technology transformation and future operational acceleration."
             },
             {
-              title: "Analisis Model Porter",
+              title: "Porter's Five Forces Analysis",
               url: "https://medium.com/@imardzuki61/analisis-model-porter-memahami-faktor-faktor-yang-mempengaruhi-kompetitif-bisnis-28ec7d1bcae5",
-              desc: "Memahami faktor kompetitif industri dan dinamika rantai pasok modern."
+              desc: "Understanding industry competitive forces and modern supply chain dynamics."
             },
             {
-              title: "Menulis Ringkasan Eksekutif",
+              title: "Writing Effective Executive Summaries",
               url: "https://medium.com/@imardzuki61/menulis-ringkasan-eksekutif-yang-efektif-tips-untuk-membangun-kredibilitas-bisnis-4751c8fcbe51",
-              desc: "Panduan menyusun ringkasan eksekutif berbobot tinggi untuk stakeholder pengambil keputusan."
+              desc: "Best practices in framing high-impact executive summaries for enterprise decision-makers."
             },
             {
-              title: "Digitalisasi Merusak Generasi?",
+              title: "Is Digitalization Impacting Society?",
               url: "https://medium.com/@imardzuki61/digitalisasi-merusak-generasi-a78b4f7114b2",
-              desc: "Tinjauan kritis etika adopsi teknologi dan dampaknya terhadap produktivitas."
+              desc: "Critical perspectives on technology adoption ethics and workforce productivity."
             }
           ].map((article, i) => (
             <a
@@ -55,7 +55,7 @@ const Writing = () => {
                 </p>
               </div>
               <span className="text-xs font-semibold text-zinc-800 flex items-center gap-1.5 mt-6 pt-4 border-t border-zinc-100 group-hover:underline">
-                <span>Baca di Medium</span>
+                <span>Read on Medium</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </span>
             </a>
@@ -69,7 +69,7 @@ const Writing = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-950 text-white rounded-xl text-sm font-semibold hover:bg-zinc-800 transition-all shadow-sm"
           >
-            <span>Kunjungi Profil Medium</span>
+            <span>Visit Medium Profile</span>
             <ExternalLink className="w-4 h-4" />
           </a>
 
@@ -78,7 +78,7 @@ const Writing = () => {
             className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-900 rounded-xl text-sm font-semibold hover:bg-zinc-200 transition-all"
           >
             <FileText className="w-4 h-4" />
-            <span>Lihat Dokumen CV</span>
+            <span>Review CV Document</span>
           </Link>
         </div>
       </div>

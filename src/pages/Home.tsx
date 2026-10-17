@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Code2, Shield, Rocket, Mail, Linkedin, FileText, Download, CheckCircle2, Award, Database, Cpu, Sparkles, Terminal, Phone, MapPin, ArrowRight } from "lucide-react";
+import { ExternalLink, Github, Code2, Shield, Rocket, Mail, Linkedin, FileText, Download, Award, Database, Cpu, Sparkles, Terminal, Phone, MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Logo } from "@/components/Logo";
 
@@ -8,19 +8,11 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-white text-zinc-950">
       {/* Hero Section */}
-      <section className="min-h-[90vh] flex items-center justify-center section-padding relative overflow-hidden bg-white">
+      <section className="min-h-[85vh] flex items-center justify-center section-padding relative overflow-hidden bg-white">
         {/* Subtle geometric grid background pattern */}
         <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none"></div>
 
-        <div className="container-custom text-center space-y-8 animate-fade-up relative z-10 max-w-4xl pt-6">
-          {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 border border-zinc-200/80 text-zinc-800 text-xs font-semibold tracking-wide shadow-2xs">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block"></span>
-            <span>Cek CV Lengkap Terlampir</span>
-            <span className="text-zinc-400">•</span>
-            <span className="text-zinc-600">Bandung, Indonesia</span>
-          </div>
-
+        <div className="container-custom text-center space-y-8 animate-fade-up relative z-10 max-w-4xl pt-4">
           {/* Titles */}
           <div className="space-y-4">
             <h2 className="text-xs md:text-sm font-bold tracking-[0.2em] text-zinc-500 uppercase">
@@ -37,7 +29,7 @@ const Home = () => {
 
           {/* Narrative aligned with CV */}
           <p className="text-base md:text-lg text-zinc-600 max-w-3xl mx-auto leading-relaxed font-normal">
-            Mahasiswa tingkat akhir Sistem Informasi dengan spesialisasi dalam merancang <strong>Generative AI pipelines</strong>, <strong>Agentic workflows</strong>, dan sistem otomatisasi cerdas. Menggabungkan <strong>7+ tahun pengalaman optimasi sistem operasional di PT Dirgantara Indonesia (Indonesian Aerospace)</strong> dengan keahlian engineering modern (Multimodal RAG, LLMOps, IndoBERT, Claude 3.5, Gemini, Azure AI, dan pgvector).
+            Final year Information Systems student with extensive experience in architecting <strong>Generative AI pipelines</strong>, <strong>Agentic workflows</strong>, and intelligent automation systems. Combining <strong>7+ years of operational systems optimization at PT Dirgantara Indonesia (Indonesian Aerospace)</strong> with production-grade AI engineering (Multimodal RAG, LLMOps, IndoBERT, Claude 3.5, Gemini, Azure AI Services, and pgvector).
           </p>
 
           {/* Hero CTAs */}
@@ -47,7 +39,7 @@ const Home = () => {
               className="w-full sm:w-auto px-7 py-3.5 bg-zinc-950 text-white rounded-xl font-semibold hover:bg-zinc-800 transition-all text-sm tracking-wide flex items-center justify-center gap-2 shadow-sm"
             >
               <FileText className="w-4 h-4" />
-              <span>Cek CV & Resume Resmi</span>
+              <span>Review Curriculum Vitae</span>
             </Link>
 
             <a
@@ -56,7 +48,7 @@ const Home = () => {
               className="w-full sm:w-auto px-6 py-3.5 bg-white border border-zinc-300 text-zinc-900 rounded-xl font-semibold hover:bg-zinc-50 hover:border-zinc-400 transition-all text-sm tracking-wide flex items-center justify-center gap-2 shadow-2xs"
             >
               <Download className="w-4 h-4" />
-              <span>Unduh PDF CV</span>
+              <span>Download PDF CV</span>
             </a>
 
             <a
@@ -64,19 +56,19 @@ const Home = () => {
               className="w-full sm:w-auto px-6 py-3.5 bg-zinc-100 text-zinc-800 rounded-xl font-semibold hover:bg-zinc-200 transition-all text-sm tracking-wide flex items-center justify-center gap-2"
             >
               <Mail className="w-4 h-4" />
-              <span>Kontak Saya</span>
+              <span>Contact Me</span>
             </a>
           </div>
 
           {/* Quick Metrics Bar */}
           <div className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-left">
             <div className="p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
-              <span className="text-2xl font-black text-zinc-950 block">7+ Thn</span>
-              <span className="text-xs text-zinc-600 font-medium">Operasional PT Dirgantara</span>
+              <span className="text-2xl font-black text-zinc-950 block">7+ Yrs</span>
+              <span className="text-xs text-zinc-600 font-medium">Operations at PT Dirgantara</span>
             </div>
             <div className="p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
               <span className="text-2xl font-black text-zinc-950 block">30+</span>
-              <span className="text-xs text-zinc-600 font-medium">Talenta Dimentor di Dicoding</span>
+              <span className="text-xs text-zinc-600 font-medium">Mentees at Dicoding Indonesia</span>
             </div>
             <div className="p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
               <span className="text-2xl font-black text-zinc-950 block">Top 15</span>
@@ -84,7 +76,7 @@ const Home = () => {
             </div>
             <div className="p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
               <span className="text-2xl font-black text-zinc-950 block">5+</span>
-              <span className="text-xs text-zinc-600 font-medium">Penghargaan Nasional</span>
+              <span className="text-xs text-zinc-600 font-medium">National Honors & Awards</span>
             </div>
           </div>
         </div>
@@ -98,18 +90,18 @@ const Home = () => {
               <div className="space-y-4 max-w-2xl">
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-100 rounded-full text-zinc-900 text-xs font-bold uppercase tracking-wider">
                   <FileText className="w-3.5 h-3.5" />
-                  <span>Curriculum Vitae Terlampir</span>
+                  <span>Curriculum Vitae Attached</span>
                 </div>
                 <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-950 tracking-tight">
-                  Tinjau Dokumen CV Lengkap & Rekam Jejak Profesional
+                  Review Official Resume & Professional Track Record
                 </h2>
                 <p className="text-sm md:text-base text-zinc-600 leading-relaxed">
-                  Dokumen CV resmi mencakup detail pengalaman di PT DIRGANTARA INDONESIA, mentoring di Dicoding Indonesia (IBM SkillsBuild & DBS Foundation), proyek AI unggulan (Oziktag, OtaruChain, OzikSustain), hingga daftar penghargaan nasional.
+                  The official CV outlines operational workflows at PT DIRGANTARA INDONESIA, technical mentoring at Dicoding Indonesia (IBM SkillsBuild & DBS Foundation programs), featured AI systems (Oziktag, OtaruChain, OzikSustain), and national hackathon achievements.
                 </p>
                 <div className="flex flex-wrap gap-2 pt-1 text-xs text-zinc-500 font-medium">
-                  <span className="px-2.5 py-1 bg-zinc-100 rounded-md">Format: PDF (2 Halaman)</span>
-                  <span className="px-2.5 py-1 bg-zinc-100 rounded-md">Ukuran: 94.5 KB</span>
-                  <span className="px-2.5 py-1 bg-zinc-100 rounded-md">Diperbarui: 2026</span>
+                  <span className="px-2.5 py-1 bg-zinc-100 rounded-md">Format: PDF (2 Pages)</span>
+                  <span className="px-2.5 py-1 bg-zinc-100 rounded-md">Size: 94.5 KB</span>
+                  <span className="px-2.5 py-1 bg-zinc-100 rounded-md">Updated: 2026</span>
                 </div>
               </div>
 
@@ -119,7 +111,7 @@ const Home = () => {
                   className="px-6 py-3.5 bg-zinc-950 text-white font-semibold text-sm rounded-xl hover:bg-zinc-800 transition-colors flex items-center justify-center gap-2 shadow-sm"
                 >
                   <FileText className="w-4 h-4" />
-                  <span>Buka Halaman CV</span>
+                  <span>Open CV Page</span>
                 </Link>
                 <a
                   href={pdfUrl}
@@ -127,7 +119,7 @@ const Home = () => {
                   className="px-6 py-3.5 bg-white border border-zinc-300 text-zinc-900 font-semibold text-sm rounded-xl hover:bg-zinc-100 transition-colors flex items-center justify-center gap-2"
                 >
                   <Download className="w-4 h-4" />
-                  <span>Unduh File PDF</span>
+                  <span>Download PDF</span>
                 </a>
               </div>
             </div>
@@ -139,9 +131,9 @@ const Home = () => {
       <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center space-y-3 mb-14">
-            <h2 className="section-title text-zinc-950">Keahlian & Kompetensi Teknis</h2>
+            <h2 className="section-title text-zinc-950">Core Competencies & Technical Skills</h2>
             <p className="text-zinc-600 text-sm md:text-base max-w-2xl mx-auto">
-              Kombinasi keahlian operasional mendalam dan arsitektur AI modern sesuai ringkasan CV resmi.
+              Bridging deep operational rigor with modern AI architectures as summarized in the official CV.
             </p>
           </div>
 
@@ -153,7 +145,7 @@ const Home = () => {
               </div>
               <h3 className="text-lg font-bold text-zinc-950 mb-2">AI & Machine Learning</h3>
               <p className="text-xs md:text-sm text-zinc-600 mb-5 leading-relaxed">
-                Generative AI, Agentic AI, LLMOps, Multimodal RAG, Fine-Tuned NLP (IndoBERT), Computer Vision, Prompt Engineering & Chaining, Prompt Flow.
+                Generative AI, Agentic AI, LLMOps, Multimodal RAG, Fine-Tuned NLP (IndoBERT), Computer Vision, Multimodal Models, Prompt Engineering & Chaining, Prompt Flow.
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {["Generative AI", "Agentic AI", "Multimodal RAG", "IndoBERT", "LLMOps"].map((tech) => (
@@ -169,7 +161,7 @@ const Home = () => {
               </div>
               <h3 className="text-lg font-bold text-zinc-950 mb-2">Programming & Cloud</h3>
               <p className="text-xs md:text-sm text-zinc-600 mb-5 leading-relaxed">
-                Python, Microsoft Azure (Azure OpenAI / Cognitive Services), Docker, RESTful APIs, Next.js, Go. Scalable deployment dan microservices.
+                Python, Microsoft Azure (Azure OpenAI / Cognitive Services), Docker, RESTful APIs, Next.js, Go. Scalable deployments and microservices.
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {["Python", "Azure OpenAI", "Docker", "RESTful APIs", "Next.js", "Go"].map((tech) => (
@@ -185,7 +177,7 @@ const Home = () => {
               </div>
               <h3 className="text-lg font-bold text-zinc-950 mb-2">Databases & Architecture</h3>
               <p className="text-xs md:text-sm text-zinc-600 mb-5 leading-relaxed">
-                PostgreSQL, pgvector, Supabase, Prisma, SQL (Query Optimization), Human-in-the-Loop (HITL), Cryptographic Integrity (HMAC-SHA256), SDLC Agile.
+                PostgreSQL, pgvector, Supabase, Prisma, SQL (Query Optimization & Validation), Human-in-the-Loop (HITL), Cryptographic Integrity (HMAC-SHA256), SDLC Agile.
               </p>
               <div className="flex flex-wrap gap-1.5">
                 {["pgvector", "PostgreSQL", "Supabase", "HITL", "SHA-256", "SDLC"].map((tech) => (
@@ -202,16 +194,16 @@ const Home = () => {
         <div className="container-custom space-y-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-2">
-              <h2 className="section-title text-zinc-950">Portofolio & Proyek Relevan</h2>
+              <h2 className="section-title text-zinc-950">Relevant Projects (Portfolio)</h2>
               <p className="text-zinc-600 text-sm md:text-base max-w-2xl">
-                Sistem AI dan arsitektur perangkat lunak yang tercantum pada dokumen CV resmi.
+                Production-ready AI systems and software architectures documented in the official CV.
               </p>
             </div>
             <Link
               to="/projects"
               className="inline-flex items-center gap-1.5 text-sm font-bold text-zinc-900 hover:text-zinc-600 transition-colors"
             >
-              <span>Lihat Detail Semua Proyek</span>
+              <span>Explore All Projects</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -242,13 +234,13 @@ const Home = () => {
                 <div className="md:w-2/3 space-y-4">
                   <ul className="list-disc list-outside pl-4 space-y-2 text-sm text-zinc-700 leading-relaxed">
                     <li>
-                      Merancang sistem verifikasi visual AI mengintegrasikan <strong>Multimodal RAG</strong> dan <strong>Computer Vision</strong> untuk mengotomatisasi inspeksi kerusakan paket serta mengeliminasi sengketa transit hingga 95%.
+                      Designed an AI visual verification system integrating <strong>Multimodal RAG</strong> and <strong>Computer Vision</strong> to automate package damage inspection and eliminate transit dispute claims by up to 95%.
                     </li>
                     <li>
-                      Membangun <strong>automated Agentic decision loop</strong> yang menganalisis snapshot kondisi paket secara real-time, menghasilkan ringkasan kualitas kontekstual, dan memicu pelepasan escrow dinamis via integrasi API.
+                      Built an automated <strong>Agentic decision loop</strong> analyzing package condition snapshots in real time, generating contextual quality summaries, and triggering dynamic escrow releases via API integrations.
                     </li>
                     <li>
-                      Mendapat penghargaan <strong>Top 15 Finalist di BNI Spark Hackathon 2026</strong> untuk arsitektur middleware inovatif yang menggabungkan inspeksi visual AI dengan digital trust seals.
+                      Awarded <strong>Top 15 Finalist at BNI Spark Hackathon 2026</strong> for innovative middleware architecture combining AI visual inspection and dynamic digital trust seals.
                     </li>
                   </ul>
                   <div className="flex flex-wrap gap-2 pt-3 border-t border-zinc-100">
@@ -285,13 +277,13 @@ const Home = () => {
                 <div className="md:w-2/3 space-y-4">
                   <ul className="list-disc list-outside pl-4 space-y-2 text-sm text-zinc-700 leading-relaxed">
                     <li>
-                      Mengembangkan pipeline ekstraksi dokumen finansial otomatis menggunakan <strong>Gemini 2.5 Flash</strong> untuk mengekstrak teks nota dan mendeteksi anomali fraud visual (mark-up, klaim palsu) dengan screening real-time.
+                      Engineered an automated financial document extraction pipeline using <strong>Gemini 2.5 Flash</strong> to extract receipt text and detect visual fraud anomalies (mark-ups, counterfeit claims) with real-time screening.
                     </li>
                     <li>
-                      Mengimplementasikan Adaptive Credit Scoring Engine berbasis <strong>Logistic Regression</strong> dan <strong>Human-in-the-Loop (HITL)</strong> validation yang menghasilkan Trust Grades ter-audit untuk mitigasi risiko likuiditas.
+                      Implemented an interpretable Adaptive Credit Scoring Engine powered by <strong>Logistic Regression</strong> and <strong>Human-in-the-Loop (HITL)</strong> validation, outputting auditable Trust Grades for liquidity risk mitigation.
                     </li>
                     <li>
-                      Mengarsiteki backend microservices dengan antarmuka Telegram Bot, whitelist nomor telepon patuh <strong>UU PDP</strong>, dan pencatatan data anti-manipulasi via Supa Ledger (PostgreSQL & SHA-256).
+                      Architected a microservices backend featuring a Telegram Bot interface, privacy-preserving Phone Whitelist (<strong>UU PDP compliance</strong>), and tamper-evident data logging via Supa Ledger (PostgreSQL & SHA-256).
                     </li>
                   </ul>
                   <div className="flex flex-wrap gap-2 pt-3 border-t border-zinc-100">
@@ -319,13 +311,13 @@ const Home = () => {
                 <div className="md:w-2/3 space-y-4">
                   <ul className="list-disc list-outside pl-4 space-y-2 text-sm text-zinc-700 leading-relaxed">
                     <li>
-                      Mengarsiteki pipeline asesmen Generative AI hibrida yang menggabungkan fine-tuned <strong>IndoBERT embeddings</strong> dan <strong>Claude 3.5 Sonnet</strong> untuk pemetaan regulasi otomatis dan skor kepatuhan ESG multi-pilar.
+                      Architected a hybrid Generative AI assessment pipeline combining fine-tuned <strong>IndoBERT embeddings</strong> and <strong>Claude 3.5 Sonnet</strong> for automated regulatory document mapping and multi-pillar ESG compliance scoring.
                     </li>
                     <li>
-                      Mengembangkan pipeline retrieval Agentic memanfaatkan <strong>Supabase pgvector</strong> dan API hukum semantik (Pasal.id), memangkas waktu penyelesaian hingga {"<"}24 jam dan menurunkan biaya audit warisan sebesar 85%.
+                      Engineered an Agentic retrieval pipeline utilizing <strong>Supabase pgvector</strong> and semantic legal APIs (Pasal.id), achieving {"<"}24-hour turnaround and reducing legacy audit costs by 85%.
                     </li>
                     <li>
-                      Menerapkan redaksi PII otomatis dan audit logging kriptografi HMAC-SHA256 untuk menjamin proteksi data tanpa kebocoran dan mencegah greenwashing pada rantai pengadaan perusahaan.
+                      Implemented automated PII redaction and cryptographic HMAC-SHA256 audit logging to guarantee zero data leakage and prevent greenwashing across enterprise procurement workflows.
                     </li>
                   </ul>
                   <div className="flex flex-wrap gap-2 pt-3 border-t border-zinc-100">
@@ -347,8 +339,8 @@ const Home = () => {
             {/* Experience Column */}
             <div className="space-y-8">
               <div className="border-b border-zinc-200 pb-3">
-                <h2 className="text-2xl font-extrabold text-zinc-950 tracking-tight">Pengalaman Kerja</h2>
-                <p className="text-xs text-zinc-500 mt-1">Sesuai data Curriculum Vitae resmi</p>
+                <h2 className="text-2xl font-extrabold text-zinc-950 tracking-tight">Professional Experience</h2>
+                <p className="text-xs text-zinc-500 mt-1">Directly documented from the official Curriculum Vitae</p>
               </div>
 
               <div className="space-y-8 relative pl-6 border-l-2 border-zinc-200">
@@ -359,18 +351,18 @@ const Home = () => {
                   <h3 className="text-lg font-bold text-zinc-950">AI & Technical Mentor</h3>
                   <p className="text-sm font-semibold text-zinc-700 mb-2">Dicoding Indonesia</p>
                   <p className="text-sm text-zinc-600 leading-relaxed">
-                    Mementori 30+ developer dan profesional teknologi di bawah program IBM SkillsBuild & DBS Foundation dalam logika backend Python, analitik prediktif, serta arsitektur machine learning. Mengadakan technical code review pada workflow pelatihan model, integrasi API, dan deployment cloud.
+                    Mentored 30+ developers and tech professionals under IBM SkillsBuild & DBS Foundation programs in Python backend logic, predictive analytics, and machine learning architecture. Conducted technical code reviews on model training workflows, API integrations, and cloud deployments.
                   </p>
                 </div>
 
                 {/* PT Dirgantara Indonesia */}
                 <div className="relative">
                   <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-950 border-2 border-white ring-2 ring-zinc-200"></div>
-                  <span className="text-xs font-bold text-zinc-500 tracking-wider block mb-1">02/2019 – SEKARANG • BANDUNG</span>
+                  <span className="text-xs font-bold text-zinc-500 tracking-wider block mb-1">02/2019 – PRESENT • BANDUNG, INDONESIA</span>
                   <h3 className="text-lg font-bold text-zinc-950">Supply Chain Operations Administrator</h3>
                   <p className="text-sm font-semibold text-zinc-700 mb-2">PT DIRGANTARA INDONESIA (Indonesian Aerospace)</p>
                   <p className="text-sm text-zinc-600 leading-relaxed">
-                    Memetakan dan menstandarisasi workflow operasional end-to-end, berkolaborasi dengan stakeholder lintas fungsi untuk menentukan BRD dan spesifikasi sistem inventaris. Menggunakan SQL untuk validasi database operasional dan rekonsiliasi data, mengurangi kesalahan pencatatan hingga ~20%. Memfasilitasi implementasi siklus penuh SDLC (SIT & UAT).
+                    Mapped and standardized end-to-end operational workflows, collaborating with cross-functional stakeholders to define business requirements (BRD) and functional specifications for internal inventory systems. Utilized SQL (DML commands: SELECT, INSERT, UPDATE) to validate operational database records, perform data reconciliations, and mitigate reporting errors by ~20%. Facilitated full-cycle software development implementation (SDLC), actively coordinating System Integration Testing (SIT) and supporting User Acceptance Testing (UAT) with operational end-users to ensure solution readiness.
                   </p>
                 </div>
 
@@ -381,7 +373,7 @@ const Home = () => {
                   <h3 className="text-lg font-bold text-zinc-950">Community Lead & Technical Contributor</h3>
                   <p className="text-sm font-semibold text-zinc-700 mb-2">Fydemy</p>
                   <p className="text-sm text-zinc-600 leading-relaxed">
-                    Mengembangkan skrip otomasi data berbasis Python dan membimbing talenta teknis seputar efisiensi workflow kerja dan integrasi API.
+                    Developed Python-based data automation scripts and mentored technical talents on workflow efficiency and API integrations.
                   </p>
                 </div>
               </div>
@@ -392,17 +384,17 @@ const Home = () => {
               {/* Education */}
               <div className="space-y-6">
                 <div className="border-b border-zinc-200 pb-3">
-                  <h2 className="text-2xl font-extrabold text-zinc-950 tracking-tight">Pendidikan & Pelatihan</h2>
-                  <p className="text-xs text-zinc-500 mt-1">Latar belakang akademis & sertifikasi</p>
+                  <h2 className="text-2xl font-extrabold text-zinc-950 tracking-tight">Education & Training</h2>
+                  <p className="text-xs text-zinc-500 mt-1">Academic degree & professional certifications</p>
                 </div>
 
                 <div className="space-y-4">
                   <div className="p-5 bg-zinc-50 border border-zinc-200/80 rounded-xl space-y-1">
-                    <span className="text-xs font-bold text-zinc-500">2023 – SEKARANG • BANDUNG</span>
-                    <h3 className="text-base font-bold text-zinc-950">S.1 Sistem Informasi (Mahasiswa Tingkat Akhir)</h3>
+                    <span className="text-xs font-bold text-zinc-500">2023 – PRESENT • BANDUNG</span>
+                    <h3 className="text-base font-bold text-zinc-950">Bachelor of Science (B.S.) in Information Systems (Final Year Student)</h3>
                     <p className="text-sm text-zinc-700 font-medium">Universitas Terbuka</p>
                     <p className="text-xs text-zinc-500 pt-1">
-                      Mata Kuliah Relevan: Analisis & Perancangan Sistem, Sistem Manajemen Basis Data, Jaringan Data.
+                      Relevant Coursework: Systems Analysis & Design, Database Management Systems, Data Networks.
                     </p>
                   </div>
 
@@ -411,7 +403,7 @@ const Home = () => {
                     <h3 className="text-base font-bold text-zinc-950">Machine Learning & Data Developer Learning Path</h3>
                     <p className="text-sm text-zinc-700 font-medium">Dicoding Indonesia</p>
                     <p className="text-xs text-zinc-500 pt-1">
-                      Fokus: Predictive Analytics, Data Processing (Python), & Applied System Architecture.
+                      Focus: Predictive Analytics, Data Processing (Python), & Applied System Architecture.
                     </p>
                   </div>
                 </div>
@@ -420,14 +412,14 @@ const Home = () => {
               {/* Honors & Competitions */}
               <div className="space-y-6">
                 <div className="border-b border-zinc-200 pb-3">
-                  <h2 className="text-2xl font-extrabold text-zinc-950 tracking-tight">Penghargaan & Kompetisi</h2>
-                  <p className="text-xs text-zinc-500 mt-1">Pencapaian hackathon & inovasi AI</p>
+                  <h2 className="text-2xl font-extrabold text-zinc-950 tracking-tight">Honors & Competitions</h2>
+                  <p className="text-xs text-zinc-500 mt-1">Hackathons & AI innovation accolades</p>
                 </div>
 
                 <div className="space-y-2.5">
                   {[
                     { label: "Finalist", event: "BRIN Aidenation (OtaruChain Project)", desc: "AI Document Intelligence & Risk Engine" },
-                    { label: "Semifinalist", event: "Bank Indonesia Innovation Competition", desc: "OtaruChain Project (Multimodal Document Intelligence & Scoring)" },
+                    { label: "Semifinalist", event: "Bank Indonesia Innovation Competition", desc: "OtaruChain Project (Multimodal Document Intelligence & Transparent Credit Scoring API)" },
                     { label: "Top 15", event: "BNI Spark Hackathon 2026 (Oziktag Project)", desc: "Visual QC & Digital Supply Chain Platform" },
                     { label: "Top 11", event: "ZTE X ITB - OzikNTN Project", desc: "Cold-Chain Supply Chain Platform for 3T Regions" },
                     { label: "Semifinalist", event: "PLN SustainAction - OzikSustain Project", desc: "Smart Energy & Sustainability Management Platform" },
@@ -466,7 +458,7 @@ const Home = () => {
                 className="px-4 py-2 bg-zinc-950 text-white rounded-lg text-xs font-semibold hover:bg-zinc-800 transition-colors flex items-center gap-1.5"
               >
                 <FileText className="w-3.5 h-3.5" />
-                <span>Lihat CV</span>
+                <span>View CV</span>
               </Link>
               <a
                 href={pdfUrl}
@@ -474,7 +466,7 @@ const Home = () => {
                 className="px-4 py-2 bg-zinc-100 text-zinc-900 rounded-lg text-xs font-semibold hover:bg-zinc-200 transition-colors flex items-center gap-1.5 border border-zinc-200"
               >
                 <Download className="w-3.5 h-3.5" />
-                <span>Unduh PDF</span>
+                <span>Download PDF</span>
               </a>
               <a
                 href="mailto:okitarunaramadhan@gmail.com"
@@ -506,7 +498,7 @@ const Home = () => {
 
           <div className="mt-8 pt-6 border-t border-zinc-100 text-center md:text-left text-xs text-zinc-500 flex flex-col md:flex-row justify-between gap-2">
             <span>© {new Date().getFullYear()} Oki Taruna Ramadhan. All rights reserved.</span>
-            <span>CV & Dokumen Portofolio Resmi</span>
+            <span>Curriculum Vitae & Official Portfolio</span>
           </div>
         </div>
       </footer>
