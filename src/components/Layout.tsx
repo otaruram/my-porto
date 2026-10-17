@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Download, FileText } from "lucide-react";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -22,35 +23,57 @@ export function Layout({ children }: LayoutProps) {
   }, []);
 
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Projects", path: "/projects" },
-    { name: "Writing", path: "/writing" },
-    { name: "About", path: "/about" },
+    { name: "Beranda", path: "/" },
+    { name: "Proyek", path: "/projects" },
+    { name: "CV / Resume", path: "/cv", highlight: true },
+    { name: "Tentang", path: "/about" },
   ];
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center">
+    <div className="min-h-screen w-full flex flex-col items-center bg-white text-zinc-950">
       {/* Scroll Progress Bar */}
       <div
-        className="fixed top-0 left-0 h-1 bg-primary z-50 transition-all duration-150 ease-out"
+        className="fixed top-0 left-0 h-[2.5px] bg-zinc-950 z-50 transition-all duration-150 ease-out"
         style={{ width: `${scrollProgress}%` }}
       />
 
       {/* Navigation */}
-      <header className="fixed top-4 z-40 w-[95%] md:w-[90%] max-w-2xl bg-black/50 backdrop-blur-md border border-border rounded-full px-4 md:px-6 py-3 flex justify-between items-center shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
-        <Link to="/" className="font-bold text-base md:text-lg tracking-tight hover:text-primary transition-colors">
-          OKI.
+      <header className="fixed top-4 z-40 w-[95%] md:w-[90%] max-w-4xl bg-white/85 backdrop-blur-md border border-zinc-200/90 rounded-full px-4 md:px-6 py-2.5 flex justify-between items-center shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
+        <Link to="/" className="flex items-center gap-2 font-bold text-sm md:text-base tracking-tight text-zinc-950 hover:opacity-80 transition-opacity">
+          <span className="w-2 h-2 rounded-full bg-zinc-950 inline-block animate-pulse"></span>
+          <span>OKI TARUNA</span>
         </Link>
-        <nav className="flex gap-3 md:gap-6 relative overflow-x-auto hide-scrollbar">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`text-xs md:text-sm font-medium transition-colors hover:text-primary whitespace-nowrap ${location.pathname === link.path ? "text-primary flex items-center gap-1 border-b border-primary pb-1" : "text-muted-foreground"}`}
-            >
-              {link.name}
-            </Link>
-          ))}
+
+        <nav className="flex items-center gap-1 sm:gap-2 md:gap-4">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`text-xs md:text-sm font-medium transition-all px-3 py-1.5 rounded-full whitespace-nowrap flex items-center gap-1.5 ${
+                  isActive
+                    ? "bg-zinc-950 text-white shadow-sm"
+                    : link.highlight
+                    ? "text-zinc-900 bg-zinc-100 hover:bg-zinc-200/80 font-semibold"
+                    : "text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100/70"
+                }`}
+              >
+                {link.highlight && <FileText className="w-3.5 h-3.5" />}
+                {link.name}
+              </Link>
+            );
+          })}
+
+          <a
+            href="/cv/OKI_TARUNA_RAMADHAN_FlowCV_Resume_2026-10-17-1.pdf"
+            download="OKI_TARUNA_RAMADHAN_CV.pdf"
+            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 bg-zinc-100 hover:bg-zinc-900 hover:text-white text-zinc-900 rounded-full border border-zinc-200 transition-all ml-1"
+            title="Download PDF CV"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span>PDF</span>
+          </a>
         </nav>
       </header>
 

@@ -1,166 +1,224 @@
-import { Mail, Linkedin, Github, Code2, Rocket, Shield, Server, Lock } from "lucide-react";
+import { Mail, Linkedin, Github, FileText, Download, Briefcase, GraduationCap, Award, Phone, MapPin, CheckCircle2, Sparkles, Terminal, Database, Server } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const About = () => {
-    return (
-        <div className="min-h-screen">
-            {/* Intro Section */}
-            <section className="section-dark section-padding">
-                <div className="container-custom max-w-4xl space-y-8 animate-fade-up">
-                    <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-foreground">
-                        Engineer <span className="text-muted-foreground">&</span> Architect
-                    </h1>
-                    <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-medium">
-                        Detail-oriented AI Product Engineer & Security Specialist. Highly proficient in maximizing AI-assisted development (vibe coding workflow) to rapidly build scalable, full-stack applications with elegant, minimalist frontends and robust, secure backend architectures.
-                    </p>
+  const pdfUrl = "/cv/OKI_TARUNA_RAMADHAN_FlowCV_Resume_2026-10-17-1.pdf";
 
-                    <div className="flex gap-4 pt-8">
-                        <a href="https://linkedin.com/in/otaruram" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-6 py-3 bg-[#0077b5] text-white rounded-lg font-bold hover:bg-[#0077b5]/90 transition-all">
-                            <Linkedin className="w-5 h-5" /> Connect on LinkedIn
-                        </a>
-                        <a href="mailto:okitarunaramadhan@gmail.com" className="flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg font-bold hover:bg-secondary/80 transition-all">
-                            <Mail className="w-5 h-5" /> Email Me
-                        </a>
-                        <a href="https://github.com/otaruram" target="_blank" rel="noopener noreferrer" className="p-3 bg-card rounded-lg border border-border/60 hover:border-foreground hover:bg-secondary/20 transition-all text-muted-foreground hover:text-foreground">
-                            <Github className="w-5 h-5" />
-                        </a>
-                    </div>
-                </div>
-            </section>
+  return (
+    <div className="min-h-screen bg-white text-zinc-950 pb-20">
+      {/* Hero Intro */}
+      <section className="section-padding bg-white border-b border-zinc-200/80">
+        <div className="container-custom max-w-4xl space-y-6 animate-fade-up">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-900 text-xs font-semibold">
+            <span className="w-2 h-2 rounded-full bg-zinc-950"></span>
+            <span>Profil Profesional & CV</span>
+          </div>
 
-            {/* Tech Stack Vault Section */}
-            <section className="section-light section-padding border-y border-border/50">
-                <div className="container-custom">
-                    <div className="text-center space-y-4 mb-16">
-                        <h2 className="section-title">The Engineering Arsenal</h2>
-                    </div>
+          <h1 className="text-3xl md:text-5xl font-black tracking-tight text-zinc-950">
+            Oki Taruna Ramadhan
+          </h1>
 
-                    <div className="bento-grid">
-                        {/* Product Engineering & AI */}
-                        <div className="bento-card group">
-                            <div className="w-10 h-10 bg-secondary/50 rounded-lg flex items-center justify-center mb-6 border border-border/50">
-                                <Code2 className="w-5 h-5 text-foreground" />
-                            </div>
-                            <h3 className="text-xl font-bold mb-3">Product Engineering & AI</h3>
-                            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                                AI-Assisted Architecture (Vibe Coding), LLMs Integration (Gemini Flash, Claude), Rapid Prototyping, UI/UX Minimalism, Conversational AI, TensorFlow.js (Client-Side Processing).
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                                {["TensorFlow.js", "Gemini", "Claude", "UI/UX"].map(tech => (
-                                    <span key={tech} className="tag">{tech}</span>
-                                ))}
-                            </div>
-                        </div>
+          <p className="text-lg md:text-xl font-semibold text-zinc-700 leading-snug">
+            Supply Chain Operation & IT Specialist | Generative AI, Agentic Workflows & Enterprise Systems
+          </p>
 
-                        {/* Backend & Core Tech */}
-                        <div className="bento-card group">
-                            <div className="w-10 h-10 bg-secondary/50 rounded-lg flex items-center justify-center mb-6 border border-border/50">
-                                <Server className="w-5 h-5 text-foreground" />
-                            </div>
-                            <h3 className="text-xl font-bold mb-3">Backend & Core Tech</h3>
-                            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                                Python, FastAPI, TypeScript, Node.js, JavaScript, PostgreSQL (Supabase), SQL, REST APIs. Building scalable and performant microservices.
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                                {["Python", "FastAPI", "TypeScript", "PostgreSQL"].map(tech => (
-                                    <span key={tech} className="tag">{tech}</span>
-                                ))}
-                            </div>
-                        </div>
+          <p className="text-base text-zinc-600 leading-relaxed">
+            Mahasiswa tingkat akhir Sistem Informasi di Universitas Terbuka dengan rekam jejak lebih dari <strong>7 tahun di PT Dirgantara Indonesia (Indonesian Aerospace)</strong> dalam merestrukturisasi alur kerja operasional, audit risiko inventaris, dan kepatuhan sistem. Memiliki keahlian teruji dalam arsitektur Generative AI, alur kerja Agentic, LLMOps, serta deployment cloud berskala industri.
+          </p>
 
-                        {/* Security & Infrastructure */}
-                        <div className="bento-card group">
-                            <div className="w-10 h-10 bg-secondary/50 rounded-lg flex items-center justify-center mb-6 border border-border/50">
-                                <Lock className="w-5 h-5 text-foreground" />
-                            </div>
-                            <h3 className="text-xl font-bold mb-3">Security & Infrastructure</h3>
-                            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                                Secure Audit Logging, Threat & Incident Analysis, RBAC, Cryptography (SHA-256, AES-256), TLS 1.3, Data Privacy (UU PDP), Docker, Server Administration.
-                            </p>
-                            <div className="flex flex-wrap gap-2">
-                                {["Cryptography", "RBAC", "Docker", "Linux"].map(tech => (
-                                    <span key={tech} className="tag">{tech}</span>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+          {/* Action Links */}
+          <div className="flex flex-wrap items-center gap-3 pt-4">
+            <Link
+              to="/cv"
+              className="px-6 py-3 bg-zinc-950 text-white rounded-xl font-semibold hover:bg-zinc-800 transition-all text-sm flex items-center gap-2 shadow-sm"
+            >
+              <FileText className="w-4 h-4" />
+              <span>Cek Dokumen CV Lengkap</span>
+            </Link>
 
-            {/* Experience Section */}
-            <section className="section-dark section-padding">
-                <div className="container-custom">
-                    <div className="max-w-3xl mx-auto space-y-12">
-                        <h2 className="section-title text-center mb-12">Experience & Impact</h2>
+            <a
+              href={pdfUrl}
+              download="OKI_TARUNA_RAMADHAN_Resume.pdf"
+              className="px-5 py-3 bg-white border border-zinc-300 text-zinc-900 rounded-xl font-semibold hover:bg-zinc-50 transition-all text-sm flex items-center gap-2"
+            >
+              <Download className="w-4 h-4" />
+              <span>Unduh PDF (94.5 KB)</span>
+            </a>
 
-                        <div className="relative border-l-2 border-border/50 ml-3 md:ml-6 space-y-12">
-                            {/* Dicoding */}
-                            <div className="relative pl-8 md:pl-0 group">
-                                <div className="md:hidden absolute w-4 h-4 bg-foreground rounded-full -left-[9px] top-1 ring-4 ring-background"></div>
+            <a
+              href="mailto:okitarunaramadhan@gmail.com"
+              className="px-5 py-3 bg-zinc-100 text-zinc-800 rounded-xl font-semibold hover:bg-zinc-200 transition-all text-sm flex items-center gap-2"
+            >
+              <Mail className="w-4 h-4" />
+              <span>Kirim Email</span>
+            </a>
+          </div>
 
-                                <div className="md:grid md:grid-cols-5 gap-8 items-start">
-                                    <div className="hidden md:block col-span-1 text-right pt-1 relative">
-                                        <div className="absolute w-4 h-4 bg-foreground rounded-full -right-[25px] top-2 ring-4 ring-background border border-border/50"></div>
-                                        <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">05/2026 - Present</span>
-                                    </div>
-
-                                    <div className="md:col-span-4 bg-card border border-border/60 rounded-xl p-6 relative">
-                                        <span className="md:hidden text-xs font-semibold text-muted-foreground uppercase tracking-wider block mb-2">05/2026 - Present</span>
-                                        <h3 className="text-xl font-bold mb-1">AI Capstone Advisor / Mentor</h3>
-                                        <p className="text-muted-foreground font-medium text-sm mb-4">Dicoding Indonesia</p>
-                                        <p className="text-sm text-foreground/80 leading-relaxed">
-                                            Mentored participants in designing and developing AI-based projects, focusing on model integration, backend logic, and architectural efficiency. Diagnosed and resolved technical constraints including code debugging, API optimization, and system integration, achieving a perfect 5/5 satisfaction score.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* PT Dirgantara */}
-                            <div className="relative pl-8 md:pl-0 group">
-                                <div className="md:hidden absolute w-4 h-4 bg-foreground rounded-full -left-[9px] top-1 ring-4 ring-background"></div>
-
-                                <div className="md:grid md:grid-cols-5 gap-8 items-start">
-                                    <div className="hidden md:block col-span-1 text-right pt-1 relative">
-                                        <div className="absolute w-4 h-4 bg-foreground rounded-full -right-[25px] top-2 ring-4 ring-background border border-border/50"></div>
-                                        <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">02/2019 - Present</span>
-                                    </div>
-
-                                    <div className="md:col-span-4 bg-card border border-border/60 rounded-xl p-6 relative">
-                                        <span className="md:hidden text-xs font-semibold text-muted-foreground uppercase tracking-wider block mb-2">02/2019 - Present</span>
-                                        <h3 className="text-xl font-bold mb-1">Operations & General Affair Specialist</h3>
-                                        <p className="text-muted-foreground font-medium text-sm mb-4">PT Dirgantara Indonesia</p>
-                                        <p className="text-sm text-foreground/80 leading-relaxed">
-                                            Conducting systematic risk audits and analyzing inefficiencies in operational workflows and inventory reconciliation. Designed secure digital transformation strategies and proposed software implementations to protect data integrity and automate manual processes, successfully reducing physical recording errors by ~20%. Acted as a central liaison translating complex business constraints into targeted technical solutions.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Fydemy */}
-                            <div className="relative pl-8 md:pl-0 group">
-                                <div className="md:hidden absolute w-4 h-4 bg-foreground rounded-full -left-[9px] top-1 ring-4 ring-background"></div>
-
-                                <div className="md:grid md:grid-cols-5 gap-8 items-start">
-                                    <div className="hidden md:block col-span-1 text-right pt-1 relative">
-                                        <div className="absolute w-4 h-4 bg-foreground rounded-full -right-[25px] top-2 ring-4 ring-background border border-border/50"></div>
-                                        <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">01/2026 - Present</span>
-                                    </div>
-
-                                    <div className="md:col-span-4 bg-card border border-border/60 rounded-xl p-6 relative">
-                                        <span className="md:hidden text-xs font-semibold text-muted-foreground uppercase tracking-wider block mb-2">01/2026 - Present</span>
-                                        <h3 className="text-xl font-bold mb-1">Community Manager</h3>
-                                        <p className="text-muted-foreground font-medium text-sm mb-4">Fydemy</p>
-                                        <p className="text-sm text-foreground/80 leading-relaxed">
-                                            Managed B2B partnerships, facilitated community member career/project structuring, and provided strategic guidance and technical support to members participating in competitive hackathons.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+          {/* Contact Strip */}
+          <div className="flex flex-wrap items-center gap-y-2 gap-x-6 pt-4 text-xs font-medium text-zinc-600 border-t border-zinc-100">
+            <span className="flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 text-zinc-950" />
+              <span>Bandung, Indonesia</span>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <Phone className="w-3.5 h-3.5 text-zinc-950" />
+              <span>085797968246</span>
+            </span>
+            <a
+              href="https://linkedin.com/in/otaruram"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-zinc-950 hover:underline"
+            >
+              <Linkedin className="w-3.5 h-3.5 text-zinc-950" />
+              <span>linkedin.com/in/otaruram</span>
+            </a>
+            <a
+              href="https://github.com/otaruram"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-zinc-950 hover:underline"
+            >
+              <Github className="w-3.5 h-3.5 text-zinc-950" />
+              <span>github.com/otaruram</span>
+            </a>
+          </div>
         </div>
-    );
+      </section>
+
+      {/* Experience Timeline Section */}
+      <section className="section-padding bg-zinc-50/60 border-b border-zinc-200/80">
+        <div className="container-custom max-w-4xl space-y-10">
+          <div className="space-y-2">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-950">Rekam Jejak Profesional</h2>
+            <p className="text-sm text-zinc-600">Disusun berdasarkan kronologi pengalaman yang tertera di dokumen CV resmi.</p>
+          </div>
+
+          <div className="space-y-8 pl-6 border-l-2 border-zinc-300">
+            {/* Dicoding */}
+            <div className="relative">
+              <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-950 ring-4 ring-white"></div>
+              <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider block mb-1">05/2026 – 10/2026 • BANDUNG</span>
+              <h3 className="text-lg font-bold text-zinc-950">AI & Technical Mentor</h3>
+              <p className="text-sm font-semibold text-zinc-700 mb-2">Dicoding Indonesia</p>
+              <ul className="list-disc list-outside pl-4 space-y-1 text-sm text-zinc-600 leading-relaxed">
+                <li>Mementori 30+ developer dan profesional teknologi di bawah program IBM SkillsBuild & DBS Foundation programs dalam logika backend Python, predictive analytics, dan machine learning architecture.</li>
+                <li>Mengadakan technical code review pada workflow pelatihan model, integrasi API, dan deployment cloud.</li>
+              </ul>
+            </div>
+
+            {/* PT Dirgantara Indonesia */}
+            <div className="relative">
+              <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-950 ring-4 ring-white"></div>
+              <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider block mb-1">02/2019 – SEKARANG • BANDUNG, INDONESIA</span>
+              <h3 className="text-lg font-bold text-zinc-950">Supply Chain Operations Administrator</h3>
+              <p className="text-sm font-semibold text-zinc-700 mb-2">PT DIRGANTARA INDONESIA (Indonesian Aerospace)</p>
+              <ul className="list-disc list-outside pl-4 space-y-1 text-sm text-zinc-600 leading-relaxed">
+                <li>Memetakan dan menstandarisasi workflow operasional end-to-end, berkolaborasi dengan stakeholder lintas fungsi untuk menentukan BRD dan spesifikasi fungsional sistem inventaris internal.</li>
+                <li>Menggunakan SQL (DML commands: SELECT, INSERT, UPDATE) untuk validasi record database operasional, rekonsiliasi data, dan menekan reporting error hingga ~20%.</li>
+                <li>Memfasilitasi implementasi siklus penuh SDLC secara aktif, mengoordinasikan System Integration Testing (SIT) dan mendampingi User Acceptance Testing (UAT) bersama pengguna operasional akhir.</li>
+                <li>Menganalisis pola penggunaan material dan turnover inventaris guna mendukung demand planning serta efisiensi operasional.</li>
+              </ul>
+            </div>
+
+            {/* Fydemy */}
+            <div className="relative">
+              <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-950 ring-4 ring-white"></div>
+              <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider block mb-1">01/2026 – 09/2026 • SINGAPORE</span>
+              <h3 className="text-lg font-bold text-zinc-950">Community Lead & Technical Contributor</h3>
+              <p className="text-sm font-semibold text-zinc-700 mb-2">Fydemy</p>
+              <ul className="list-disc list-outside pl-4 space-y-1 text-sm text-zinc-600 leading-relaxed">
+                <li>Mengembangkan skrip otomasi data berbasis Python dan membimbing talenta teknis seputar efisiensi workflow kerja dan integrasi API.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Education & Skills Section */}
+      <section className="section-padding bg-white">
+        <div className="container-custom max-w-4xl space-y-12">
+          {/* Education */}
+          <div className="space-y-6">
+            <div className="border-b border-zinc-200 pb-3 flex items-center justify-between">
+              <h2 className="text-2xl font-extrabold text-zinc-950">Pendidikan</h2>
+              <GraduationCap className="w-5 h-5 text-zinc-500" />
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="p-6 bg-zinc-50 border border-zinc-200/80 rounded-2xl space-y-2">
+                <span className="text-xs font-bold text-zinc-500">2023 – SEKARANG • BANDUNG</span>
+                <h3 className="text-base font-bold text-zinc-950">S1 Sistem Informasi (Mahasiswa Tingkat Akhir)</h3>
+                <p className="text-sm font-semibold text-zinc-700">Universitas Terbuka</p>
+                <p className="text-xs text-zinc-500 leading-relaxed">
+                  Mata Kuliah Relevan: Analisis & Perancangan Sistem, Sistem Manajemen Basis Data, Jaringan Data.
+                </p>
+              </div>
+
+              <div className="p-6 bg-zinc-50 border border-zinc-200/80 rounded-2xl space-y-2">
+                <span className="text-xs font-bold text-zinc-500">ONLINE ACADEMY</span>
+                <h3 className="text-base font-bold text-zinc-950">Machine Learning & Data Developer Learning Path</h3>
+                <p className="text-sm font-semibold text-zinc-700">Dicoding Indonesia</p>
+                <p className="text-xs text-zinc-500 leading-relaxed">
+                  Fokus: Predictive Analytics, Pemrosesan Data (Python), & Arsitektur Sistem Terapan.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Technical Skills Arsenal */}
+          <div className="space-y-6">
+            <div className="border-b border-zinc-200 pb-3 flex items-center justify-between">
+              <h2 className="text-2xl font-extrabold text-zinc-950">Engineering Arsenal & Keahlian Teknis</h2>
+              <Server className="w-5 h-5 text-zinc-500" />
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="p-6 bg-white border border-zinc-200 rounded-2xl space-y-3">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-zinc-900" />
+                  <h3 className="font-bold text-zinc-950 text-sm">AI & Machine Learning</h3>
+                </div>
+                <p className="text-xs text-zinc-600 leading-relaxed">
+                  Generative AI, Agentic AI, LLMOps, Retrieval-Augmented Generation (RAG), Fine-Tuned NLP (IndoBERT), Computer Vision, Multimodal Models, Prompt Engineering & Chaining, Prompt Flow.
+                </p>
+              </div>
+
+              <div className="p-6 bg-white border border-zinc-200 rounded-2xl space-y-3">
+                <div className="flex items-center gap-2">
+                  <Terminal className="w-4 h-4 text-zinc-900" />
+                  <h3 className="font-bold text-zinc-950 text-sm">Programming & Cloud</h3>
+                </div>
+                <p className="text-xs text-zinc-600 leading-relaxed">
+                  Python, Microsoft Azure (Azure OpenAI / Cognitive Services), Docker, RESTful APIs, Next.js, Go.
+                </p>
+              </div>
+
+              <div className="p-6 bg-white border border-zinc-200 rounded-2xl space-y-3">
+                <div className="flex items-center gap-2">
+                  <Database className="w-4 h-4 text-zinc-900" />
+                  <h3 className="font-bold text-zinc-950 text-sm">Databases & Vector Stores</h3>
+                </div>
+                <p className="text-xs text-zinc-600 leading-relaxed">
+                  PostgreSQL, pgvector, Supabase, Prisma, SQL (Query Optimization & Validation).
+                </p>
+              </div>
+
+              <div className="p-6 bg-white border border-zinc-200 rounded-2xl space-y-3">
+                <div className="flex items-center gap-2">
+                  <Award className="w-4 h-4 text-zinc-900" />
+                  <h3 className="font-bold text-zinc-950 text-sm">Frameworks & Architecture</h3>
+                </div>
+                <p className="text-xs text-zinc-600 leading-relaxed">
+                  Human-in-the-Loop (HITL) Workflows, Cryptographic Integrity (HMAC-SHA256), SDLC (Agile), Microservices Architecture.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default About;

@@ -1,129 +1,206 @@
-import { ExternalLink, Github, Filter, Shield, Code2, Rocket } from "lucide-react";
+import { ExternalLink, Github, Filter, Shield, Code2, Rocket, FileText, Download, Award, CheckCircle2 } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
-    const [filter, setFilter] = useState("All");
+  const [filter, setFilter] = useState("All");
+  const pdfUrl = "/cv/OKI_TARUNA_RAMADHAN_FlowCV_Resume_2026-10-17-1.pdf";
 
-    const projects = [
-        {
-            title: "Oziktag",
-            subtitle: "AI-Powered Digital Trust Seal & Anti-Dispute Shield",
-            url: "https://www.oziktag.my.id",
-            github: "#",
-            tags: ["AI", "Security"],
-            stack: ["FastAPI", "Node.js", "Supabase", "Gemini Flash", "Audit Log"],
-            problem: "MSMEs struggle with logistics disputes and lack of trust in verification processes.",
-            solution: "Friction-free, under-30s MVP that uses Gemini Flash to synthesize raw seller notes and an immutable audit log to prevent QR manipulation.",
-            impact: "Established clear liability handover checkpoints and gained active field testing adoption.",
-            icon: Shield
-        },
-        {
-            title: "OtaruChain",
-            subtitle: "Ecosystem Enabler Platform",
-            url: "https://otaruchain.id",
-            github: "#",
-            tags: ["Security", "Backend"],
-            stack: ["FastAPI", "TypeScript", "React", "Supabase", "SHA-256", "AES-256"],
-            problem: "Lack of secure, unified cross-platform data flow and document authenticity.",
-            solution: "API-First backend with SHA-256 validation dynamically integrated with ImageKit CDN. Strict RBAC and TLS 1.3.",
-            impact: "Created an immutable audit trail without compromising processing speed, securing data-at-rest and in-transit.",
-            icon: Code2
-        },
-        {
-            title: "Berasku",
-            subtitle: "AI-Based Rice Variety Identification",
-            url: "#",
-            github: "#",
-            tags: ["AI", "Frontend"],
-            stack: ["TensorFlow.js", "MobileNetV2", "Python", "TFJS"],
-            problem: "Manual validation of rice varieties is error-prone, but server-side AI processing exposes user data.",
-            solution: "Full client-side inference using TensorFlow.js adhering to strict Data Minimization principles.",
-            impact: "Trained on 75,000 images, exporting an efficient architecture for cross-platform deployment while ensuring privacy.",
-            icon: Rocket
-        }
-    ];
+  const projects = [
+    {
+      title: "Oziktag",
+      subtitle: "Supply Chain Visual QC & Digital Trust Platform",
+      url: "https://www.oziktag.my.id",
+      github: "#",
+      award: "Top 15 Finalist at BNI Spark Hackathon 2026",
+      tags: ["AI", "Supply Chain", "Agentic AI"],
+      stack: ["Multimodal RAG", "Computer Vision", "Agentic Loop", "Escrow APIs", "FastAPI"],
+      problem: "Pelaku rantai pasok dan UMKM kerap menghadapi tingginya sengketa kerusakan barang selama proses transit akibat minimnya bukti visual terverifikasi secara real-time.",
+      solution: "Merancang sistem verifikasi visual AI mengintegrasikan Multimodal RAG dan Computer Vision untuk mengotomatisasi inspeksi kerusakan paket. Dilengkapi automated Agentic decision loop yang menganalisis snapshot kondisi secara real-time dan memicu dynamic escrow release.",
+      impact: "Mengeliminasi sengketa klaim transit hingga 95% dan meraih penghargaan Top 15 Finalist di BNI Spark Hackathon 2026.",
+      icon: Shield
+    },
+    {
+      title: "OtaruChain",
+      subtitle: "Multimodal Document Intelligence & Transparent Credit Scoring API",
+      url: "https://otaruchain.id",
+      github: "#",
+      award: "Finalist BRIN Aidenation 2026 & Semifinalist Bank Indonesia Innovation",
+      tags: ["AI", "Security", "Fintech"],
+      stack: ["Gemini 2.5 Flash", "Logistic Regression", "HITL", "PostgreSQL", "SHA-256", "UU PDP"],
+      problem: "Proses validasi dokumen nota dan penentuan skor kredit rentan manipulasi data visual, pemalsuan klaim, dan ketiadaan jejak audit yang terdesentralisasi.",
+      solution: "Pipeline ekstraksi dokumen finansial otomatis berbasis Gemini 2.5 Flash untuk ekstraksi teks struk dan deteksi anomali fraud secara real-time. Didukung Adaptive Credit Scoring Engine berbasis Logistic Regression & Human-in-the-Loop (HITL), serta pencatatan anti-tamper via Supa Ledger (PostgreSQL & SHA-256).",
+      impact: "Menghasilkan Trust Grades yang transparan dan dapat diaudit untuk mitigasi risiko likuiditas, diakui sebagai Finalist BRIN dan Semifinalist Bank Indonesia.",
+      icon: Code2
+    },
+    {
+      title: "OzikSustain",
+      subtitle: "AI-Powered ESG Compliance & Regulatory Assessment Engine",
+      url: "#",
+      github: "#",
+      award: "Semifinalist PLN SustainAction 2026",
+      tags: ["AI", "ESG", "NLP"],
+      stack: ["IndoBERT", "Claude 3.5 Sonnet", "Supabase pgvector", "Pasal.id API", "HMAC-SHA256"],
+      problem: "Audit kepatuhan regulasi lingkungan, sosial, dan tata kelola (ESG) konvensional memakan waktu berminggu-minggu, biaya tinggi, serta rentan praktik greenwashing.",
+      solution: "Mengarsiteki pipeline asesmen Generative AI hibrida menggabungkan fine-tuned IndoBERT embeddings dan Claude 3.5 Sonnet untuk pemetaan kepatuhan otomatis. Menggunakan Agentic retrieval berbasis Supabase pgvector dan integrasi API hukum semantik (Pasal.id), dilengkapi cryptographic HMAC-SHA256 audit logging.",
+      impact: "Mencapai turnaround asesmen <24 jam, memotong biaya audit lama sebesar 85%, dan memastikan zero data leakage.",
+      icon: Rocket
+    },
+    {
+      title: "OzikNTN",
+      subtitle: "Cold-Chain Supply Chain Platform for 3T Regions",
+      url: "#",
+      github: "#",
+      award: "Top 11 Finalist ZTE X ITB Competition",
+      tags: ["Supply Chain", "IoT"],
+      stack: ["Cold-Chain IoT", "Telemetri", "Non-Terrestrial Network", "Data Integrity"],
+      problem: "Distribusi logistik rantai dingin (cold chain) di daerah 3T (Terdepan, Terluar, Tertinggal) rawan rusak akibat kehilangan sinyal dan pemantauan suhu yang terputus.",
+      solution: "Arsitektur pemantauan telemetri rantai dingin terintegrasi dengan kapabilitas satelit dan non-terrestrial network (NTN) untuk audit jejak suhu kargo berkelanjutan.",
+      impact: "Terpilih sebagai Top 11 Finalist pada ajang bergengsi nasional ZTE X ITB Hackathon.",
+      icon: Shield
+    }
+  ];
 
-    const filteredProjects = filter === "All" ? projects : projects.filter(p => p.tags.includes(filter));
+  const categories = ["All", "AI", "Supply Chain", "Security", "Fintech", "ESG"];
+  const filteredProjects = filter === "All" ? projects : projects.filter(p => p.tags.includes(filter));
 
-    return (
-        <div className="section-dark section-padding min-h-screen">
-            <div className="container-custom space-y-12">
-                <div className="space-y-4">
-                    <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">Project Gallery</h1>
-                    <p className="text-muted-foreground text-lg max-w-2xl">
-                        A curated selection of systems emphasizing AI workflows and highly secure digital architectures.
-                    </p>
-                </div>
-
-                <div className="flex flex-wrap gap-3 items-center">
-                    <Filter className="w-5 h-5 text-muted-foreground mr-2" />
-                    {["All", "AI", "Security", "Backend", "Frontend"].map(f => (
-                        <button
-                            key={f}
-                            onClick={() => setFilter(f)}
-                            className={`px-4 py-2 rounded-full text-xs font-medium transition-colors border ${filter === f ? "bg-foreground text-background border-foreground" : "bg-transparent text-muted-foreground border-border/50 hover:border-foreground/50 hover:text-foreground"}`}
-                        >
-                            {f}
-                        </button>
-                    ))}
-                </div>
-
-                <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
-                    {filteredProjects.map((project, idx) => {
-                        const Icon = project.icon;
-                        return (
-                            <div key={idx} className="bg-card border border-border/60 rounded-xl p-8 hover:border-border transition-colors flex flex-col h-full">
-                                <div className="flex justify-between items-start mb-6">
-                                    <div className="flex gap-4 items-start">
-                                        <div className="p-3 bg-secondary/50 rounded-lg border border-border/50">
-                                            <Icon className="w-6 h-6 text-foreground" />
-                                        </div>
-                                        <div>
-                                            <h3 className="text-2xl font-bold tracking-tight mb-1">{project.title}</h3>
-                                            <p className="text-sm font-medium text-muted-foreground">{project.subtitle}</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex gap-2">
-                                        {project.github !== "#" && (
-                                            <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2 bg-secondary/50 rounded-full hover:bg-foreground hover:text-background transition-colors">
-                                                <Github className="w-4 h-4" />
-                                            </a>
-                                        )}
-                                        {project.url !== "#" && (
-                                            <a href={project.url} target="_blank" rel="noopener noreferrer" className="p-2 bg-secondary/50 rounded-full hover:bg-foreground hover:text-background transition-colors">
-                                                <ExternalLink className="w-4 h-4" />
-                                            </a>
-                                        )}
-                                    </div>
-                                </div>
-
-                                <div className="space-y-6 flex-1">
-                                    <div>
-                                        <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider block mb-1">Problem</span>
-                                        <p className="text-sm text-foreground/80 leading-relaxed">{project.problem}</p>
-                                    </div>
-                                    <div>
-                                        <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider block mb-1">Solution</span>
-                                        <p className="text-sm text-foreground/90 font-medium leading-relaxed">{project.solution}</p>
-                                    </div>
-                                    <div className="pl-4 border-l-2 border-border/50 py-1">
-                                        <span className="text-xs font-bold text-foreground uppercase tracking-wider block mb-1">Impact</span>
-                                        <p className="text-sm text-muted-foreground leading-relaxed">{project.impact}</p>
-                                    </div>
-                                </div>
-
-                                <div className="flex flex-wrap gap-2 mt-8 pt-4 border-t border-border/30">
-                                    {project.stack.map(tag => (
-                                        <span key={tag} className="tag">{tag}</span>
-                                    ))}
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
+  return (
+    <div className="min-h-screen bg-white text-zinc-950 pb-20">
+      {/* Header */}
+      <section className="bg-zinc-50/70 border-b border-zinc-200/80 py-12 px-6">
+        <div className="container-custom max-w-5xl">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-900 text-white rounded-full text-xs font-semibold">
+                <FileText className="w-3.5 h-3.5" />
+                <span>Portofolio Resmi Sesuai CV</span>
+              </div>
+              <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-zinc-950">
+                Proyek & Rekayasa Sistem
+              </h1>
+              <p className="text-sm md:text-base text-zinc-600 max-w-2xl font-medium">
+                Koleksi sistem kecerdasan buatan (AI), pipeline kepatuhan regulasi, dan optimasi operasional rantai pasok yang tercantum pada dokumen CV.
+              </p>
             </div>
+
+            <div className="flex items-center gap-3 shrink-0">
+              <Link
+                to="/cv"
+                className="px-4 py-2.5 bg-zinc-950 text-white rounded-lg text-sm font-semibold hover:bg-zinc-800 transition-colors flex items-center gap-2 shadow-sm"
+              >
+                <FileText className="w-4 h-4" />
+                <span>Lihat Dokumen CV</span>
+              </Link>
+              <a
+                href={pdfUrl}
+                download="OKI_TARUNA_RAMADHAN_Resume.pdf"
+                className="px-4 py-2.5 bg-white border border-zinc-300 text-zinc-900 rounded-lg text-sm font-semibold hover:bg-zinc-100 transition-colors flex items-center gap-2"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download PDF</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Filters */}
+          <div className="flex flex-wrap items-center gap-2 pt-8">
+            <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider mr-2 flex items-center gap-1.5">
+              <Filter className="w-3.5 h-3.5" /> Kategori:
+            </span>
+            {categories.map(f => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all border ${
+                  filter === f
+                    ? "bg-zinc-950 text-white border-zinc-950 shadow-sm"
+                    : "bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400 hover:text-zinc-950"
+                }`}
+              >
+                {f}
+              </button>
+            ))}
+          </div>
         </div>
-    );
+      </section>
+
+      {/* Projects Grid */}
+      <section className="container-custom max-w-5xl px-6 pt-12">
+        <div className="grid md:grid-cols-1 gap-8">
+          {filteredProjects.map((project, idx) => {
+            const Icon = project.icon;
+            return (
+              <div
+                key={idx}
+                className="bg-white border border-zinc-200/90 rounded-2xl p-7 md:p-10 hover:border-zinc-400 hover:shadow-[0_8px_30px_rgba(0,0,0,0.05)] transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 bg-zinc-100 rounded-xl border border-zinc-200/80 text-zinc-950 shrink-0">
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                          <h2 className="text-2xl font-extrabold tracking-tight text-zinc-950">{project.title}</h2>
+                          {project.award && (
+                            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-zinc-100 text-zinc-900 border border-zinc-200">
+                              <Award className="w-3 h-3 text-zinc-900" />
+                              {project.award}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-sm font-semibold text-zinc-600">{project.subtitle}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 self-start">
+                      {project.url !== "#" && (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-3 py-1.5 bg-zinc-900 text-white rounded-lg text-xs font-semibold hover:bg-zinc-800 transition-colors flex items-center gap-1.5 shadow-2xs"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5" />
+                          <span>Kunjungi Live</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-6 pt-4 border-t border-zinc-100">
+                    <div className="space-y-1.5">
+                      <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block">Tantangan / Problem</span>
+                      <p className="text-sm text-zinc-700 leading-relaxed font-normal">{project.problem}</p>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block">Solusi Arsitektur</span>
+                      <p className="text-sm text-zinc-800 leading-relaxed font-normal">{project.solution}</p>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block">Dampak & Pencapaian</span>
+                      <p className="text-sm text-zinc-900 leading-relaxed font-medium bg-zinc-50 p-3 rounded-lg border border-zinc-200/70">
+                        {project.impact}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-2 mt-6 pt-4 border-t border-zinc-100">
+                  {project.stack.map(tag => (
+                    <span key={tag} className="tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default Projects;
