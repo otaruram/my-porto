@@ -27,10 +27,10 @@ const About = () => {
           </p>
 
           {/* Action Links */}
-          <div className="flex flex-wrap items-center gap-3 pt-4">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-4">
             <Link
               to="/cv"
-              className="px-6 py-3 bg-zinc-950 text-white rounded-xl font-semibold hover:bg-zinc-800 transition-all text-sm flex items-center gap-2 shadow-sm"
+              className="w-full sm:w-auto px-5 sm:px-6 py-3 bg-zinc-950 text-white rounded-xl font-semibold hover:bg-zinc-800 transition-all text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm"
             >
               <FileText className="w-4 h-4" />
               <span>Review Full CV Document</span>
@@ -39,7 +39,7 @@ const About = () => {
             <a
               href={pdfUrl}
               download="OKI_TARUNA_RAMADHAN_Resume.pdf"
-              className="px-5 py-3 bg-white border border-zinc-300 text-zinc-900 rounded-xl font-semibold hover:bg-zinc-50 transition-all text-sm flex items-center gap-2"
+              className="flex-1 sm:flex-initial px-4 sm:px-5 py-3 bg-white border border-zinc-300 text-zinc-900 rounded-xl font-semibold hover:bg-zinc-50 transition-all text-xs sm:text-sm flex items-center justify-center gap-2"
             >
               <Download className="w-4 h-4" />
               <span>Download PDF (94.5 KB)</span>
@@ -47,7 +47,7 @@ const About = () => {
 
             <a
               href="mailto:okitarunaramadhan@gmail.com"
-              className="px-5 py-3 bg-zinc-100 text-zinc-800 rounded-xl font-semibold hover:bg-zinc-200 transition-all text-sm flex items-center gap-2"
+              className="flex-1 sm:flex-initial px-4 sm:px-5 py-3 bg-zinc-100 text-zinc-800 rounded-xl font-semibold hover:bg-zinc-200 transition-all text-xs sm:text-sm flex items-center justify-center gap-2"
             >
               <Mail className="w-4 h-4" />
               <span>Send Email</span>
@@ -55,13 +55,13 @@ const About = () => {
           </div>
 
           {/* Contact Strip */}
-          <div className="flex flex-wrap items-center gap-y-2 gap-x-6 pt-4 text-xs font-medium text-zinc-600 border-t border-zinc-100">
+          <div className="flex flex-wrap items-center gap-y-2 gap-x-4 sm:gap-x-6 pt-4 text-xs font-medium text-zinc-600 border-t border-zinc-100">
             <span className="flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-zinc-950" />
+              <MapPin className="w-3.5 h-3.5 text-zinc-950 shrink-0" />
               <span>Bandung, Indonesia</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <Phone className="w-3.5 h-3.5 text-zinc-950" />
+              <Phone className="w-3.5 h-3.5 text-zinc-950 shrink-0" />
               <span>085797968246</span>
             </span>
             <a
@@ -70,7 +70,7 @@ const About = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-zinc-950 hover:underline"
             >
-              <Linkedin className="w-3.5 h-3.5 text-zinc-950" />
+              <Linkedin className="w-3.5 h-3.5 text-zinc-950 shrink-0" />
               <span>linkedin.com/in/otaruram</span>
             </a>
             <a
@@ -79,7 +79,7 @@ const About = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 hover:text-zinc-950 hover:underline"
             >
-              <Github className="w-3.5 h-3.5 text-zinc-950" />
+              <Github className="w-3.5 h-3.5 text-zinc-950 shrink-0" />
               <span>github.com/otaruram</span>
             </a>
           </div>
@@ -88,16 +88,16 @@ const About = () => {
 
       {/* Experience Timeline Section */}
       <section className="section-padding bg-zinc-50/60 border-b border-zinc-200/80">
-        <div className="container-custom max-w-4xl space-y-10">
+        <div className="container-custom max-w-4xl space-y-8 sm:space-y-10">
           <div className="space-y-2">
             <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-950">Professional Track Record</h2>
             <p className="text-sm text-zinc-600">Chronologically organized based on the official CV document.</p>
           </div>
 
-          <div className="space-y-8 pl-6 border-l-2 border-zinc-300">
+          <div className="space-y-8 pl-5 sm:pl-6 border-l-2 border-zinc-300">
             {/* Dicoding */}
             <div className="relative">
-              <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-950 ring-4 ring-white"></div>
+              <div className="absolute -left-[27px] sm:-left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-950 ring-4 ring-white"></div>
               <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider block mb-1">05/2026 – 10/2026 • BANDUNG</span>
               <h3 className="text-lg font-bold text-zinc-950">AI & Technical Mentor</h3>
               <p className="text-sm font-semibold text-zinc-700 mb-2">Dicoding Indonesia</p>

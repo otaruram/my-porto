@@ -33,10 +33,10 @@ const Home = () => {
           </p>
 
           {/* Hero CTAs */}
-          <div className="flex flex-col sm:flex-row gap-3.5 justify-center items-center pt-4">
+          <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3.5 justify-center items-stretch sm:items-center pt-4 max-w-xl mx-auto">
             <Link
               to="/cv"
-              className="w-full sm:w-auto px-7 py-3.5 bg-zinc-950 text-white rounded-xl font-semibold hover:bg-zinc-800 transition-all text-sm tracking-wide flex items-center justify-center gap-2 shadow-sm"
+              className="w-full sm:w-auto px-6 sm:px-7 py-3.5 bg-zinc-950 text-white rounded-xl font-semibold hover:bg-zinc-800 transition-all text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 shadow-sm"
             >
               <FileText className="w-4 h-4" />
               <span>Review Curriculum Vitae</span>
@@ -45,7 +45,7 @@ const Home = () => {
             <a
               href={pdfUrl}
               download="OKI_TARUNA_RAMADHAN_Resume.pdf"
-              className="w-full sm:w-auto px-6 py-3.5 bg-white border border-zinc-300 text-zinc-900 rounded-xl font-semibold hover:bg-zinc-50 hover:border-zinc-400 transition-all text-sm tracking-wide flex items-center justify-center gap-2 shadow-2xs"
+              className="w-full sm:w-auto px-5 sm:px-6 py-3.5 bg-white border border-zinc-300 text-zinc-900 rounded-xl font-semibold hover:bg-zinc-50 hover:border-zinc-400 transition-all text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 shadow-2xs"
             >
               <Download className="w-4 h-4" />
               <span>Download PDF CV</span>
@@ -53,7 +53,7 @@ const Home = () => {
 
             <a
               href="mailto:okitarunaramadhan@gmail.com"
-              className="w-full sm:w-auto px-6 py-3.5 bg-zinc-100 text-zinc-800 rounded-xl font-semibold hover:bg-zinc-200 transition-all text-sm tracking-wide flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-5 sm:px-6 py-3.5 bg-zinc-100 text-zinc-800 rounded-xl font-semibold hover:bg-zinc-200 transition-all text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2"
             >
               <Mail className="w-4 h-4" />
               <span>Contact Me</span>
@@ -61,22 +61,22 @@ const Home = () => {
           </div>
 
           {/* Quick Metrics Bar */}
-          <div className="pt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto text-left">
-            <div className="p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
-              <span className="text-2xl font-black text-zinc-950 block">7+ Yrs</span>
-              <span className="text-xs text-zinc-600 font-medium">Operations at PT Dirgantara</span>
+          <div className="pt-8 sm:pt-10 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 max-w-3xl mx-auto text-left">
+            <div className="p-3.5 sm:p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
+              <span className="text-xl sm:text-2xl font-black text-zinc-950 block">7+ Yrs</span>
+              <span className="text-[11px] sm:text-xs text-zinc-600 font-medium">Operations at PT Dirgantara</span>
             </div>
-            <div className="p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
-              <span className="text-2xl font-black text-zinc-950 block">30+</span>
-              <span className="text-xs text-zinc-600 font-medium">Mentees at Dicoding Indonesia</span>
+            <div className="p-3.5 sm:p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
+              <span className="text-xl sm:text-2xl font-black text-zinc-950 block">30+</span>
+              <span className="text-[11px] sm:text-xs text-zinc-600 font-medium">Mentees at Dicoding Indonesia</span>
             </div>
-            <div className="p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
-              <span className="text-2xl font-black text-zinc-950 block">Top 15</span>
-              <span className="text-xs text-zinc-600 font-medium">BNI Spark Hackathon 2026</span>
+            <div className="p-3.5 sm:p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
+              <span className="text-xl sm:text-2xl font-black text-zinc-950 block">Top 15</span>
+              <span className="text-[11px] sm:text-xs text-zinc-600 font-medium">BNI Spark Hackathon 2026</span>
             </div>
-            <div className="p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
-              <span className="text-2xl font-black text-zinc-950 block">5+</span>
-              <span className="text-xs text-zinc-600 font-medium">National Honors & Awards</span>
+            <div className="p-3.5 sm:p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
+              <span className="text-xl sm:text-2xl font-black text-zinc-950 block">5+</span>
+              <span className="text-[11px] sm:text-xs text-zinc-600 font-medium">National Honors & Awards</span>
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@ const Home = () => {
       {/* CV Callout Spotlight Section */}
       <section className="section-light section-padding">
         <div className="container-custom max-w-5xl">
-          <div className="bg-white border-2 border-zinc-900/10 rounded-2xl p-8 md:p-12 shadow-[0_8px_30px_rgba(0,0,0,0.04)] relative overflow-hidden">
+          <div className="bg-white border-2 border-zinc-900/10 rounded-2xl p-5 sm:p-8 md:p-12 shadow-[0_8px_30px_rgba(0,0,0,0.04)] relative overflow-hidden">
             <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
               <div className="space-y-4 max-w-2xl">
                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-100 rounded-full text-zinc-900 text-xs font-bold uppercase tracking-wider">
@@ -452,7 +452,7 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap justify-center md:justify-end items-center gap-2.5 sm:gap-3">
               <Link
                 to="/cv"
                 className="px-4 py-2 bg-zinc-950 text-white rounded-lg text-xs font-semibold hover:bg-zinc-800 transition-colors flex items-center gap-1.5"

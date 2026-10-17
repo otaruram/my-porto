@@ -67,7 +67,7 @@ const Projects = () => {
   return (
     <div className="min-h-screen bg-white text-zinc-950 pb-20">
       {/* Header */}
-      <section className="bg-zinc-50/70 border-b border-zinc-200/80 py-12 px-6">
+      <section className="bg-zinc-50/70 border-b border-zinc-200/80 py-8 sm:py-12 px-4 sm:px-6">
         <div className="container-custom max-w-5xl">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-3">
@@ -75,7 +75,7 @@ const Projects = () => {
                 <FileText className="w-3.5 h-3.5" />
                 <span>Official Portfolio from CV</span>
               </div>
-              <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-zinc-950">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-zinc-950">
                 Projects & Systems Engineering
               </h1>
               <p className="text-sm md:text-base text-zinc-600 max-w-2xl font-medium">
@@ -83,10 +83,10 @@ const Projects = () => {
               </p>
             </div>
 
-            <div className="flex items-center gap-3 shrink-0">
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 shrink-0">
               <Link
                 to="/cv"
-                className="px-4 py-2.5 bg-zinc-950 text-white rounded-lg text-sm font-semibold hover:bg-zinc-800 transition-colors flex items-center gap-2 shadow-sm"
+                className="px-3.5 sm:px-4 py-2.5 bg-zinc-950 text-white rounded-lg text-xs sm:text-sm font-semibold hover:bg-zinc-800 transition-colors flex items-center gap-2 shadow-sm"
               >
                 <FileText className="w-4 h-4" />
                 <span>Review CV Document</span>
@@ -94,7 +94,7 @@ const Projects = () => {
               <a
                 href={pdfUrl}
                 download="OKI_TARUNA_RAMADHAN_Resume.pdf"
-                className="px-4 py-2.5 bg-white border border-zinc-300 text-zinc-900 rounded-lg text-sm font-semibold hover:bg-zinc-100 transition-colors flex items-center gap-2"
+                className="px-3.5 sm:px-4 py-2.5 bg-white border border-zinc-300 text-zinc-900 rounded-lg text-xs sm:text-sm font-semibold hover:bg-zinc-100 transition-colors flex items-center gap-2"
               >
                 <Download className="w-4 h-4" />
                 <span>Download PDF</span>
@@ -103,15 +103,15 @@ const Projects = () => {
           </div>
 
           {/* Filters */}
-          <div className="flex flex-wrap items-center gap-2 pt-8">
-            <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider mr-2 flex items-center gap-1.5">
+          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-6 sm:pt-8">
+            <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider mr-1 sm:mr-2 flex items-center gap-1.5">
               <Filter className="w-3.5 h-3.5" /> Category:
             </span>
             {categories.map(f => (
               <button
                 key={f}
                 onClick={() => setFilter(f)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all border ${
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all border ${
                   filter === f
                     ? "bg-zinc-950 text-white border-zinc-950 shadow-sm"
                     : "bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400 hover:text-zinc-950"
@@ -125,14 +125,14 @@ const Projects = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="container-custom max-w-5xl px-6 pt-12">
-        <div className="grid md:grid-cols-1 gap-8">
+      <section className="container-custom max-w-5xl px-3.5 sm:px-6 pt-8 sm:pt-12">
+        <div className="grid md:grid-cols-1 gap-6 sm:gap-8">
           {filteredProjects.map((project, idx) => {
             const Icon = project.icon;
             return (
               <div
                 key={idx}
-                className="bg-white border border-zinc-200/90 rounded-2xl p-7 md:p-10 hover:border-zinc-400 hover:shadow-[0_8px_30px_rgba(0,0,0,0.05)] transition-all flex flex-col justify-between"
+                className="bg-white border border-zinc-200/90 rounded-2xl p-5 sm:p-7 md:p-10 hover:border-zinc-400 hover:shadow-[0_8px_30px_rgba(0,0,0,0.05)] transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">

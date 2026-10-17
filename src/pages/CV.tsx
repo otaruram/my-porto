@@ -20,7 +20,7 @@ export default function CV() {
   return (
     <div className="min-h-screen bg-white text-zinc-950 pb-20">
       {/* Top Banner / Actions Bar */}
-      <section className="border-b border-zinc-200/80 bg-zinc-50/60 py-10 px-6">
+      <section className="border-b border-zinc-200/80 bg-zinc-50/60 py-8 sm:py-10 px-4 sm:px-6">
         <div className="container-custom max-w-5xl">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="space-y-2">
@@ -28,7 +28,7 @@ export default function CV() {
                 <FileText className="w-3.5 h-3.5" />
                 <span>Official & Verified Document</span>
               </div>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-zinc-950 tracking-tight">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-zinc-950 tracking-tight">
                 Curriculum Vitae (CV)
               </h1>
               <p className="text-sm md:text-base text-zinc-600 font-medium">
@@ -37,11 +37,11 @@ export default function CV() {
             </div>
 
             {/* Quick Actions */}
-            <div className="flex flex-wrap items-center gap-2.5">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
               <a
                 href={pdfUrl}
                 download="OKI_TARUNA_RAMADHAN_Resume.pdf"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-zinc-950 text-white text-sm font-semibold rounded-lg hover:bg-zinc-800 transition-all shadow-sm"
+                className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-zinc-950 text-white text-xs sm:text-sm font-semibold rounded-lg hover:bg-zinc-800 transition-all shadow-sm w-full sm:w-auto"
               >
                 <Download className="w-4 h-4" />
                 <span>Download Official PDF</span>
@@ -51,28 +51,28 @@ export default function CV() {
                 href={pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-white text-zinc-900 text-sm font-semibold rounded-lg border border-zinc-300 hover:bg-zinc-100 transition-all shadow-xs"
+                className="inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2.5 bg-white text-zinc-900 text-xs sm:text-sm font-semibold rounded-lg border border-zinc-300 hover:bg-zinc-100 transition-all shadow-xs flex-1 sm:flex-initial"
               >
                 <ExternalLink className="w-4 h-4" />
-                <span>Open in New Tab</span>
+                <span>Open in Tab</span>
               </a>
 
               <button
                 onClick={handlePrint}
-                className="inline-flex items-center gap-2 px-4 py-2.5 bg-white text-zinc-700 text-sm font-semibold rounded-lg border border-zinc-300 hover:bg-zinc-100 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2.5 bg-white text-zinc-700 text-xs sm:text-sm font-semibold rounded-lg border border-zinc-300 hover:bg-zinc-100 transition-all flex-1 sm:flex-initial"
                 title="Print CV"
               >
                 <Printer className="w-4 h-4" />
-                <span className="hidden sm:inline">Print</span>
+                <span>Print</span>
               </button>
             </div>
           </div>
 
-          {/* Tab Selector */}
-          <div className="flex gap-2 mt-8 border-b border-zinc-200">
+          {/* Tab Selector with horizontal scrollbar hide for mobile */}
+          <div className="flex gap-2 mt-6 sm:mt-8 border-b border-zinc-200 overflow-x-auto hide-scrollbar">
             <button
               onClick={() => setActiveTab("digital")}
-              className={`pb-3 px-4 text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
+              className={`pb-3 px-3 sm:px-4 text-xs sm:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 whitespace-nowrap shrink-0 ${
                 activeTab === "digital"
                   ? "border-zinc-950 text-zinc-950"
                   : "border-transparent text-zinc-500 hover:text-zinc-900"
@@ -83,7 +83,7 @@ export default function CV() {
             </button>
             <button
               onClick={() => setActiveTab("pdf")}
-              className={`pb-3 px-4 text-sm font-semibold border-b-2 transition-all flex items-center gap-2 ${
+              className={`pb-3 px-3 sm:px-4 text-xs sm:text-sm font-semibold border-b-2 transition-all flex items-center gap-2 whitespace-nowrap shrink-0 ${
                 activeTab === "pdf"
                   ? "border-zinc-950 text-zinc-950"
                   : "border-transparent text-zinc-500 hover:text-zinc-900"
@@ -97,32 +97,32 @@ export default function CV() {
       </section>
 
       {/* Main Content Area */}
-      <div className="container-custom max-w-5xl px-6 pt-10">
+      <div className="container-custom max-w-5xl px-3.5 sm:px-6 pt-6 sm:pt-10">
         {activeTab === "pdf" ? (
           /* PDF Viewer Tab */
           <div className="space-y-4">
-            <div className="bg-zinc-50 p-4 rounded-xl border border-zinc-200 flex flex-col sm:flex-row justify-between items-center gap-3">
-              <span className="text-xs text-zinc-600 font-medium">
+            <div className="bg-zinc-50 p-3.5 sm:p-4 rounded-xl border border-zinc-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+              <span className="text-xs text-zinc-600 font-medium break-all">
                 Displaying file: <code className="text-zinc-900 font-bold">OKI_TARUNA_RAMADHAN_FlowCV_Resume_2026-10-17-1.pdf</code>
               </span>
               <a
                 href={pdfUrl}
                 download
-                className="text-xs font-semibold text-zinc-900 hover:underline flex items-center gap-1"
+                className="text-xs font-semibold text-zinc-900 hover:underline flex items-center gap-1 shrink-0"
               >
-                <Download className="w-3.5 h-3.5" /> Download original file if preview is unavailable
+                <Download className="w-3.5 h-3.5" /> Download original file
               </a>
             </div>
 
-            <div className="w-full bg-zinc-100 rounded-2xl overflow-hidden border border-zinc-200/90 shadow-sm min-h-[850px] relative">
+            <div className="w-full bg-zinc-100 rounded-2xl overflow-hidden border border-zinc-200/90 shadow-sm min-h-[500px] md:min-h-[850px] relative">
               <object
                 data={pdfUrl}
                 type="application/pdf"
-                className="w-full h-[900px] block"
+                className="w-full h-[70vh] md:h-[900px] block"
               >
-                <div className="p-12 text-center space-y-4 flex flex-col items-center justify-center h-[500px]">
+                <div className="p-8 sm:p-12 text-center space-y-4 flex flex-col items-center justify-center h-[400px]">
                   <FileText className="w-12 h-12 text-zinc-400" />
-                  <p className="text-zinc-700 font-semibold">PDF preview is not supported in this browser.</p>
+                  <p className="text-zinc-700 font-semibold text-sm">PDF preview is best viewed natively on mobile devices.</p>
                   <a
                     href={pdfUrl}
                     download
@@ -136,39 +136,39 @@ export default function CV() {
           </div>
         ) : (
           /* Interactive Digital CV Sheet */
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {/* Sheet Container replicating CV layout in crisp editorial style */}
-            <div className="bg-white border border-zinc-200/90 rounded-2xl p-8 md:p-14 shadow-[0_4px_30px_rgba(0,0,0,0.04)] space-y-10">
+            <div className="bg-white border border-zinc-200/90 rounded-2xl p-4 sm:p-8 md:p-14 shadow-[0_4px_30px_rgba(0,0,0,0.04)] space-y-8 sm:space-y-10">
               
               {/* Header */}
               <div className="border-b border-zinc-200 pb-8 space-y-4">
                 <div className="space-y-1.5">
-                  <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-950">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-950">
                     OKI TARUNA RAMADHAN
                   </h1>
-                  <p className="text-lg md:text-xl font-semibold text-zinc-700">
+                  <p className="text-base sm:text-lg md:text-xl font-semibold text-zinc-700">
                     Supply Chain Operation & IT Specialist
                   </p>
                 </div>
 
                 {/* Contact Meta */}
-                <div className="flex flex-wrap items-center gap-y-2 gap-x-6 text-xs md:text-sm text-zinc-600 font-medium">
+                <div className="flex flex-wrap items-center gap-y-2 gap-x-3.5 sm:gap-x-6 text-xs sm:text-sm text-zinc-600 font-medium">
                   <a
                     href="mailto:okitarunaramadhan@gmail.com"
-                    className="flex items-center gap-1.5 hover:text-zinc-950 transition-colors"
+                    className="flex items-center gap-1.5 hover:text-zinc-950 transition-colors break-all"
                   >
-                    <Mail className="w-4 h-4 text-zinc-900" />
+                    <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-zinc-900 shrink-0" />
                     <span>okitarunaramadhan@gmail.com</span>
                   </a>
                   <a
                     href="tel:085797968246"
                     className="flex items-center gap-1.5 hover:text-zinc-950 transition-colors"
                   >
-                    <Phone className="w-4 h-4 text-zinc-900" />
+                    <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-zinc-900 shrink-0" />
                     <span>085797968246</span>
                   </a>
                   <span className="flex items-center gap-1.5">
-                    <MapPin className="w-4 h-4 text-zinc-900" />
+                    <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-zinc-900 shrink-0" />
                     <span>Bandung, Indonesia</span>
                   </span>
                   <a
@@ -177,7 +177,7 @@ export default function CV() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-1.5 hover:text-zinc-950 transition-colors"
                   >
-                    <Linkedin className="w-4 h-4 text-zinc-900" />
+                    <Linkedin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-zinc-900 shrink-0" />
                     <span>linkedin.com/in/otaruram</span>
                   </a>
                 </div>
