@@ -127,7 +127,7 @@ export default function About() {
               </p>
 
               <p>
-                This realization defined my engineering focus: <strong>grounding generative intelligence with operational discipline</strong>. Through production projects like Oziktag (Top 15 BNI Spark Hackathon), OtaruChain (BRIN Aidenation Finalist & Bank Indonesia Semifinalist), and OzikSustain (PLN SustainAction Semifinalist), I develop systems featuring deterministic verification gates, Human-in-the-Loop checkpoints, and cryptographic audit ledgers.
+                This realization defined my engineering focus: <strong>grounding generative intelligence with operational discipline</strong>. Through production projects like Oziktag (Top 15 BNI Spark Hackathon), OtaruChain (BRIN Aidenation Finalist & Bank Indonesia Semifinalist), and OzikSustain (Finalist DeveloperDay.id & Semifinalist PLN SustainAction), I develop systems featuring deterministic verification gates, Human-in-the-Loop checkpoints, and cryptographic audit ledgers.
               </p>
 
               <p>

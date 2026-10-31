@@ -435,6 +435,7 @@ export default function CV() {
 
               <div className="divide-y divide-border border border-border rounded bg-card overflow-hidden text-xs">
                 {[
+                  { rank: "Finalist", event: "DeveloperDay.id 2026", desc: "OzikSustain Project — AI-Powered ESG Compliance & Regulatory Assessment Engine" },
                   { rank: "Finalist", event: "BRIN Aidenation", desc: "OtaruChain Project — AI Document Intelligence & Risk Engine" },
                   { rank: "Semifinalist", event: "Bank Indonesia Innovation Competition", desc: "OtaruChain Project — Multimodal Document Intelligence & Transparent Credit Scoring API" },
                   { rank: "Top 15", event: "BNI Spark Hackathon 2026", desc: "Oziktag Project — Visual QC & Digital Supply Chain Platform" },

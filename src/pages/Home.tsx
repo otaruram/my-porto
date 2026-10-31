@@ -65,7 +65,7 @@ export default function Home() {
       id: "SYS-03",
       title: "OzikSustain",
       domain: "AI ESG Compliance & Legal Reasoning",
-      award: "Semifinalist PLN SustainAction 2026",
+      award: "Finalist DeveloperDay.id 2026 • Semifinalist PLN SustainAction",
       url: "#",
       stack: ["IndoBERT Embeddings", "Claude 3.5 Sonnet", "Supabase pgvector", "Pasal.id Legal API", "HMAC-SHA256"],
       problem: "Enterprise ESG compliance assessments require hundreds of manual hours, are prone to greenwashing, and cost tens of thousands of dollars per audit cycle.",
@@ -111,6 +111,12 @@ export default function Home() {
   ];
 
   const competitionHonors = [
+    {
+      rank: "National Finalist",
+      competition: "DeveloperDay.id 2026",
+      project: "OzikSustain Project",
+      focus: "AI-Powered ESG Compliance & Regulatory Assessment Engine",
+    },
     {
       rank: "Top 15 Finalist",
       competition: "BNI Spark Hackathon 2026",
@@ -260,10 +266,10 @@ export default function Home() {
                 [NATIONAL RECOGNITION]
               </span>
               <span className="font-serif text-3xl sm:text-4xl font-normal text-foreground block mt-1">
-                5 Honors
+                6 Honors
               </span>
               <span className="text-xs text-muted-foreground mt-0.5 block">
-                BRIN Aidenation, Bank Indonesia, BNI, ZTE × ITB, PLN
+                DeveloperDay.id, BRIN, Bank Indonesia, BNI, ZTE × ITB, PLN
               </span>
             </div>
           </div>
