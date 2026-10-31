@@ -1,206 +1,290 @@
-import { ExternalLink, Github, Filter, Shield, Code2, Rocket, FileText, Download, Award, CheckCircle2 } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { 
+  ExternalLink, 
+  Download, 
+  FileText, 
+  ShieldCheck, 
+  Code2, 
+  Rocket, 
+  Terminal, 
+  Database, 
+  Cpu, 
+  Award, 
+  ArrowRight, 
+  CheckCircle2,
+  Filter
+} from "lucide-react";
 
-const Projects = () => {
-  const [filter, setFilter] = useState("All");
+export default function Projects() {
+  const [activeFilter, setActiveFilter] = useState("All");
   const pdfUrl = "/cv/OKI_TARUNA_RAMADHAN_FlowCV_Resume_2026-10-17-1.pdf";
+
+  const categories = [
+    "All",
+    "Agentic AI",
+    "Supply Chain Logistics",
+    "Fintech & Security",
+    "ESG & Compliance",
+  ];
 
   const projects = [
     {
+      id: "SYS-01",
       title: "Oziktag",
       subtitle: "Supply Chain Visual QC & Digital Trust Platform",
-      url: "https://www.oziktag.my.id",
-      github: "#",
+      category: "Supply Chain Logistics",
+      tags: ["Agentic AI", "Supply Chain Logistics"],
       award: "Top 15 Finalist at BNI Spark Hackathon 2026",
-      tags: ["AI", "Supply Chain", "Agentic AI"],
-      stack: ["Multimodal RAG", "Computer Vision", "Agentic Loop", "Escrow APIs", "FastAPI"],
-      problem: "Supply chain operators and MSMEs frequently suffer from package damage transit disputes due to the lack of real-time verified visual inspection proof.",
-      solution: "Architected an AI visual inspection system integrating Multimodal RAG and Computer Vision to automate package damage verification. Built an automated Agentic decision loop analyzing real-time condition snapshots and triggering dynamic escrow releases via API integrations.",
-      impact: "Eliminated transit dispute claims by up to 95% and recognized as Top 15 Finalist at BNI Spark Hackathon 2026.",
-      icon: Shield
+      liveUrl: "https://www.oziktag.my.id",
+      githubUrl: "#",
+      stack: ["Multimodal RAG", "Computer Vision", "Agentic Escrow Loop", "FastAPI", "Digital Trust Seals"],
+      problem: "E-commerce & supply chain logistics operators suffer frequent transit disputes and costly chargebacks due to the absence of verified visual inspection proof during transit handoffs.",
+      solution: "Designed an AI visual verification system integrating Multimodal RAG with Computer Vision to automate package damage inspection and eliminate transit dispute claims by up to 95%. Built an automated Agentic decision loop analyzing package condition snapshots in real time, generating contextual quality summaries, and triggering dynamic escrow releases via banking API integrations.",
+      impact: "Eliminated transit dispute claims by up to 95%. Recognized as Top 15 Finalist at BNI Spark Hackathon 2026.",
+      architectureHighlights: [
+        "Real-time visual anomaly detection model evaluating package condition snapshots.",
+        "Agentic decision loop generating structured JSON summaries for automated escrow release.",
+        "Dynamic digital trust seals certifying cargo integrity for MSMEs.",
+      ],
     },
     {
+      id: "SYS-02",
       title: "OtaruChain",
       subtitle: "Multimodal Document Intelligence & Transparent Credit Scoring API",
-      url: "https://otaruchain.id",
-      github: "#",
-      award: "Finalist BRIN Aidenation 2026 & Semifinalist Bank Indonesia Innovation",
-      tags: ["AI", "Security", "Fintech"],
-      stack: ["Gemini 2.5 Flash", "Logistic Regression", "HITL", "PostgreSQL", "SHA-256", "UU PDP"],
-      problem: "Financial invoice validation and credit scoring processes are susceptible to visual fraud anomalies, counterfeit claims, and lack an immutable audit trail.",
-      solution: "Engineered an automated financial document extraction pipeline using Gemini 2.5 Flash to extract receipt text and detect visual fraud anomalies with real-time screening. Implemented an interpretable Adaptive Credit Scoring Engine powered by Logistic Regression and Human-in-the-Loop (HITL) validation, backed by Supa Ledger (PostgreSQL & SHA-256).",
+      category: "Fintech & Security",
+      tags: ["Agentic AI", "Fintech & Security"],
+      award: "Finalist BRIN Aidenation 2026 • Semifinalist Bank Indonesia Innovation",
+      liveUrl: "https://otaruchain.id",
+      githubUrl: "#",
+      stack: ["Gemini 2.5 Flash", "Logistic Regression", "Human-in-the-Loop", "PostgreSQL", "SHA-256", "UU PDP"],
+      problem: "Financial invoice validation and credit scoring processes are susceptible to visual fraud anomalies, counterfeit claims, and lack an immutable, tamper-evident audit trail.",
+      solution: "Engineered an automated financial document extraction pipeline using Gemini 2.5 Flash to extract tabular receipt data and detect visual fraud anomalies (mark-ups, counterfeit claims) with real-time screening. Implemented an interpretable Adaptive Credit Scoring Engine powered by Logistic Regression and Human-in-the-Loop (HITL) validation, outputting auditable Trust Grades for liquidity risk mitigation. Backed by Supa Ledger (PostgreSQL & SHA-256) and strict UU PDP compliance.",
       impact: "Delivers transparent, auditable Trust Grades for liquidity risk mitigation. Recognized as Finalist at BRIN Aidenation 2026 and Semifinalist at Bank Indonesia Innovation Competition.",
-      icon: Code2
+      architectureHighlights: [
+        "Gemini 2.5 Flash multimodal document OCR and visual tamper detection.",
+        "Transparent Logistic Regression credit scoring engine with human oversight (HITL).",
+        "Cryptographic audit ledger using PostgreSQL and SHA-256 hashing for tamper evidence.",
+        "Telegram Bot interface with Phone Whitelisting strictly compliant with Indonesia's UU PDP.",
+      ],
     },
     {
+      id: "SYS-03",
       title: "OzikSustain",
       subtitle: "AI-Powered ESG Compliance & Regulatory Assessment Engine",
-      url: "#",
-      github: "#",
+      category: "ESG & Compliance",
+      tags: ["Agentic AI", "ESG & Compliance"],
       award: "Semifinalist PLN SustainAction 2026",
-      tags: ["AI", "ESG", "NLP"],
-      stack: ["IndoBERT", "Claude 3.5 Sonnet", "Supabase pgvector", "Pasal.id API", "HMAC-SHA256"],
+      liveUrl: "#",
+      githubUrl: "#",
+      stack: ["IndoBERT Embeddings", "Claude 3.5 Sonnet", "Supabase pgvector", "Pasal.id Legal API", "HMAC-SHA256"],
       problem: "Conventional ESG regulatory compliance auditing is time-consuming, expensive, and prone to greenwashing practices across enterprise supply chains.",
-      solution: "Architected a hybrid Generative AI assessment pipeline combining fine-tuned IndoBERT embeddings and Claude 3.5 Sonnet for automated regulatory document mapping and multi-pillar ESG compliance scoring. Engineered an Agentic retrieval pipeline utilizing Supabase pgvector and semantic legal APIs (Pasal.id), coupled with cryptographic HMAC-SHA256 audit logging.",
+      solution: "Architected a hybrid Generative AI assessment pipeline combining fine-tuned IndoBERT embeddings and Claude 3.5 Sonnet for automated regulatory document mapping and multi-pillar ESG compliance scoring. Engineered an Agentic retrieval pipeline utilizing Supabase pgvector and semantic legal APIs (Pasal.id), achieving <24-hour turnaround and reducing legacy audit costs by 85%. Enforced cryptographic HMAC-SHA256 audit logging to guarantee zero data leakage.",
       impact: "Achieved <24-hour turnaround, reduced legacy audit costs by 85%, and guaranteed zero data leakage.",
-      icon: Rocket
+      architectureHighlights: [
+        "Fine-tuned IndoBERT embedding models aligned with Indonesian environmental and labor statutes.",
+        "High-density semantic retrieval via Supabase pgvector and Pasal.id legal knowledge base.",
+        "Cryptographic HMAC-SHA256 audit logging to prevent tampering and greenwashing claims.",
+        "Automated PII scrubbing ensuring zero leakage of proprietary enterprise procurement data.",
+      ],
     },
     {
+      id: "SYS-04",
       title: "OzikNTN",
-      subtitle: "Cold-Chain Supply Chain Platform for 3T Regions",
-      url: "#",
-      github: "#",
-      award: "Top 11 Finalist ZTE X ITB Competition",
-      tags: ["Supply Chain", "IoT"],
-      stack: ["Cold-Chain IoT", "Telemetry", "Non-Terrestrial Network", "Data Integrity"],
-      problem: "Cold-chain logistics distribution across 3T (Frontier, Outermost, Underdeveloped) regions suffers from temperature excursions due to frequent network deadzones.",
-      solution: "Designed cold-chain telemetry monitoring architecture integrated with non-terrestrial network (NTN) satellite communications for uninterrupted cargo tracking.",
-      impact: "Awarded Top 11 Finalist in the national ZTE X ITB Competition.",
-      icon: Shield
-    }
+      subtitle: "Cold-Chain Supply Chain IoT via Non-Terrestrial Networks",
+      category: "Supply Chain Logistics",
+      tags: ["Supply Chain Logistics"],
+      award: "Top 11 Finalist ZTE × ITB Competition",
+      liveUrl: "#",
+      githubUrl: "#",
+      stack: ["Cold-Chain IoT", "Telemetry", "Non-Terrestrial Network (NTN)", "Data Integrity"],
+      problem: "Cold-chain logistics distribution across 3T (Frontier, Outermost, Underdeveloped) regions suffers from temperature excursions and cargo spoilage due to frequent cellular network deadzones.",
+      solution: "Designed cold-chain telemetry monitoring architecture integrated with non-terrestrial network (NTN) satellite communications for uninterrupted cargo tracking and real-time spoilage alerts across remote maritime and regional routes.",
+      impact: "Awarded Top 11 Finalist in the national ZTE × ITB Innovation Competition.",
+      architectureHighlights: [
+        "Hybrid satellite and cellular telemetry handoff ensuring uninterrupted temperature auditing.",
+        "Low-power edge computation nodes logging sensor telemetry with cryptographic integrity.",
+        "Automated threshold alarms preventing biological and pharmaceutical cargo spoilage.",
+      ],
+    },
   ];
 
-  const categories = ["All", "AI", "Supply Chain", "Security", "Fintech", "ESG"];
-  const filteredProjects = filter === "All" ? projects : projects.filter(p => p.tags.includes(filter));
+  const filteredProjects =
+    activeFilter === "All"
+      ? projects
+      : projects.filter((p) => p.tags.includes(activeFilter));
 
   return (
-    <div className="min-h-screen bg-white text-zinc-950 pb-20">
-      {/* Header */}
-      <section className="bg-zinc-50/70 border-b border-zinc-200/80 py-8 sm:py-12 px-4 sm:px-6">
-        <div className="container-custom max-w-5xl">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-900 text-white rounded-full text-xs font-semibold">
-                <FileText className="w-3.5 h-3.5" />
-                <span>Official Portfolio from CV</span>
-              </div>
-              <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-zinc-950">
-                Projects & Systems Engineering
-              </h1>
-              <p className="text-sm md:text-base text-zinc-600 max-w-2xl font-medium">
-                A curated collection of artificial intelligence (AI) systems, regulatory compliance engines, and supply chain operations directly featured on the official CV.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 shrink-0">
-              <Link
-                to="/cv"
-                className="px-3.5 sm:px-4 py-2.5 bg-zinc-950 text-white rounded-lg text-xs sm:text-sm font-semibold hover:bg-zinc-800 transition-colors flex items-center gap-2 shadow-sm"
-              >
-                <FileText className="w-4 h-4" />
-                <span>Review CV Document</span>
-              </Link>
-              <a
-                href={pdfUrl}
-                download="OKI_TARUNA_RAMADHAN_Resume.pdf"
-                className="px-3.5 sm:px-4 py-2.5 bg-white border border-zinc-300 text-zinc-900 rounded-lg text-xs sm:text-sm font-semibold hover:bg-zinc-100 transition-colors flex items-center gap-2"
-              >
-                <Download className="w-4 h-4" />
-                <span>Download PDF</span>
-              </a>
-            </div>
+    <div className="w-full pb-24">
+      {/* HEADER SECTION */}
+      <section className="border-b border-border py-12 sm:py-16 bg-secondary/30 hallmark-grid-bg">
+        <div className="hallmark-container space-y-6">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="hallmark-seal font-mono">
+              OFFICIAL SYSTEM CATALOGUE
+            </span>
+            <span className="font-mono text-xs text-muted-foreground">
+              ALL BLUEPRINTS VERIFIED
+            </span>
           </div>
 
-          {/* Filters */}
-          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-6 sm:pt-8">
-            <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider mr-1 sm:mr-2 flex items-center gap-1.5">
-              <Filter className="w-3.5 h-3.5" /> Category:
-            </span>
-            {categories.map(f => (
-              <button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all border ${
-                  filter === f
-                    ? "bg-zinc-950 text-white border-zinc-950 shadow-sm"
-                    : "bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400 hover:text-zinc-950"
-                }`}
-              >
-                {f}
-              </button>
-            ))}
+          <div className="max-w-3xl space-y-3">
+            <h1 className="hallmark-hero-headline font-serif font-normal text-foreground">
+              Systems & Software Engineering
+            </h1>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Detailed architectural blueprints of production Generative AI pipelines, Multimodal RAG systems, and supply chain audit mechanisms developed by Oki Taruna Ramadhan.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 pt-2">
+            <Link
+              to="/cv"
+              className="px-4 py-2 rounded bg-primary text-primary-foreground font-mono text-xs font-semibold hover:opacity-90 transition-opacity flex items-center gap-2"
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span>Review CV Document</span>
+            </Link>
+
+            <a
+              href={pdfUrl}
+              download="OKI_TARUNA_RAMADHAN_Resume.pdf"
+              className="px-4 py-2 rounded border border-border bg-card text-foreground font-mono text-xs font-medium hover:bg-secondary transition-colors flex items-center gap-2"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Download Official PDF</span>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="container-custom max-w-5xl px-3.5 sm:px-6 pt-8 sm:pt-12">
-        <div className="grid md:grid-cols-1 gap-6 sm:gap-8">
-          {filteredProjects.map((project, idx) => {
-            const Icon = project.icon;
-            return (
-              <div
-                key={idx}
-                className="bg-white border border-zinc-200/90 rounded-2xl p-5 sm:p-7 md:p-10 hover:border-zinc-400 hover:shadow-[0_8px_30px_rgba(0,0,0,0.05)] transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 bg-zinc-100 rounded-xl border border-zinc-200/80 text-zinc-950 shrink-0">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <div className="flex flex-wrap items-center gap-2 mb-1">
-                          <h2 className="text-2xl font-extrabold tracking-tight text-zinc-950">{project.title}</h2>
-                          {project.award && (
-                            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md text-[11px] font-bold bg-zinc-100 text-zinc-900 border border-zinc-200">
-                              <Award className="w-3 h-3 text-zinc-900" />
-                              {project.award}
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-sm font-semibold text-zinc-600">{project.subtitle}</p>
-                      </div>
-                    </div>
+      {/* FILTER CONTROLS */}
+      <section className="border-b border-border bg-card sticky top-[65px] z-30 py-3 backdrop-blur-md">
+        <div className="hallmark-container flex items-center justify-between gap-4 overflow-x-auto">
+          <div className="flex items-center gap-1.5 shrink-0">
+            <span className="font-mono text-xs text-muted-foreground mr-1 hidden sm:inline">
+              Filter Domain:
+            </span>
+            {categories.map((cat) => {
+              const isSelected = activeFilter === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveFilter(cat)}
+                  className={`px-3 py-1.5 rounded text-xs font-mono transition-colors cursor-pointer whitespace-nowrap ${
+                    isSelected
+                      ? "bg-primary text-primary-foreground font-semibold shadow-2xs"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
 
-                    <div className="flex items-center gap-2 self-start">
-                      {project.url !== "#" && (
-                        <a
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="px-3 py-1.5 bg-zinc-900 text-white rounded-lg text-xs font-semibold hover:bg-zinc-800 transition-colors flex items-center gap-1.5 shadow-2xs"
-                        >
-                          <ExternalLink className="w-3.5 h-3.5" />
-                          <span>Visit Live</span>
-                        </a>
-                      )}
-                    </div>
+          <span className="font-mono text-xs text-muted-foreground hidden md:inline shrink-0">
+            Showing {filteredProjects.length} of {projects.length} Systems
+          </span>
+        </div>
+      </section>
+
+      {/* SYSTEMS LIST */}
+      <section className="py-12 sm:py-16">
+        <div className="hallmark-container space-y-10">
+          {filteredProjects.map((p) => (
+            <article
+              key={p.id}
+              className="hallmark-card space-y-6"
+            >
+              {/* Card Header */}
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-border/70 pb-5">
+                <div className="space-y-1.5">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="hallmark-tag font-mono font-bold text-primary">
+                      {p.id}
+                    </span>
+                    <span className="font-mono text-xs text-muted-foreground">
+                      {p.subtitle}
+                    </span>
+                    <span className="hallmark-seal text-[10px]">
+                      {p.award}
+                    </span>
                   </div>
 
-                  <div className="grid md:grid-cols-3 gap-6 pt-4 border-t border-zinc-100">
-                    <div className="space-y-1.5">
-                      <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block">Problem / Challenge</span>
-                      <p className="text-sm text-zinc-700 leading-relaxed font-normal">{project.problem}</p>
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block">Architecture & Solution</span>
-                      <p className="text-sm text-zinc-800 leading-relaxed font-normal">{project.solution}</p>
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <span className="text-xs font-bold text-zinc-400 uppercase tracking-wider block">Impact & Key Metrics</span>
-                      <p className="text-sm text-zinc-900 leading-relaxed font-medium bg-zinc-50 p-3 rounded-lg border border-zinc-200/70">
-                        {project.impact}
-                      </p>
-                    </div>
-                  </div>
+                  <h2 className="text-3xl font-serif font-bold text-foreground">
+                    {p.title}
+                  </h2>
                 </div>
 
-                <div className="flex flex-wrap gap-2 mt-6 pt-4 border-t border-zinc-100">
-                  {project.stack.map(tag => (
-                    <span key={tag} className="tag">{tag}</span>
-                  ))}
+                {p.liveUrl !== "#" && (
+                  <a
+                    href={p.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded border border-border bg-secondary font-mono text-xs font-semibold text-foreground hover:bg-foreground hover:text-background transition-all self-start lg:self-auto"
+                  >
+                    <span>Visit Live System</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
+              </div>
+
+              {/* Problem & Solution Columns */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm">
+                <div className="p-4 rounded border border-border/70 bg-secondary/30 space-y-2">
+                  <span className="font-mono text-[10px] uppercase font-bold text-muted-foreground block">
+                    [OPERATIONAL PROBLEM / CHALLENGE]
+                  </span>
+                  <p className="text-foreground/90 leading-relaxed font-normal">
+                    {p.problem}
+                  </p>
+                </div>
+
+                <div className="p-4 rounded border border-border/70 bg-card space-y-2">
+                  <span className="font-mono text-[10px] uppercase font-bold text-foreground block">
+                    [ENGINEERED AI SOLUTION / ARCHITECTURE]
+                  </span>
+                  <p className="text-foreground/90 leading-relaxed font-normal">
+                    {p.solution}
+                  </p>
                 </div>
               </div>
-            );
-          })}
+
+              {/* Architecture Highlights Bullet Points */}
+              <div className="space-y-2 pt-2">
+                <span className="font-mono text-[10px] uppercase font-bold text-muted-foreground block">
+                  [KEY ARCHITECTURAL HIGHLIGHTS]
+                </span>
+                <ul className="space-y-1.5 text-xs sm:text-sm text-foreground/85 leading-relaxed list-outside pl-4 list-disc marker:text-muted-foreground">
+                  {p.architectureHighlights.map((hl, i) => (
+                    <li key={i}>{hl}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Footer Meta & Stack */}
+              <div className="pt-4 border-t border-border/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <span className="font-mono text-[10px] text-muted-foreground uppercase mr-1">
+                    Tech Stack:
+                  </span>
+                  {p.stack.map((tech) => (
+                    <span key={tech} className="hallmark-tag">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="font-mono text-xs text-muted-foreground">
+                  <span className="font-semibold text-foreground">Impact: </span>
+                  <span>{p.impact}</span>
+                </div>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
     </div>
   );
-};
-
-export default Projects;
+}

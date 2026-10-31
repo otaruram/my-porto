@@ -1,509 +1,664 @@
-import { ExternalLink, Github, Code2, Shield, Rocket, Mail, Linkedin, FileText, Download, Award, Database, Cpu, Sparkles, Terminal, Phone, MapPin, ArrowRight } from "lucide-react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { 
+  Download, 
+  FileText, 
+  ExternalLink, 
+  ArrowRight, 
+  ShieldCheck, 
+  CheckCircle2, 
+  Terminal, 
+  Cpu, 
+  Database, 
+  Layers, 
+  Award, 
+  Briefcase, 
+  ChevronRight, 
+  Mail, 
+  Linkedin, 
+  Github, 
+  Copy, 
+  Check, 
+  Sparkles,
+  Sliders,
+  Scale
+} from "lucide-react";
 import { Logo } from "@/components/Logo";
+import { useHallmarkTheme, HALLMARK_THEMES, HallmarkTheme } from "@/context/ThemeContext";
 
-const Home = () => {
+export default function Home() {
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const { theme, setTheme, currentThemeMeta } = useHallmarkTheme();
+
   const pdfUrl = "/cv/OKI_TARUNA_RAMADHAN_FlowCV_Resume_2026-10-17-1.pdf";
 
-  return (
-    <div className="min-h-screen bg-white text-zinc-950">
-      {/* Hero Section */}
-      <section className="min-h-[85vh] flex items-center justify-center section-padding relative overflow-hidden bg-white">
-        {/* Subtle geometric grid background pattern */}
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] opacity-60 pointer-events-none"></div>
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("okitarunaramadhan@gmail.com");
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
 
-        <div className="container-custom text-center space-y-8 animate-fade-up relative z-10 max-w-4xl pt-4">
-          {/* Titles */}
-          <div className="space-y-4">
-            <h2 className="text-xs md:text-sm font-bold tracking-[0.2em] text-zinc-500 uppercase">
-              Oki Taruna Ramadhan
-            </h2>
-            <h1 className="hero-title text-zinc-950 font-extrabold">
-              Supply Chain Operation <br className="hidden sm:block" />
-              <span className="text-zinc-600">& IT Specialist</span>
+  const systems = [
+    {
+      id: "SYS-01",
+      title: "Oziktag",
+      domain: "Supply Chain QC & Escrow Trust",
+      award: "Top 15 Finalist at BNI Spark Hackathon 2026",
+      url: "https://www.oziktag.my.id",
+      stack: ["Multimodal RAG", "Computer Vision", "Agentic Escrow Loop", "FastAPI", "Digital Trust Seals"],
+      problem: "E-commerce & supply chain logistics operators suffer frequent transit disputes and costly chargebacks due to the absence of verifiable visual proof during cargo transit handoffs.",
+      solution: "Engineered an AI visual verification system integrating Multimodal RAG with Computer Vision to automate package damage inspection and eliminate transit dispute claims by up to 95%. Implemented an Agentic decision loop that evaluates condition snapshots in real time, generates contextual quality summaries, and triggers dynamic escrow releases via banking APIs.",
+      metrics: ["Dispute reduction: ~95%", "Latency: Real-time visual evaluation", "Honors: Top 15 Finalist BNI Spark 2026"],
+    },
+    {
+      id: "SYS-02",
+      title: "OtaruChain",
+      domain: "Financial Document Intelligence & Scoring",
+      award: "Finalist BRIN Aidenation 2026 • Semifinalist Bank Indonesia Innovation",
+      url: "https://otaruchain.id",
+      stack: ["Gemini 2.5 Flash", "Logistic Regression", "Human-in-the-Loop", "PostgreSQL", "SHA-256", "UU PDP"],
+      problem: "Traditional invoice auditing and SME credit underwriting suffer from counterfeit receipts, manual validation latency, and lack of tamper-evident audit trails.",
+      solution: "Engineered an automated financial document extraction pipeline using Gemini 2.5 Flash to extract tabular receipts and detect visual fraud anomalies in real time. Deployed an interpretable Adaptive Credit Scoring Engine combining Logistic Regression and Human-in-the-Loop (HITL) checkpoints. Enforces cryptographic data integrity via Supa Ledger (PostgreSQL & SHA-256) and strict UU PDP compliance.",
+      metrics: ["Interpretable Trust Grades", "Full UU PDP Privacy Compliance", "Finalist BRIN & Semifinalist BI"],
+    },
+    {
+      id: "SYS-03",
+      title: "OzikSustain",
+      domain: "AI ESG Compliance & Legal Reasoning",
+      award: "Semifinalist PLN SustainAction 2026",
+      url: "#",
+      stack: ["IndoBERT Embeddings", "Claude 3.5 Sonnet", "Supabase pgvector", "Pasal.id Legal API", "HMAC-SHA256"],
+      problem: "Enterprise ESG compliance assessments require hundreds of manual hours, are prone to greenwashing, and cost tens of thousands of dollars per audit cycle.",
+      solution: "Architected a hybrid Generative AI assessment pipeline pairing fine-tuned IndoBERT embeddings with Claude 3.5 Sonnet for automated regulatory document mapping and multi-pillar ESG compliance scoring. Integrated semantic legal retrieval via Supabase pgvector and Pasal.id API, reducing turnaround time from weeks to under 24 hours while cutting legacy audit costs by 85%.",
+      metrics: ["Turnaround: < 24 Hours", "Audit cost reduction: 85%", "Audit log integrity: HMAC-SHA256"],
+    },
+  ];
+
+  const operationalChronology = [
+    {
+      role: "Supply Chain Operations Administrator",
+      organization: "PT DIRGANTARA INDONESIA (Indonesian Aerospace)",
+      period: "02/2019 – PRESENT",
+      location: "Bandung, Indonesia",
+      scope: "Aerospace Logistics & Operational Systems Optimization",
+      points: [
+        "Mapped and standardized end-to-end operational workflows, collaborating with cross-functional stakeholders to formulate Business Requirement Documents (BRD) and functional specifications for enterprise inventory systems.",
+        "Utilized SQL (DML commands: SELECT, INSERT, UPDATE) to validate operational database records, perform multi-tier data reconciliations, and mitigate reporting errors by ~20%.",
+        "Facilitated full-cycle software development implementation (SDLC), actively coordinating System Integration Testing (SIT) and supporting User Acceptance Testing (UAT) with operational personnel to guarantee solution readiness.",
+      ],
+    },
+    {
+      role: "AI & Technical Mentor",
+      organization: "Dicoding Indonesia (IBM SkillsBuild & DBS Foundation)",
+      period: "05/2026 – 10/2026",
+      location: "Bandung, Indonesia",
+      scope: "Applied Machine Learning & Backend Architecture Mentorship",
+      points: [
+        "Mentored 30+ developers and tech professionals under IBM SkillsBuild & DBS Foundation programs in Python backend logic, predictive analytics, and machine learning architecture.",
+        "Conducted in-depth technical code reviews on model training workflows, RESTful API integrations, and cloud deployment pipelines.",
+      ],
+    },
+    {
+      role: "Community Lead & Technical Contributor",
+      organization: "Fydemy",
+      period: "01/2026 – 09/2026",
+      location: "Singapore (Remote)",
+      scope: "Data Automation Scripts & Developer Community Guidance",
+      points: [
+        "Developed Python-based data automation scripts and mentored technical talents on workflow efficiency and API integrations.",
+      ],
+    },
+  ];
+
+  const competitionHonors = [
+    {
+      rank: "Top 15 Finalist",
+      competition: "BNI Spark Hackathon 2026",
+      project: "Oziktag Project",
+      focus: "AI Visual QC & Dynamic Digital Trust Escrow Platform",
+    },
+    {
+      rank: "National Finalist",
+      competition: "BRIN Aidenation 2026",
+      project: "OtaruChain Project",
+      focus: "Multimodal AI Document Intelligence & Risk Engine",
+    },
+    {
+      rank: "National Semifinalist",
+      competition: "Bank Indonesia Innovation Competition",
+      project: "OtaruChain Project",
+      focus: "Transparent Credit Scoring API & UU PDP Privacy",
+    },
+    {
+      rank: "Top 11 Finalist",
+      competition: "ZTE × ITB Innovation Competition",
+      project: "OzikNTN Project",
+      focus: "Cold-Chain Supply Chain IoT via Non-Terrestrial Networks (NTN)",
+    },
+    {
+      rank: "National Semifinalist",
+      competition: "PLN SustainAction 2026",
+      project: "OzikSustain Project",
+      focus: "AI-Powered ESG Compliance & Regulatory Assessment Engine",
+    },
+  ];
+
+  return (
+    <div className="w-full">
+      {/* SECTION 1: EDITORIAL HERO MASTHEAD */}
+      <section className="relative border-b border-border py-16 sm:py-24 lg:py-28 overflow-hidden hallmark-grid-bg">
+        <div className="hallmark-container relative z-10 space-y-10">
+          {/* Top Architectural Specification Badge */}
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+            <span className="hallmark-tag font-mono">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse" />
+              <span>SYS_SPEC // OTR-2026</span>
+            </span>
+            <span className="hallmark-tag font-mono">
+              DOMAIN: AI ARCHITECT × SUPPLY CHAIN
+            </span>
+            <span className="hallmark-tag font-mono hidden md:inline-flex">
+              7+ YRS PT DIRGANTARA INDONESIA
+            </span>
+          </div>
+
+          {/* Master Headline (Hallmark signature font pairing: bold grotesque + editorial italic serif) */}
+          <div className="space-y-4 max-w-4xl">
+            <h1 className="hallmark-hero-headline font-sans font-extrabold text-foreground tracking-tight">
+              Bridging <span className="font-serif italic font-normal">Aerospace Rigor</span> <br />
+              with Production <span className="font-serif italic font-normal">Generative AI</span>.
             </h1>
-            <p className="text-sm md:text-base font-semibold text-zinc-600 tracking-wide uppercase">
-              Generative AI Pipelines • Agentic Workflows • Enterprise Systems Optimization
+
+            <p className="font-mono text-xs sm:text-sm text-muted-foreground uppercase tracking-wider pt-1">
+              Supply Chain Operations Administrator • Generative AI & Agentic Systems Developer
             </p>
           </div>
 
-          {/* Narrative aligned with CV */}
-          <p className="text-base md:text-lg text-zinc-600 max-w-3xl mx-auto leading-relaxed font-normal">
-            Final year Information Systems student with extensive experience in architecting <strong>Generative AI pipelines</strong>, <strong>Agentic workflows</strong>, and intelligent automation systems. Combining <strong>7+ years of operational systems optimization at PT Dirgantara Indonesia (Indonesian Aerospace)</strong> with production-grade AI engineering (Multimodal RAG, LLMOps, IndoBERT, Claude 3.5, Gemini, Azure AI Services, and pgvector).
-          </p>
+          {/* Master Bio Paragraph */}
+          <div className="max-w-3xl space-y-4 text-base sm:text-lg text-foreground/85 leading-relaxed font-normal">
+            <p>
+              Final year Information Systems student at Universitas Terbuka, coupling{" "}
+              <strong className="font-semibold text-foreground">
+                7+ years of operational systems optimization at PT Dirgantara Indonesia (Indonesian Aerospace)
+              </strong>{" "}
+              with production-grade AI engineering.
+            </p>
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+              Specialized in architecting verifiable, anti-slop architectures: Multimodal RAG pipelines, Agentic decision loops, pgvector semantic retrieval, fine-tuned IndoBERT embeddings, and cryptographically auditable ledgers (SHA-256).
+            </p>
+          </div>
 
-          {/* Hero CTAs */}
-          <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3.5 justify-center items-stretch sm:items-center pt-4 max-w-xl mx-auto">
+          {/* Hallmark Action Matrix */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
             <Link
               to="/cv"
-              className="w-full sm:w-auto px-6 sm:px-7 py-3.5 bg-zinc-950 text-white rounded-xl font-semibold hover:bg-zinc-800 transition-all text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 shadow-sm"
+              className="px-5 py-3 rounded-md bg-primary text-primary-foreground font-mono text-xs sm:text-sm font-semibold hover:opacity-90 transition-all flex items-center gap-2 shadow-sm"
             >
               <FileText className="w-4 h-4" />
-              <span>Review Curriculum Vitae</span>
+              <span>Review Verified CV Document</span>
             </Link>
 
             <a
               href={pdfUrl}
               download="OKI_TARUNA_RAMADHAN_Resume.pdf"
-              className="w-full sm:w-auto px-5 sm:px-6 py-3.5 bg-white border border-zinc-300 text-zinc-900 rounded-xl font-semibold hover:bg-zinc-50 hover:border-zinc-400 transition-all text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 shadow-2xs"
+              className="px-5 py-3 rounded-md border border-border bg-card text-foreground font-mono text-xs sm:text-sm font-medium hover:bg-secondary transition-all flex items-center gap-2 shadow-2xs"
             >
               <Download className="w-4 h-4" />
-              <span>Download PDF CV</span>
+              <span>Download Official PDF</span>
+              <span className="text-[11px] text-muted-foreground">[94.5 KB]</span>
             </a>
 
-            <a
-              href="mailto:okitarunaramadhan@gmail.com"
-              className="w-full sm:w-auto px-5 sm:px-6 py-3.5 bg-zinc-100 text-zinc-800 rounded-xl font-semibold hover:bg-zinc-200 transition-all text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2"
+            <button
+              onClick={handleCopyEmail}
+              className="px-4 py-3 rounded-md border border-border bg-card text-foreground font-mono text-xs sm:text-sm font-medium hover:bg-secondary transition-all flex items-center gap-2 cursor-pointer"
             >
-              <Mail className="w-4 h-4" />
-              <span>Contact Me</span>
-            </a>
+              {copiedEmail ? <Check className="w-4 h-4 text-emerald-600" /> : <Mail className="w-4 h-4" />}
+              <span>{copiedEmail ? "Email Copied!" : "Copy Email Address"}</span>
+            </button>
           </div>
 
-          {/* Quick Metrics Bar */}
-          <div className="pt-8 sm:pt-10 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 max-w-3xl mx-auto text-left">
-            <div className="p-3.5 sm:p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
-              <span className="text-xl sm:text-2xl font-black text-zinc-950 block">7+ Yrs</span>
-              <span className="text-[11px] sm:text-xs text-zinc-600 font-medium">Operations at PT Dirgantara</span>
+          {/* Verified Engineering Spec Strip */}
+          <div className="pt-6 border-t border-border/80 grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="p-4 rounded-md border border-border bg-card">
+              <span className="font-mono text-[10px] uppercase text-muted-foreground block">
+                [EXPERIENCE METRIC]
+              </span>
+              <span className="font-serif text-3xl sm:text-4xl font-normal text-foreground block mt-1">
+                7+ Years
+              </span>
+              <span className="text-xs text-muted-foreground mt-0.5 block">
+                Aerospace Supply Chain Systems at PT Dirgantara Indonesia
+              </span>
             </div>
-            <div className="p-3.5 sm:p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
-              <span className="text-xl sm:text-2xl font-black text-zinc-950 block">30+</span>
-              <span className="text-[11px] sm:text-xs text-zinc-600 font-medium">Mentees at Dicoding Indonesia</span>
-            </div>
-            <div className="p-3.5 sm:p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
-              <span className="text-xl sm:text-2xl font-black text-zinc-950 block">Top 15</span>
-              <span className="text-[11px] sm:text-xs text-zinc-600 font-medium">BNI Spark Hackathon 2026</span>
-            </div>
-            <div className="p-3.5 sm:p-4 bg-zinc-50 border border-zinc-200/80 rounded-xl">
-              <span className="text-xl sm:text-2xl font-black text-zinc-950 block">5+</span>
-              <span className="text-[11px] sm:text-xs text-zinc-600 font-medium">National Honors & Awards</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* CV Callout Spotlight Section */}
-      <section className="section-light section-padding">
-        <div className="container-custom max-w-5xl">
-          <div className="bg-white border-2 border-zinc-900/10 rounded-2xl p-5 sm:p-8 md:p-12 shadow-[0_8px_30px_rgba(0,0,0,0.04)] relative overflow-hidden">
-            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-              <div className="space-y-4 max-w-2xl">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-100 rounded-full text-zinc-900 text-xs font-bold uppercase tracking-wider">
-                  <FileText className="w-3.5 h-3.5" />
-                  <span>Curriculum Vitae Attached</span>
-                </div>
-                <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-950 tracking-tight">
-                  Review Official Resume & Professional Track Record
-                </h2>
-                <p className="text-sm md:text-base text-zinc-600 leading-relaxed">
-                  The official CV outlines operational workflows at PT DIRGANTARA INDONESIA, technical mentoring at Dicoding Indonesia (IBM SkillsBuild & DBS Foundation programs), featured AI systems (Oziktag, OtaruChain, OzikSustain), and national hackathon achievements.
-                </p>
-                <div className="flex flex-wrap gap-2 pt-1 text-xs text-zinc-500 font-medium">
-                  <span className="px-2.5 py-1 bg-zinc-100 rounded-md">Format: PDF (2 Pages)</span>
-                  <span className="px-2.5 py-1 bg-zinc-100 rounded-md">Size: 94.5 KB</span>
-                  <span className="px-2.5 py-1 bg-zinc-100 rounded-md">Updated: 2026</span>
-                </div>
-              </div>
+            <div className="p-4 rounded-md border border-border bg-card">
+              <span className="font-mono text-[10px] uppercase text-muted-foreground block">
+                [HACKATHON ACCREDITATION]
+              </span>
+              <span className="font-serif text-3xl sm:text-4xl font-normal text-foreground block mt-1">
+                Top 15
+              </span>
+              <span className="text-xs text-muted-foreground mt-0.5 block">
+                BNI Spark Hackathon 2026 (Oziktag Visual QC Platform)
+              </span>
+            </div>
 
-              <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-auto shrink-0">
-                <Link
-                  to="/cv"
-                  className="px-6 py-3.5 bg-zinc-950 text-white font-semibold text-sm rounded-xl hover:bg-zinc-800 transition-colors flex items-center justify-center gap-2 shadow-sm"
-                >
-                  <FileText className="w-4 h-4" />
-                  <span>Open CV Page</span>
-                </Link>
-                <a
-                  href={pdfUrl}
-                  download="OKI_TARUNA_RAMADHAN_Resume.pdf"
-                  className="px-6 py-3.5 bg-white border border-zinc-300 text-zinc-900 font-semibold text-sm rounded-xl hover:bg-zinc-100 transition-colors flex items-center justify-center gap-2"
-                >
-                  <Download className="w-4 h-4" />
-                  <span>Download PDF</span>
-                </a>
-              </div>
+            <div className="p-4 rounded-md border border-border bg-card">
+              <span className="font-mono text-[10px] uppercase text-muted-foreground block">
+                [TECHNICAL MENTORSHIP]
+              </span>
+              <span className="font-serif text-3xl sm:text-4xl font-normal text-foreground block mt-1">
+                30+ Mentees
+              </span>
+              <span className="text-xs text-muted-foreground mt-0.5 block">
+                IBM SkillsBuild & DBS Foundation via Dicoding Indonesia
+              </span>
+            </div>
+
+            <div className="p-4 rounded-md border border-border bg-card">
+              <span className="font-mono text-[10px] uppercase text-muted-foreground block">
+                [NATIONAL RECOGNITION]
+              </span>
+              <span className="font-serif text-3xl sm:text-4xl font-normal text-foreground block mt-1">
+                5 Honors
+              </span>
+              <span className="text-xs text-muted-foreground mt-0.5 block">
+                BRIN Aidenation, Bank Indonesia, BNI, ZTE × ITB, PLN
+              </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core Competencies & Technical Skills (Direct from CV) */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="text-center space-y-3 mb-14">
-            <h2 className="section-title text-zinc-950">Core Competencies & Technical Skills</h2>
-            <p className="text-zinc-600 text-sm md:text-base max-w-2xl mx-auto">
-              Bridging deep operational rigor with modern AI architectures as summarized in the official CV.
+      {/* SECTION 2: HALLMARK ANTI-SLOP PHILOSOPHY & QUALITY FLOOR */}
+      <section className="py-16 sm:py-20 border-b border-border bg-secondary/30">
+        <div className="hallmark-container space-y-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border/80 pb-6">
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="hallmark-seal">THE FLOOR // QUALITY STANDARD</span>
+                <span className="text-xs font-mono text-muted-foreground">REF: usehallmark.com</span>
+              </div>
+              <h2 className="hallmark-section-headline font-serif text-foreground font-normal">
+                Anti-Slop Engineering Principles
+              </h2>
+            </div>
+            <p className="text-xs sm:text-sm text-muted-foreground max-w-md font-mono">
+              In an era inundated with superficial AI wrappers and ungrounded demos, production systems demand aerospace-grade rigor and tamper-evident auditability.
             </p>
           </div>
 
-          <div className="bento-grid">
-            {/* AI & Machine Learning */}
-            <div className="bento-card">
-              <div className="w-10 h-10 bg-zinc-100 rounded-xl flex items-center justify-center mb-5 border border-zinc-200">
-                <Sparkles className="w-5 h-5 text-zinc-950" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="hallmark-card space-y-3">
+              <div className="w-8 h-8 rounded border border-border bg-secondary flex items-center justify-center font-mono text-xs font-bold">
+                01
               </div>
-              <h3 className="text-lg font-bold text-zinc-950 mb-2">AI & Machine Learning</h3>
-              <p className="text-xs md:text-sm text-zinc-600 mb-5 leading-relaxed">
-                Generative AI, Agentic AI, LLMOps, Multimodal RAG, Fine-Tuned NLP (IndoBERT), Computer Vision, Multimodal Models, Prompt Engineering & Chaining, Prompt Flow.
+              <h3 className="font-bold text-base text-foreground font-sans">
+                Aerospace-Grade Rigor
+              </h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Seven years of operational compliance at PT Dirgantara Indonesia translates into zero tolerance for ungrounded hallucination. Every automated decision loop includes deterministic fallback paths and rigorous verification.
               </p>
-              <div className="flex flex-wrap gap-1.5">
-                {["Generative AI", "Agentic AI", "Multimodal RAG", "IndoBERT", "LLMOps"].map((tech) => (
-                  <span key={tech} className="tag">{tech}</span>
-                ))}
+              <div className="pt-2 font-mono text-[11px] text-foreground/80 flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Deterministic SDLC & SIT/UAT Validation</span>
               </div>
             </div>
 
-            {/* Programming & Cloud */}
-            <div className="bento-card">
-              <div className="w-10 h-10 bg-zinc-100 rounded-xl flex items-center justify-center mb-5 border border-zinc-200">
-                <Terminal className="w-5 h-5 text-zinc-950" />
+            <div className="hallmark-card space-y-3">
+              <div className="w-8 h-8 rounded border border-border bg-secondary flex items-center justify-center font-mono text-xs font-bold">
+                02
               </div>
-              <h3 className="text-lg font-bold text-zinc-950 mb-2">Programming & Cloud</h3>
-              <p className="text-xs md:text-sm text-zinc-600 mb-5 leading-relaxed">
-                Python, Microsoft Azure (Azure OpenAI / Cognitive Services), Docker, RESTful APIs, Next.js, Go. Scalable deployments and microservices.
+              <h3 className="font-bold text-base text-foreground font-sans">
+                Human-in-the-Loop & Auditability
+              </h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Rather than treating AI as an uncontrollable black box, our architectures enforce Human-in-the-Loop (HITL) checkpoints and cryptographically sealed ledgers (PostgreSQL pgvector, SHA-256, and HMAC validation).
               </p>
-              <div className="flex flex-wrap gap-1.5">
-                {["Python", "Azure OpenAI", "Docker", "RESTful APIs", "Next.js", "Go"].map((tech) => (
-                  <span key={tech} className="tag">{tech}</span>
-                ))}
+              <div className="pt-2 font-mono text-[11px] text-foreground/80 flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Tamper-Evident SHA-256 Data Integrity</span>
               </div>
             </div>
 
-            {/* Databases, Vector & Architecture */}
-            <div className="bento-card">
-              <div className="w-10 h-10 bg-zinc-100 rounded-xl flex items-center justify-center mb-5 border border-zinc-200">
-                <Database className="w-5 h-5 text-zinc-950" />
+            <div className="hallmark-card space-y-3">
+              <div className="w-8 h-8 rounded border border-border bg-secondary flex items-center justify-center font-mono text-xs font-bold">
+                03
               </div>
-              <h3 className="text-lg font-bold text-zinc-950 mb-2">Databases & Architecture</h3>
-              <p className="text-xs md:text-sm text-zinc-600 mb-5 leading-relaxed">
-                PostgreSQL, pgvector, Supabase, Prisma, SQL (Query Optimization & Validation), Human-in-the-Loop (HITL), Cryptographic Integrity (HMAC-SHA256), SDLC Agile.
+              <h3 className="font-bold text-base text-foreground font-sans">
+                Regulatory & Privacy by Design
+              </h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Full compliance with national data privacy statutes (UU PDP) and ESG auditing standards. Automated PII scrubbing and semantic legal validation ensure enterprise security and zero data leaks.
               </p>
-              <div className="flex flex-wrap gap-1.5">
-                {["pgvector", "PostgreSQL", "Supabase", "HITL", "SHA-256", "SDLC"].map((tech) => (
-                  <span key={tech} className="tag">{tech}</span>
-                ))}
+              <div className="pt-2 font-mono text-[11px] text-foreground/80 flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                <span>UU PDP Compliance & PII Redaction</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Projects (Direct from CV) */}
-      <section className="section-light section-padding" id="projects">
-        <div className="container-custom space-y-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+      {/* SECTION 3: FLAGSHIP SYSTEMS & ARCHITECTURAL CASE STUDIES */}
+      <section className="py-16 sm:py-24 border-b border-border bg-background">
+        <div className="hallmark-container space-y-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-border/80 pb-6">
             <div className="space-y-2">
-              <h2 className="section-title text-zinc-950">Relevant Projects (Portfolio)</h2>
-              <p className="text-zinc-600 text-sm md:text-base max-w-2xl">
-                Production-ready AI systems and software architectures documented in the official CV.
+              <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                [PORTFOLIO BLUEPRINTS]
+              </span>
+              <h2 className="hallmark-section-headline font-serif text-foreground font-normal">
+                Engineered Systems & Projects
+              </h2>
+              <p className="text-xs sm:text-sm text-muted-foreground max-w-xl">
+                Production-ready architectures deployed and verified in national competitions and real-world supply chain workflows.
               </p>
             </div>
+
             <Link
               to="/projects"
-              className="inline-flex items-center gap-1.5 text-sm font-bold text-zinc-900 hover:text-zinc-600 transition-colors"
+              className="inline-flex items-center gap-2 font-mono text-xs font-bold text-foreground hover:opacity-75 transition-opacity"
             >
-              <span>Explore All Projects</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>Explore All 4 Projects & Specs</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 gap-8">
-            {/* Project 1: Oziktag */}
-            <div className="bg-white border border-zinc-200/90 rounded-2xl p-7 md:p-9 hover:border-zinc-400 hover:shadow-[0_8px_25px_rgba(0,0,0,0.05)] transition-all">
-              <div className="flex flex-col md:flex-row gap-8">
-                <div className="md:w-1/3 space-y-3">
-                  <div className="inline-block px-2.5 py-1 bg-zinc-100 text-zinc-900 rounded-md text-xs font-bold uppercase tracking-wider">
-                    Top 15 BNI Spark Hackathon
-                  </div>
-                  <h3 className="text-2xl font-extrabold text-zinc-950">Oziktag</h3>
-                  <p className="text-sm font-semibold text-zinc-600">
-                    Supply Chain Visual QC & Digital Trust Platform
-                  </p>
-                  <a
-                    href="https://www.oziktag.my.id"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-900 hover:underline pt-2"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    <span>www.oziktag.my.id</span>
-                  </a>
-                </div>
-
-                <div className="md:w-2/3 space-y-4">
-                  <ul className="list-disc list-outside pl-4 space-y-2 text-sm text-zinc-700 leading-relaxed">
-                    <li>
-                      Designed an AI visual verification system integrating <strong>Multimodal RAG</strong> and <strong>Computer Vision</strong> to automate package damage inspection and eliminate transit dispute claims by up to 95%.
-                    </li>
-                    <li>
-                      Built an automated <strong>Agentic decision loop</strong> analyzing package condition snapshots in real time, generating contextual quality summaries, and triggering dynamic escrow releases via API integrations.
-                    </li>
-                    <li>
-                      Awarded <strong>Top 15 Finalist at BNI Spark Hackathon 2026</strong> for innovative middleware architecture combining AI visual inspection and dynamic digital trust seals.
-                    </li>
-                  </ul>
-                  <div className="flex flex-wrap gap-2 pt-3 border-t border-zinc-100">
-                    {["Multimodal RAG", "Computer Vision", "Agentic Decision Loop", "Escrow API", "BNI Hackathon 2026"].map((tag) => (
-                      <span key={tag} className="tag">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 2: OtaruChain */}
-            <div className="bg-white border border-zinc-200/90 rounded-2xl p-7 md:p-9 hover:border-zinc-400 hover:shadow-[0_8px_25px_rgba(0,0,0,0.05)] transition-all">
-              <div className="flex flex-col md:flex-row gap-8">
-                <div className="md:w-1/3 space-y-3">
-                  <div className="inline-block px-2.5 py-1 bg-zinc-100 text-zinc-900 rounded-md text-xs font-bold uppercase tracking-wider">
-                    Finalist BRIN & BI Semifinalist
-                  </div>
-                  <h3 className="text-2xl font-extrabold text-zinc-950">OtaruChain</h3>
-                  <p className="text-sm font-semibold text-zinc-600">
-                    Multimodal Document Intelligence & Transparent Credit Scoring API
-                  </p>
-                  <a
-                    href="https://otaruchain.id"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-900 hover:underline pt-2"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5" />
-                    <span>otaruchain.id</span>
-                  </a>
-                </div>
-
-                <div className="md:w-2/3 space-y-4">
-                  <ul className="list-disc list-outside pl-4 space-y-2 text-sm text-zinc-700 leading-relaxed">
-                    <li>
-                      Engineered an automated financial document extraction pipeline using <strong>Gemini 2.5 Flash</strong> to extract receipt text and detect visual fraud anomalies (mark-ups, counterfeit claims) with real-time screening.
-                    </li>
-                    <li>
-                      Implemented an interpretable Adaptive Credit Scoring Engine powered by <strong>Logistic Regression</strong> and <strong>Human-in-the-Loop (HITL)</strong> validation, outputting auditable Trust Grades for liquidity risk mitigation.
-                    </li>
-                    <li>
-                      Architected a microservices backend featuring a Telegram Bot interface, privacy-preserving Phone Whitelist (<strong>UU PDP compliance</strong>), and tamper-evident data logging via Supa Ledger (PostgreSQL & SHA-256).
-                    </li>
-                  </ul>
-                  <div className="flex flex-wrap gap-2 pt-3 border-t border-zinc-100">
-                    {["Gemini 2.5 Flash", "HITL Scoring", "PostgreSQL", "SHA-256", "UU PDP", "BRIN Aidenation"].map((tag) => (
-                      <span key={tag} className="tag">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Project 3: OzikSustain */}
-            <div className="bg-white border border-zinc-200/90 rounded-2xl p-7 md:p-9 hover:border-zinc-400 hover:shadow-[0_8px_25px_rgba(0,0,0,0.05)] transition-all">
-              <div className="flex flex-col md:flex-row gap-8">
-                <div className="md:w-1/3 space-y-3">
-                  <div className="inline-block px-2.5 py-1 bg-zinc-100 text-zinc-900 rounded-md text-xs font-bold uppercase tracking-wider">
-                    Semifinalist PLN SustainAction
-                  </div>
-                  <h3 className="text-2xl font-extrabold text-zinc-950">OzikSustain</h3>
-                  <p className="text-sm font-semibold text-zinc-600">
-                    AI-Powered ESG Compliance & Regulatory Assessment Engine
-                  </p>
-                </div>
-
-                <div className="md:w-2/3 space-y-4">
-                  <ul className="list-disc list-outside pl-4 space-y-2 text-sm text-zinc-700 leading-relaxed">
-                    <li>
-                      Architected a hybrid Generative AI assessment pipeline combining fine-tuned <strong>IndoBERT embeddings</strong> and <strong>Claude 3.5 Sonnet</strong> for automated regulatory document mapping and multi-pillar ESG compliance scoring.
-                    </li>
-                    <li>
-                      Engineered an Agentic retrieval pipeline utilizing <strong>Supabase pgvector</strong> and semantic legal APIs (Pasal.id), achieving {"<"}24-hour turnaround and reducing legacy audit costs by 85%.
-                    </li>
-                    <li>
-                      Implemented automated PII redaction and cryptographic HMAC-SHA256 audit logging to guarantee zero data leakage and prevent greenwashing across enterprise procurement workflows.
-                    </li>
-                  </ul>
-                  <div className="flex flex-wrap gap-2 pt-3 border-t border-zinc-100">
-                    {["IndoBERT", "Claude 3.5 Sonnet", "Supabase pgvector", "HMAC-SHA256", "ESG Scoring"].map((tag) => (
-                      <span key={tag} className="tag">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Professional Experience (From CV) */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
-            {/* Experience Column */}
-            <div className="space-y-8">
-              <div className="border-b border-zinc-200 pb-3">
-                <h2 className="text-2xl font-extrabold text-zinc-950 tracking-tight">Professional Experience</h2>
-                <p className="text-xs text-zinc-500 mt-1">Directly documented from the official Curriculum Vitae</p>
-              </div>
-
-              <div className="space-y-8 relative pl-6 border-l-2 border-zinc-200">
-                {/* Dicoding */}
-                <div className="relative">
-                  <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-950 border-2 border-white ring-2 ring-zinc-200"></div>
-                  <span className="text-xs font-bold text-zinc-500 tracking-wider block mb-1">05/2026 – 10/2026 • BANDUNG</span>
-                  <h3 className="text-lg font-bold text-zinc-950">AI & Technical Mentor</h3>
-                  <p className="text-sm font-semibold text-zinc-700 mb-2">Dicoding Indonesia</p>
-                  <p className="text-sm text-zinc-600 leading-relaxed">
-                    Mentored 30+ developers and tech professionals under IBM SkillsBuild & DBS Foundation programs in Python backend logic, predictive analytics, and machine learning architecture. Conducted technical code reviews on model training workflows, API integrations, and cloud deployments.
-                  </p>
-                </div>
-
-                {/* PT Dirgantara Indonesia */}
-                <div className="relative">
-                  <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-950 border-2 border-white ring-2 ring-zinc-200"></div>
-                  <span className="text-xs font-bold text-zinc-500 tracking-wider block mb-1">02/2019 – PRESENT • BANDUNG, INDONESIA</span>
-                  <h3 className="text-lg font-bold text-zinc-950">Supply Chain Operations Administrator</h3>
-                  <p className="text-sm font-semibold text-zinc-700 mb-2">PT DIRGANTARA INDONESIA (Indonesian Aerospace)</p>
-                  <p className="text-sm text-zinc-600 leading-relaxed">
-                    Mapped and standardized end-to-end operational workflows, collaborating with cross-functional stakeholders to define business requirements (BRD) and functional specifications for internal inventory systems. Utilized SQL (DML commands: SELECT, INSERT, UPDATE) to validate operational database records, perform data reconciliations, and mitigate reporting errors by ~20%. Facilitated full-cycle software development implementation (SDLC), actively coordinating System Integration Testing (SIT) and supporting User Acceptance Testing (UAT) with operational end-users to ensure solution readiness.
-                  </p>
-                </div>
-
-                {/* Fydemy */}
-                <div className="relative">
-                  <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-950 border-2 border-white ring-2 ring-zinc-200"></div>
-                  <span className="text-xs font-bold text-zinc-500 tracking-wider block mb-1">01/2026 – 09/2026 • SINGAPORE</span>
-                  <h3 className="text-lg font-bold text-zinc-950">Community Lead & Technical Contributor</h3>
-                  <p className="text-sm font-semibold text-zinc-700 mb-2">Fydemy</p>
-                  <p className="text-sm text-zinc-600 leading-relaxed">
-                    Developed Python-based data automation scripts and mentored technical talents on workflow efficiency and API integrations.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Education & Honors Column */}
-            <div className="space-y-8">
-              {/* Education */}
-              <div className="space-y-6">
-                <div className="border-b border-zinc-200 pb-3">
-                  <h2 className="text-2xl font-extrabold text-zinc-950 tracking-tight">Education & Training</h2>
-                  <p className="text-xs text-zinc-500 mt-1">Academic degree & professional certifications</p>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="p-5 bg-zinc-50 border border-zinc-200/80 rounded-xl space-y-1">
-                    <span className="text-xs font-bold text-zinc-500">2023 – PRESENT • BANDUNG</span>
-                    <h3 className="text-base font-bold text-zinc-950">Bachelor of Science (B.S.) in Information Systems (Final Year Student)</h3>
-                    <p className="text-sm text-zinc-700 font-medium">Universitas Terbuka</p>
-                    <p className="text-xs text-zinc-500 pt-1">
-                      Relevant Coursework: Systems Analysis & Design, Database Management Systems, Data Networks.
-                    </p>
-                  </div>
-
-                  <div className="p-5 bg-zinc-50 border border-zinc-200/80 rounded-xl space-y-1">
-                    <span className="text-xs font-bold text-zinc-500">ONLINE ACADEMY</span>
-                    <h3 className="text-base font-bold text-zinc-950">Machine Learning & Data Developer Learning Path</h3>
-                    <p className="text-sm text-zinc-700 font-medium">Dicoding Indonesia</p>
-                    <p className="text-xs text-zinc-500 pt-1">
-                      Focus: Predictive Analytics, Data Processing (Python), & Applied System Architecture.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Honors & Competitions */}
-              <div className="space-y-6">
-                <div className="border-b border-zinc-200 pb-3">
-                  <h2 className="text-2xl font-extrabold text-zinc-950 tracking-tight">Honors & Competitions</h2>
-                  <p className="text-xs text-zinc-500 mt-1">Hackathons & AI innovation accolades</p>
-                </div>
-
-                <div className="space-y-2.5">
-                  {[
-                    { label: "Finalist", event: "BRIN Aidenation (OtaruChain Project)", desc: "AI Document Intelligence & Risk Engine" },
-                    { label: "Semifinalist", event: "Bank Indonesia Innovation Competition", desc: "OtaruChain Project (Multimodal Document Intelligence & Transparent Credit Scoring API)" },
-                    { label: "Top 15", event: "BNI Spark Hackathon 2026 (Oziktag Project)", desc: "Visual QC & Digital Supply Chain Platform" },
-                    { label: "Top 11", event: "ZTE X ITB - OzikNTN Project", desc: "Cold-Chain Supply Chain Platform for 3T Regions" },
-                    { label: "Semifinalist", event: "PLN SustainAction - OzikSustain Project", desc: "Smart Energy & Sustainability Management Platform" },
-                  ].map((honor, i) => (
-                    <div key={i} className="flex items-start gap-3 p-3 bg-zinc-50 border border-zinc-200/70 rounded-lg">
-                      <Award className="w-4 h-4 text-zinc-900 mt-0.5 shrink-0" />
-                      <div className="text-xs">
-                        <span className="font-bold text-zinc-950 mr-1.5">{honor.label}:</span>
-                        <span className="font-medium text-zinc-800">{honor.event}</span>
-                        <span className="block text-zinc-500 mt-0.5">{honor.desc}</span>
-                      </div>
+          {/* System Deep-Dive Cards */}
+          <div className="space-y-8">
+            {systems.map((sys) => (
+              <div
+                key={sys.id}
+                className="hallmark-card hover:shadow-sm space-y-6"
+              >
+                {/* Header row */}
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-border/70 pb-5">
+                  <div className="space-y-1.5">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="hallmark-tag font-mono font-bold text-primary">
+                        {sys.id}
+                      </span>
+                      <span className="text-xs font-mono text-muted-foreground">
+                        {sys.domain}
+                      </span>
+                      <span className="hallmark-seal text-[10px]">
+                        {sys.award}
+                      </span>
                     </div>
-                  ))}
+
+                    <h3 className="text-2xl sm:text-3xl font-serif font-bold text-foreground">
+                      {sys.title}
+                    </h3>
+                  </div>
+
+                  {sys.url !== "#" && (
+                    <a
+                      href={sys.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-border bg-secondary font-mono text-xs font-semibold text-foreground hover:bg-foreground hover:text-background transition-all self-start lg:self-auto"
+                    >
+                      <span>Live Platform</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+                </div>
+
+                {/* Problem vs Solution Architectural Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm">
+                  <div className="space-y-2 p-4 rounded border border-border/70 bg-secondary/30">
+                    <span className="font-mono text-[10px] uppercase font-bold text-muted-foreground block">
+                      [OPERATIONAL BOTTLENECK / PROBLEM]
+                    </span>
+                    <p className="text-foreground/90 leading-relaxed font-normal">
+                      {sys.problem}
+                    </p>
+                  </div>
+
+                  <div className="space-y-2 p-4 rounded border border-border/70 bg-card">
+                    <span className="font-mono text-[10px] uppercase font-bold text-foreground block">
+                      [ENGINEERED AI ARCHITECTURE / SOLUTION]
+                    </span>
+                    <p className="text-foreground/90 leading-relaxed font-normal">
+                      {sys.solution}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Stack & Verified Metrics */}
+                <div className="pt-4 border-t border-border/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <span className="font-mono text-[10px] text-muted-foreground mr-1 uppercase">
+                      Stack:
+                    </span>
+                    {sys.stack.map((tech) => (
+                      <span key={tech} className="hallmark-tag">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-muted-foreground">
+                    {sys.metrics.map((m, idx) => (
+                      <span key={idx} className="inline-flex items-center gap-1">
+                        <span className="text-primary">•</span>
+                        <span>{m}</span>
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-white py-12 border-t border-zinc-200">
-        <div className="container-custom">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex items-center gap-3">
-              <Logo size={34} variant="dark" />
-              <div className="text-left">
-                <span className="font-bold text-sm text-zinc-950 block">Oki Taruna Ramadhan</span>
-                <span className="text-xs text-zinc-500">Supply Chain Operation & IT Specialist</span>
-              </div>
+      {/* SECTION 4: OPERATIONAL LEDGER (PROFESSIONAL EXPERIENCE) */}
+      <section className="py-16 sm:py-24 border-b border-border bg-secondary/20">
+        <div className="hallmark-container space-y-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border/80 pb-6">
+            <div className="space-y-2">
+              <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                [VERIFIABLE CAREER RECORD]
+              </span>
+              <h2 className="hallmark-section-headline font-serif text-foreground font-normal">
+                Professional Experience Ledger
+              </h2>
             </div>
+            <Link
+              to="/cv"
+              className="inline-flex items-center gap-1.5 font-mono text-xs font-bold text-foreground hover:opacity-75 transition-opacity"
+            >
+              <span>Examine Comprehensive CV</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
 
-            <div className="flex flex-wrap justify-center md:justify-end items-center gap-2.5 sm:gap-3">
+          <div className="space-y-6">
+            {operationalChronology.map((job, idx) => (
+              <div
+                key={idx}
+                className="hallmark-card space-y-4"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border/60 pb-3">
+                  <div>
+                    <span className="font-mono text-xs text-muted-foreground">
+                      {job.period} • {job.location}
+                    </span>
+                    <h3 className="text-xl font-bold font-sans text-foreground">
+                      {job.role}
+                    </h3>
+                    <p className="text-sm font-serif font-semibold text-foreground/80 mt-0.5">
+                      {job.organization}
+                    </p>
+                  </div>
+                  <span className="hallmark-tag font-mono self-start sm:self-auto">
+                    {job.scope}
+                  </span>
+                </div>
+
+                <ul className="space-y-2 text-xs sm:text-sm text-foreground/85 leading-relaxed list-outside pl-4 list-disc marker:text-muted-foreground">
+                  {job.points.map((pt, i) => (
+                    <li key={i}>{pt}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5: NATIONAL HONORS & COMPETITION RECORD */}
+      <section className="py-16 sm:py-24 border-b border-border bg-background">
+        <div className="hallmark-container space-y-8">
+          <div className="border-b border-border/80 pb-6 space-y-2">
+            <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              [COMPETITIVE RIGOR]
+            </span>
+            <h2 className="hallmark-section-headline font-serif text-foreground font-normal">
+              National Honors & Hackathon Accolades
+            </h2>
+            <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl">
+              Competitive validation across national banking, aerospace, and energy innovation challenges.
+            </p>
+          </div>
+
+          <div className="divide-y divide-border border border-border rounded-md bg-card overflow-hidden">
+            {competitionHonors.map((item, idx) => (
+              <div
+                key={idx}
+                className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:bg-secondary/40 transition-colors"
+              >
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="hallmark-tag font-bold text-primary">
+                      {item.rank}
+                    </span>
+                    <span className="font-bold text-sm sm:text-base text-foreground font-sans">
+                      {item.competition}
+                    </span>
+                  </div>
+                  <p className="text-xs text-muted-foreground font-mono">
+                    System: {item.project} — {item.focus}
+                  </p>
+                </div>
+
+                <div className="shrink-0 font-mono text-[11px] text-muted-foreground flex items-center gap-1">
+                  <Award className="w-3.5 h-3.5 text-primary" />
+                  <span>VERIFIED</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 6: INTERACTIVE HALLMARK THEME PLAYGROUND */}
+      <section className="py-16 sm:py-20 border-b border-border bg-secondary/30">
+        <div className="hallmark-container space-y-8">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 hallmark-seal">
+              <Sliders className="w-3.5 h-3.5" />
+              <span>LIVE HALLMARK TASTE ENGINE</span>
+            </div>
+            <h2 className="hallmark-section-headline font-serif text-foreground font-normal">
+              Curated Material Themes
+            </h2>
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              Hallmark enforces design variety across four strict, material-driven themes. Toggle any theme below to instantaneously transform the entire portfolio's typography, palette, and borders.
+            </p>
+          </div>
+
+          {/* Theme Switcher Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {HALLMARK_THEMES.map((t) => {
+              const isActive = t.id === theme;
+              return (
+                <button
+                  key={t.id}
+                  onClick={() => setTheme(t.id)}
+                  className={`p-5 rounded-md border text-left transition-all duration-200 cursor-pointer space-y-3 relative ${
+                    isActive
+                      ? "border-primary bg-card ring-1 ring-primary shadow-sm"
+                      : "border-border bg-card/60 hover:bg-card hover:border-foreground/30"
+                  }`}
+                >
+                  {/* Swatch Header */}
+                  <div className="flex items-center justify-between">
+                    <div
+                      className="w-5 h-5 rounded-full border border-border/80 shadow-2xs"
+                      style={{ backgroundColor: t.previewBg }}
+                    />
+                    {isActive && (
+                      <span className="font-mono text-[10px] font-bold text-primary uppercase">
+                        Active
+                      </span>
+                    )}
+                  </div>
+
+                  <div>
+                    <h3 className="font-bold text-sm text-foreground">{t.name}</h3>
+                    <span className="font-mono text-[10px] text-muted-foreground block">
+                      {t.genre}
+                    </span>
+                  </div>
+
+                  <p className="text-[11px] text-muted-foreground leading-relaxed line-clamp-3">
+                    {t.description}
+                  </p>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 7: EDITORIAL INVITATION & TRANSMISSION CONSOLE */}
+      <section className="py-20 sm:py-28 bg-background">
+        <div className="hallmark-container">
+          <div className="p-8 sm:p-12 rounded-lg border-2 border-border bg-card space-y-6 text-center max-w-3xl mx-auto">
+            <span className="hallmark-seal">
+              DIRECT TRANSMISSION // RECRUITMENT & COLLABORATION
+            </span>
+
+            <h2 className="text-3xl sm:text-4xl font-serif text-foreground font-normal">
+              Ready to deploy aerospace operational rigor to your AI pipelines?
+            </h2>
+
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-xl mx-auto">
+              Currently open to technical roles in Generative AI Engineering, Agentic Systems Architecture, and Supply Chain Technology Optimization.
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
               <Link
                 to="/cv"
-                className="px-4 py-2 bg-zinc-950 text-white rounded-lg text-xs font-semibold hover:bg-zinc-800 transition-colors flex items-center gap-1.5"
+                className="px-6 py-3 rounded-md bg-primary text-primary-foreground font-mono text-xs sm:text-sm font-bold hover:opacity-90 transition-all flex items-center gap-2"
               >
-                <FileText className="w-3.5 h-3.5" />
-                <span>View CV</span>
+                <FileText className="w-4 h-4" />
+                <span>Open Curriculum Vitae (CV)</span>
               </Link>
+
               <a
                 href={pdfUrl}
                 download="OKI_TARUNA_RAMADHAN_Resume.pdf"
-                className="px-4 py-2 bg-zinc-100 text-zinc-900 rounded-lg text-xs font-semibold hover:bg-zinc-200 transition-colors flex items-center gap-1.5 border border-zinc-200"
+                className="px-6 py-3 rounded-md border border-border bg-card text-foreground font-mono text-xs sm:text-sm font-semibold hover:bg-secondary transition-all flex items-center gap-2"
               >
-                <Download className="w-3.5 h-3.5" />
-                <span>Download PDF</span>
+                <Download className="w-4 h-4" />
+                <span>Download Official PDF</span>
               </a>
+
               <a
                 href="mailto:okitarunaramadhan@gmail.com"
-                className="p-2 text-zinc-600 hover:text-zinc-950 transition-colors"
-                title="Email"
+                className="px-6 py-3 rounded-md border border-border bg-secondary text-foreground font-mono text-xs sm:text-sm font-semibold hover:bg-foreground hover:text-background transition-all flex items-center gap-2"
               >
                 <Mail className="w-4 h-4" />
-              </a>
-              <a
-                href="https://linkedin.com/in/otaruram"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 text-zinc-600 hover:text-zinc-950 transition-colors"
-                title="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="https://github.com/otaruram"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 text-zinc-600 hover:text-zinc-950 transition-colors"
-                title="GitHub"
-              >
-                <Github className="w-4 h-4" />
+                <span>okitarunaramadhan@gmail.com</span>
               </a>
             </div>
           </div>
-
-          <div className="mt-8 pt-6 border-t border-zinc-100 text-center md:text-left text-xs text-zinc-500 flex flex-col md:flex-row justify-between gap-2">
-            <span>© {new Date().getFullYear()} Oki Taruna Ramadhan. All rights reserved.</span>
-            <span>Curriculum Vitae & Official Portfolio</span>
-          </div>
         </div>
-      </footer>
+      </section>
     </div>
   );
-};
-
-export default Home;
+}

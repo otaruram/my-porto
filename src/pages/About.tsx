@@ -1,224 +1,249 @@
-import { Mail, Linkedin, Github, FileText, Download, Briefcase, GraduationCap, Award, Phone, MapPin, CheckCircle2, Sparkles, Terminal, Database, Server } from "lucide-react";
+import React from "react";
 import { Link } from "react-router-dom";
+import { 
+  Download, 
+  FileText, 
+  ExternalLink, 
+  Mail, 
+  Phone, 
+  MapPin, 
+  Linkedin, 
+  Github, 
+  Terminal, 
+  Cpu, 
+  Database, 
+  ShieldCheck, 
+  CheckCircle2,
+  Sparkles,
+  Layers,
+  ArrowRight
+} from "lucide-react";
 
-const About = () => {
+export default function About() {
   const pdfUrl = "/cv/OKI_TARUNA_RAMADHAN_FlowCV_Resume_2026-10-17-1.pdf";
 
+  const corePillars = [
+    {
+      title: "Aerospace Operational Rigor",
+      desc: "7+ years managing inventory reconciliation, Business Requirements Documents (BRD), and strict standard operating procedures at PT Dirgantara Indonesia. Operational failures in aerospace are catastrophic—this mindset translates directly into how I design mission-critical AI workflows.",
+    },
+    {
+      title: "Verifiable, Anti-Slop AI Architectures",
+      desc: "No superficial API wrappers or toy demos. I build production-grade Agentic systems with deterministic fallbacks, semantic vector retrieval (pgvector), and fine-tuned embeddings (IndoBERT) that solve concrete business friction.",
+    },
+    {
+      title: "Human-in-the-Loop & Cryptographic Audit Trails",
+      desc: "True enterprise reliability requires accountability. All automated scoring pipelines incorporate Human-in-the-Loop (HITL) review stages and immutable cryptographic hashing (HMAC-SHA256) to ensure transparency.",
+    },
+    {
+      title: "Regulatory Compliance & Data Privacy",
+      desc: "Systems engineered from the ground up to respect national privacy legislation (Indonesia UU PDP) and enterprise ESG auditing criteria, featuring automated PII scrubbing and zero data leakage.",
+    },
+  ];
+
+  const technicalToolkit = [
+    {
+      domain: "Generative AI & LLMOps",
+      skills: ["Multimodal RAG", "Agentic Decision Loops", "IndoBERT Fine-Tuning", "Claude 3.5 Sonnet", "Gemini 2.5 Flash", "Prompt Flow", "LLMOps"],
+    },
+    {
+      domain: "Backend, APIs & Cloud",
+      skills: ["Python", "FastAPI", "Go", "Microsoft Azure (Azure OpenAI)", "Docker", "RESTful Architecture", "Next.js"],
+    },
+    {
+      domain: "Databases & Vector Storage",
+      skills: ["PostgreSQL", "Supabase pgvector", "Prisma ORM", "SQL Query Optimization", "Cryptographic Ledgers (SHA-256)"],
+    },
+    {
+      domain: "Operations & Methodology",
+      skills: ["Supply Chain Operations (7+ yrs)", "Business Requirements (BRD)", "SDLC Agile", "System Integration Testing (SIT)", "User Acceptance Testing (UAT)", "UU PDP Compliance"],
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-white text-zinc-950 pb-20">
-      {/* Hero Intro */}
-      <section className="section-padding bg-white border-b border-zinc-200/80">
-        <div className="container-custom max-w-4xl space-y-6 animate-fade-up">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-900 text-xs font-semibold">
-            <span className="w-2 h-2 rounded-full bg-zinc-950"></span>
-            <span>Professional Profile & CV</span>
+    <div className="w-full pb-24">
+      {/* DOSSIER HEADER */}
+      <section className="border-b border-border py-12 sm:py-16 bg-secondary/30 hallmark-grid-bg">
+        <div className="hallmark-container space-y-6">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="hallmark-seal font-mono">
+              ENGINEERING DOSSIER
+            </span>
+            <span className="font-mono text-xs text-muted-foreground">
+              PROFILE SPECIFICATION // OTR-BIO
+            </span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-black tracking-tight text-zinc-950">
-            Oki Taruna Ramadhan
-          </h1>
+          <div className="max-w-3xl space-y-3">
+            <h1 className="hallmark-hero-headline font-serif font-normal text-foreground">
+              Oki Taruna Ramadhan
+            </h1>
+            <p className="font-mono text-xs sm:text-sm text-muted-foreground uppercase tracking-wider">
+              Supply Chain Operation & IT Specialist • Generative AI Systems Architect
+            </p>
+          </div>
 
-          <p className="text-lg md:text-xl font-semibold text-zinc-700 leading-snug">
-            Supply Chain Operation & IT Specialist | Generative AI, Agentic Workflows & Enterprise Systems
-          </p>
-
-          <p className="text-base text-zinc-600 leading-relaxed">
-            Final year Information Systems student at Universitas Terbuka with over <strong>7 years of experience at PT Dirgantara Indonesia (Indonesian Aerospace)</strong> in restructuring operational workflows, inventory risk audits, and systems compliance. Proven track record in Generative AI architectures, Agentic workflows, LLMOps, and industry-scale cloud deployments.
-          </p>
-
-          {/* Action Links */}
-          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-4">
+          <div className="flex flex-wrap items-center gap-3 pt-2">
             <Link
               to="/cv"
-              className="w-full sm:w-auto px-5 sm:px-6 py-3 bg-zinc-950 text-white rounded-xl font-semibold hover:bg-zinc-800 transition-all text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm"
+              className="px-4 py-2 rounded bg-primary text-primary-foreground font-mono text-xs font-semibold hover:opacity-90 transition-opacity flex items-center gap-2"
             >
-              <FileText className="w-4 h-4" />
-              <span>Review Full CV Document</span>
+              <FileText className="w-3.5 h-3.5" />
+              <span>Review Official CV</span>
             </Link>
 
             <a
               href={pdfUrl}
               download="OKI_TARUNA_RAMADHAN_Resume.pdf"
-              className="flex-1 sm:flex-initial px-4 sm:px-5 py-3 bg-white border border-zinc-300 text-zinc-900 rounded-xl font-semibold hover:bg-zinc-50 transition-all text-xs sm:text-sm flex items-center justify-center gap-2"
+              className="px-4 py-2 rounded border border-border bg-card text-foreground font-mono text-xs font-medium hover:bg-secondary transition-colors flex items-center gap-2"
             >
-              <Download className="w-4 h-4" />
-              <span>Download PDF (94.5 KB)</span>
-            </a>
-
-            <a
-              href="mailto:okitarunaramadhan@gmail.com"
-              className="flex-1 sm:flex-initial px-4 sm:px-5 py-3 bg-zinc-100 text-zinc-800 rounded-xl font-semibold hover:bg-zinc-200 transition-all text-xs sm:text-sm flex items-center justify-center gap-2"
-            >
-              <Mail className="w-4 h-4" />
-              <span>Send Email</span>
-            </a>
-          </div>
-
-          {/* Contact Strip */}
-          <div className="flex flex-wrap items-center gap-y-2 gap-x-4 sm:gap-x-6 pt-4 text-xs font-medium text-zinc-600 border-t border-zinc-100">
-            <span className="flex items-center gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-zinc-950 shrink-0" />
-              <span>Bandung, Indonesia</span>
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Phone className="w-3.5 h-3.5 text-zinc-950 shrink-0" />
-              <span>085797968246</span>
-            </span>
-            <a
-              href="https://linkedin.com/in/otaruram"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 hover:text-zinc-950 hover:underline"
-            >
-              <Linkedin className="w-3.5 h-3.5 text-zinc-950 shrink-0" />
-              <span>linkedin.com/in/otaruram</span>
-            </a>
-            <a
-              href="https://github.com/otaruram"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 hover:text-zinc-950 hover:underline"
-            >
-              <Github className="w-3.5 h-3.5 text-zinc-950 shrink-0" />
-              <span>github.com/otaruram</span>
+              <Download className="w-3.5 h-3.5" />
+              <span>Download PDF [94.5 KB]</span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* Experience Timeline Section */}
-      <section className="section-padding bg-zinc-50/60 border-b border-zinc-200/80">
-        <div className="container-custom max-w-4xl space-y-8 sm:space-y-10">
-          <div className="space-y-2">
-            <h2 className="text-2xl md:text-3xl font-extrabold text-zinc-950">Professional Track Record</h2>
-            <p className="text-sm text-zinc-600">Chronologically organized based on the official CV document.</p>
-          </div>
+      {/* CORE BIOGRAPHY & NARRATIVE */}
+      <section className="py-12 sm:py-16 border-b border-border">
+        <div className="hallmark-container space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            {/* Left Column: Editorial Story */}
+            <div className="lg:col-span-2 space-y-6 text-sm sm:text-base text-foreground/85 leading-relaxed">
+              <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block font-semibold">
+                [NARRATIVE // BACKGROUND]
+              </span>
 
-          <div className="space-y-8 pl-5 sm:pl-6 border-l-2 border-zinc-300">
-            {/* Dicoding */}
-            <div className="relative">
-              <div className="absolute -left-[27px] sm:-left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-950 ring-4 ring-white"></div>
-              <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider block mb-1">05/2026 – 10/2026 • BANDUNG</span>
-              <h3 className="text-lg font-bold text-zinc-950">AI & Technical Mentor</h3>
-              <p className="text-sm font-semibold text-zinc-700 mb-2">Dicoding Indonesia</p>
-              <ul className="list-disc list-outside pl-4 space-y-1 text-sm text-zinc-600 leading-relaxed">
-                <li>Mentored 30+ developers and tech professionals under IBM SkillsBuild & DBS Foundation programs in Python backend logic, predictive analytics, and machine learning architecture.</li>
-                <li>Conducted technical code reviews on model training workflows, API integrations, and cloud deployments.</li>
-              </ul>
+              <h2 className="text-2xl sm:text-3xl font-serif font-normal text-foreground">
+                Where Aerospace Operations Intersect with Machine Intelligence
+              </h2>
+
+              <p>
+                My journey began on the hangar floors and inventory command centers of <strong>PT Dirgantara Indonesia (Indonesian Aerospace)</strong>. Over the past seven years, I have lived the intricacies of industrial supply chain operations: tracking complex aerospace assemblies, reconciling multi-tier inventory ledgers, and formulating strict Business Requirement Documents (BRD) for internal systems.
+              </p>
+
+              <p>
+                In high-reliability manufacturing, precision is not a preference—it is a non-negotiable floor. As I pursued my degree in Information Systems at Universitas Terbuka, I observed a profound industry gap: while frontier Large Language Models possessed unprecedented reasoning potential, real-world enterprises remained wary of deploying them due to hallucination, unpredictable latency, and opacity.
+              </p>
+
+              <p>
+                This realization defined my engineering focus: <strong>grounding generative intelligence with operational discipline</strong>. Through production projects like Oziktag (Top 15 BNI Spark Hackathon), OtaruChain (BRIN Aidenation Finalist & Bank Indonesia Semifinalist), and OzikSustain (PLN SustainAction Semifinalist), I develop systems featuring deterministic verification gates, Human-in-the-Loop checkpoints, and cryptographic audit ledgers.
+              </p>
+
+              <p>
+                Simultaneously, as an AI & Technical Mentor at <strong>Dicoding Indonesia</strong> for the IBM SkillsBuild & DBS Foundation programs, I have had the privilege of guiding 30+ aspiring engineers in mastering applied machine learning architectures and production code hygiene.
+              </p>
             </div>
 
-            {/* PT Dirgantara Indonesia */}
-            <div className="relative">
-              <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-950 ring-4 ring-white"></div>
-              <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider block mb-1">02/2019 – PRESENT • BANDUNG, INDONESIA</span>
-              <h3 className="text-lg font-bold text-zinc-950">Supply Chain Operations Administrator</h3>
-              <p className="text-sm font-semibold text-zinc-700 mb-2">PT DIRGANTARA INDONESIA (Indonesian Aerospace)</p>
-              <ul className="list-disc list-outside pl-4 space-y-1 text-sm text-zinc-600 leading-relaxed">
-                <li>Mapped and standardized end-to-end operational workflows, collaborating with cross-functional stakeholders to define business requirements (BRD) and functional specifications for internal inventory systems.</li>
-                <li>Utilized SQL (DML commands: SELECT, INSERT, UPDATE) to validate operational database records, perform data reconciliations, and mitigate reporting errors by ~20%.</li>
-                <li>Facilitated full-cycle software development implementation (SDLC), actively coordinating System Integration Testing (SIT) and supporting User Acceptance Testing (UAT) with operational end-users to ensure solution readiness.</li>
-                <li>Analyzed material usage patterns and inventory turnover to support demand planning and operational efficiency.</li>
-              </ul>
-            </div>
+            {/* Right Column: Fast Facts & Verified Coordinates */}
+            <div className="space-y-6">
+              <div className="hallmark-card space-y-4">
+                <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block font-semibold border-b border-border/70 pb-2">
+                  [OPERATIONAL COORDINATES]
+                </span>
 
-            {/* Fydemy */}
-            <div className="relative">
-              <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-zinc-950 ring-4 ring-white"></div>
-              <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider block mb-1">01/2026 – 09/2026 • SINGAPORE</span>
-              <h3 className="text-lg font-bold text-zinc-950">Community Lead & Technical Contributor</h3>
-              <p className="text-sm font-semibold text-zinc-700 mb-2">Fydemy</p>
-              <ul className="list-disc list-outside pl-4 space-y-1 text-sm text-zinc-600 leading-relaxed">
-                <li>Developed Python-based data automation scripts and mentored technical talents on workflow efficiency and API integrations.</li>
-              </ul>
+                <div className="space-y-3 text-xs font-mono">
+                  <div>
+                    <span className="text-muted-foreground block">CURRENT BASE:</span>
+                    <span className="font-bold text-foreground">Bandung, West Java, Indonesia</span>
+                  </div>
+
+                  <div>
+                    <span className="text-muted-foreground block">ACADEMIC ALMA MATER:</span>
+                    <span className="font-bold text-foreground">Universitas Terbuka (B.S. Information Systems)</span>
+                  </div>
+
+                  <div>
+                    <span className="text-muted-foreground block">CORE INDUSTRY PEDIGREE:</span>
+                    <span className="font-bold text-foreground">PT Dirgantara Indonesia (7+ Years)</span>
+                  </div>
+
+                  <div>
+                    <span className="text-muted-foreground block">TECHNICAL MENTORSHIP:</span>
+                    <span className="font-bold text-foreground">Dicoding Indonesia (30+ Mentees)</span>
+                  </div>
+
+                  <div>
+                    <span className="text-muted-foreground block">PRIMARY FOCUS:</span>
+                    <span className="font-bold text-foreground">Generative AI • Multimodal RAG • Supply Chain Ops</span>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-border/70">
+                  <a
+                    href="mailto:okitarunaramadhan@gmail.com"
+                    className="w-full py-2 px-3 rounded bg-primary text-primary-foreground font-mono text-xs font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity"
+                  >
+                    <Mail className="w-3.5 h-3.5" />
+                    <span>Initiate Contact</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Education & Skills Section */}
-      <section className="section-padding bg-white">
-        <div className="container-custom max-w-4xl space-y-12">
-          {/* Education */}
-          <div className="space-y-6">
-            <div className="border-b border-zinc-200 pb-3 flex items-center justify-between">
-              <h2 className="text-2xl font-extrabold text-zinc-950">Education & Academic Background</h2>
-              <GraduationCap className="w-5 h-5 text-zinc-500" />
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="p-6 bg-zinc-50 border border-zinc-200/80 rounded-2xl space-y-2">
-                <span className="text-xs font-bold text-zinc-500">2023 – PRESENT • BANDUNG</span>
-                <h3 className="text-base font-bold text-zinc-950">Bachelor of Science (B.S.) in Information Systems (Final Year Student)</h3>
-                <p className="text-sm font-semibold text-zinc-700">Universitas Terbuka</p>
-                <p className="text-xs text-zinc-500 leading-relaxed">
-                  Relevant Coursework: Systems Analysis & Design, Database Management Systems, Data Networks.
-                </p>
-              </div>
-
-              <div className="p-6 bg-zinc-50 border border-zinc-200/80 rounded-2xl space-y-2">
-                <span className="text-xs font-bold text-zinc-500">ONLINE ACADEMY</span>
-                <h3 className="text-base font-bold text-zinc-950">Machine Learning & Data Developer Learning Path</h3>
-                <p className="text-sm font-semibold text-zinc-700">Dicoding Indonesia</p>
-                <p className="text-xs text-zinc-500 leading-relaxed">
-                  Focus: Predictive Analytics, Data Processing (Python), & Applied System Architecture.
-                </p>
-              </div>
-            </div>
+      {/* PILLARS OF ENGINEERING */}
+      <section className="py-12 sm:py-16 border-b border-border bg-secondary/20">
+        <div className="hallmark-container space-y-8">
+          <div className="border-b border-border/80 pb-4 space-y-1">
+            <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block font-semibold">
+              [GOVERNING METHODOLOGY]
+            </span>
+            <h2 className="hallmark-section-headline font-serif font-normal text-foreground">
+              Core Engineering Philosophy
+            </h2>
           </div>
 
-          {/* Technical Skills Arsenal */}
-          <div className="space-y-6">
-            <div className="border-b border-zinc-200 pb-3 flex items-center justify-between">
-              <h2 className="text-2xl font-extrabold text-zinc-950">Engineering Arsenal & Technical Skills</h2>
-              <Server className="w-5 h-5 text-zinc-500" />
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-6">
-              <div className="p-6 bg-white border border-zinc-200 rounded-2xl space-y-3">
-                <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-zinc-900" />
-                  <h3 className="font-bold text-zinc-950 text-sm">AI & Machine Learning</h3>
-                </div>
-                <p className="text-xs text-zinc-600 leading-relaxed">
-                  Generative AI, Agentic AI, LLMOps, Retrieval-Augmented Generation (RAG), Fine-Tuned NLP (IndoBERT), Computer Vision, Multimodal Models, Prompt Engineering & Chaining, Prompt Flow.
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {corePillars.map((p, i) => (
+              <div key={i} className="hallmark-card space-y-2">
+                <span className="font-mono text-xs font-bold text-primary block">
+                  // PILLAR 0{i + 1}
+                </span>
+                <h3 className="font-bold text-base sm:text-lg text-foreground font-sans">
+                  {p.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                  {p.desc}
                 </p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              <div className="p-6 bg-white border border-zinc-200 rounded-2xl space-y-3">
-                <div className="flex items-center gap-2">
-                  <Terminal className="w-4 h-4 text-zinc-900" />
-                  <h3 className="font-bold text-zinc-950 text-sm">Programming & Cloud</h3>
-                </div>
-                <p className="text-xs text-zinc-600 leading-relaxed">
-                  Python, Microsoft Azure (Azure OpenAI / Cognitive Services), Docker, RESTful APIs, Next.js, Go.
-                </p>
-              </div>
+      {/* TECHNICAL TOOLKIT MATRIX */}
+      <section className="py-12 sm:py-16">
+        <div className="hallmark-container space-y-8">
+          <div className="border-b border-border/80 pb-4 space-y-1">
+            <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground block font-semibold">
+              [SYSTEM CAPABILITY MATRIX]
+            </span>
+            <h2 className="hallmark-section-headline font-serif font-normal text-foreground">
+              Technical Competencies & Tooling
+            </h2>
+          </div>
 
-              <div className="p-6 bg-white border border-zinc-200 rounded-2xl space-y-3">
-                <div className="flex items-center gap-2">
-                  <Database className="w-4 h-4 text-zinc-900" />
-                  <h3 className="font-bold text-zinc-950 text-sm">Databases & Vector Stores</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {technicalToolkit.map((toolkit, idx) => (
+              <div key={idx} className="hallmark-card space-y-3">
+                <h3 className="font-mono text-xs font-bold uppercase text-foreground border-b border-border/60 pb-2">
+                  {toolkit.domain}
+                </h3>
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {toolkit.skills.map((s) => (
+                    <span key={s} className="hallmark-tag text-[10px]">
+                      {s}
+                    </span>
+                  ))}
                 </div>
-                <p className="text-xs text-zinc-600 leading-relaxed">
-                  PostgreSQL, pgvector, Supabase, Prisma, SQL (Query Optimization & Validation).
-                </p>
               </div>
-
-              <div className="p-6 bg-white border border-zinc-200 rounded-2xl space-y-3">
-                <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-zinc-900" />
-                  <h3 className="font-bold text-zinc-950 text-sm">Frameworks & Architecture</h3>
-                </div>
-                <p className="text-xs text-zinc-600 leading-relaxed">
-                  Human-in-the-Loop (HITL) Workflows, Cryptographic Integrity (HMAC-SHA256), SDLC (Agile), Microservices Architecture.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
     </div>
   );
-};
-
-export default About;
+}
